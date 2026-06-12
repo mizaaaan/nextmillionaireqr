@@ -809,135 +809,44 @@
 
   <!-- ✅ Copy everything below and paste into your website -->
 
-<!-- HLS.js Library (needed for m3u8 streams) -->
+<!-- HLS.js Library -->
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
-<div id="wc2026-container" style="
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(135deg, #0a2240 0%, #0d3b6e 60%, #1a5c2e 100%);
-  border-radius: 16px;
-  overflow: hidden;
-  max-width: 860px;
-  margin: 30px auto;
-  box-shadow: 0 8px 40px rgba(0,0,0,0.45);
-  border: 2px solid rgba(255,215,0,0.25);
-">
-
-  <!-- Header -->
-  <div style="
-    background: linear-gradient(90deg, #0a2240 0%, #1a5c2e 100%);
-    padding: 18px 24px 14px;
-    border-bottom: 2px solid #FFD700;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  ">
-    <!-- Trophy Icon -->
-    <div style="font-size: 2.2rem; line-height:1;">🏆</div>
-    <div>
-      <div style="
-        color: #FFD700;
-        font-size: 1.4rem;
-        font-weight: 800;
-        letter-spacing: 1px;
-        line-height: 1.2;
-      ">
-        ফিফা ফুটবল বিশ্বকাপ ২০২৬
-      </div>
-      <div style="
-        color: rgba(255,255,255,0.80);
-        font-size: 0.92rem;
-        margin-top: 2px;
-        letter-spacing: 0.5px;
-      ">
-        🔴 সরাসরি সম্প্রচার · FIFA World Cup 2026 Live
-      </div>
-    </div>
-    <!-- LIVE badge -->
-    <div style="
-      margin-left: auto;
-      background: #e63946;
-      color: #fff;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      padding: 4px 12px;
-      border-radius: 20px;
-      animation: pulse 1.5s infinite;
-    ">● LIVE</div>
-  </div>
-
-  <!-- Video Player -->
-  <div style="position: relative; background:#000; line-height:0;">
+<div style="max-width: 860px; margin: 20px auto;">
+  <div style="position: relative; background: #000; line-height: 0;">
     <video
       id="wc2026-player"
       controls
       autoplay
       playsinline
       muted
-      style="width:100%; max-height:480px; display:block; background:#000;"
+      style="width: 100%; max-height: 480px; display: block; background: #000;"
     ></video>
 
-    <!-- Loading overlay -->
     <div id="wc2026-loading" style="
       position: absolute; inset: 0;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
-      background: rgba(0,0,0,0.75);
-      color: #fff; font-size: 1rem; gap: 14px;
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff;
     ">
-      <div style="font-size:2.5rem;">⚽</div>
-      <div style="color:#FFD700; font-weight:600;">লাইভ স্ট্রিম লোড হচ্ছে...</div>
-      <div style="color:rgba(255,255,255,0.6); font-size:0.85rem;">Loading live stream, please wait</div>
+      <div style="font-size: 2rem;">⚽</div>
+      <div style="color: #FFD700; font-weight: 600; margin-top: 10px;">লাইভ স্ট্রিম লোড হচ্ছে...</div>
     </div>
 
-    <!-- Error overlay (hidden by default) -->
     <div id="wc2026-error" style="
       position: absolute; inset: 0;
       display: none; flex-direction: column;
       align-items: center; justify-content: center;
-      background: rgba(0,0,0,0.82);
-      color: #fff; font-size: 1rem; gap: 10px;
+      background: rgba(0, 0, 0, 0.82);
+      color: #fff;
     ">
-      <div style="font-size:2.5rem;">📡</div>
-      <div style="color:#FFD700; font-weight:600;">সংকেত পাওয়া যাচ্ছে না</div>
-      <div style="color:rgba(255,255,255,0.6); font-size:0.85rem;">Stream unavailable. Please try again later.</div>
-      <button onclick="wc2026Init()" style="
-        margin-top:8px; background:#FFD700; color:#0a2240;
-        border:none; border-radius:8px; padding:8px 22px;
-        font-weight:700; cursor:pointer; font-size:0.9rem;
-      ">🔄 আবার চেষ্টা করুন</button>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <div style="
-    background: rgba(0,0,0,0.30);
-    padding: 12px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
-  ">
-    <div style="color:rgba(255,255,255,0.75); font-size:0.82rem;">
-      ⚽ সেরা অভিজ্ঞতার জন্য Chrome বা Firefox ব্যবহার করুন
-    </div>
-    <div style="color:rgba(255,215,0,0.7); font-size:0.82rem; font-weight:600;">
-      FIFA World Cup 2026 · USA · Canada · Mexico
+      <div style="font-size: 2rem;">📡</div>
+      <div style="color: #FFD700; font-weight: 600; margin-top: 10px;">সংকেত পাওয়া যাচ্ছে না</div>
     </div>
   </div>
 </div>
 
-<!-- Animation -->
-<style>
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-  }
-</style>
-
-<!-- HLS.js Init Script -->
 <script>
   const WC_STREAM_URL = "https://premierleagpl23.akamaized.net/hls/live/2107108/tapmad-P2s6L_FiN@L-UrU/level_0.m3u8";
 
@@ -966,7 +875,6 @@
         }
       });
     } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      // Safari native HLS
       video.src = WC_STREAM_URL;
       video.addEventListener('loadedmetadata', () => {
         loading.style.display = 'none';
