@@ -554,6 +554,18 @@
 
     /* #values is nth-of-type(5) = odd, but has WHITE background.
        The generic odd-rule sets white text — override everything to dark. */
+    #values {
+      background: #fff;
+      color: #1a1a1a;
+    }
+    #values .value-card {
+      background: #f5f5f5;
+      border-color: #e0e0e0;
+    }
+    #values .value-card:hover {
+      background: #fff;
+      border-color: #54C2FE;
+    }
     #values .section-label {
       color: rgba(0, 0, 0, 0.6);
     }
@@ -570,6 +582,10 @@
 
     /* #contact is nth-of-type(6) = even, but has BLUE background.
        The generic even-rule sets dark text — override everything to white. */
+    #contact {
+      background: #54C2FE;
+      color: #fff;
+    }
     #contact .section-label {
       color: rgba(255, 255, 255, 0.8);
     }
@@ -599,6 +615,62 @@
       color: #fff;
       border-color: #fff;
     }
+
+    /* Driver Car Rental */
+    #driver-rental {
+      background: #54C2FE;
+      color: #fff;
+    }
+    #driver-rental .section-label { color: rgba(255, 255, 255, 0.8); }
+    #driver-rental .section-title { color: #fff; }
+    #driver-rental .muted { color: rgba(255, 255, 255, 0.85); }
+    .driver-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 36px 0 40px;
+    }
+    .driver-stat {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding: 24px 16px;
+      text-align: center;
+    }
+    .driver-stat .stat-num { color: #fff; }
+    .driver-stat .stat-label { color: rgba(255, 255, 255, 0.8); }
+    .driver-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .driver-step {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      padding: 28px;
+      transition: all 0.3s ease;
+    }
+    .driver-step:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-4px);
+    }
+    .driver-step-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    .driver-step-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: #fff; }
+    .driver-step p { color: rgba(255, 255, 255, 0.85); font-size: 14px; line-height: 1.6; }
 
     .values-grid {
       display: grid;
@@ -737,6 +809,11 @@
       .contact-grid { grid-template-columns: 1fr; gap: 16px; }
       .contact-item { padding: 20px; }
 
+      /* Driver Car Rental */
+      .driver-stats { grid-template-columns: 1fr; gap: 16px; }
+      .driver-steps { grid-template-columns: 1fr; gap: 16px; }
+      .driver-step { padding: 22px; }
+
       /* Buttons */
       .buttons { flex-direction: column; gap: 12px; }
       .btn-primary, .btn-secondary { text-align: center; }
@@ -775,6 +852,7 @@
             <a href="team.html">Team</a>
             <a href="values.html">Values</a>
             <a href="contact.html">Contact</a>
+            <a href="#driver-rental">Drivers</a>
           </div>
           <button class="hamburger" id="hamburgerBtn">
             <span></span>
@@ -788,6 +866,7 @@
             <a href="team.html">Team</a>
             <a href="values.html">Values</a>
             <a href="contact.html">Contact</a>
+            <a href="#driver-rental">Drivers</a>
         </div>
       </div>
       <div class="hero-bottom">
@@ -866,6 +945,41 @@
         <div class="member-card"><div class="avatar"><img src="images/jahangir.jpg" alt="Md Jahangir Hossain">JH</div><div class="member-name">Md Jahangir Hossain</div><div class="member-role">co-executive</div><p class="muted">Ensures governance compliance and maintains democratic member participation records.</p><div class="member-contact">jahangir@nextmillionaireqr.com</div></div>
         <div class="member-card"><div class="avatar"><img src="images/mizan.jpg" alt="Md Mizanur Rahman">MR</div><div class="member-name">Md Mizanur Rahman</div><div class="member-role">IT Expert</div><p class="muted">IT expert in modern web design, development and UX solutions daily!</p><div class="member-contact">mizan@nextmillionaireqr.com</div></div>
 
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section" id="driver-rental">
+    <div class="container">
+      <div class="section-head">
+        <p class="section-label">Commercial Fleet · Driver Program</p>
+        <h2 class="section-title">Rent a Car. Drive Your Way to Income.</h2>
+        <p class="muted" style="margin-top:14px; max-width:640px;">We've built our own fleet step by step — now 10 cars strong and growing every month. Each vehicle is available for commercial rent on a simple monthly lease: you drive it for income, and you pay us monthly. No large upfront purchase, no long-term commitment.</p>
+      </div>
+      <div class="driver-stats">
+        <div class="driver-stat"><div class="stat-num">10+</div><div class="stat-label">Cars in Fleet</div></div>
+        <div class="driver-stat"><div class="stat-num">Monthly</div><div class="stat-label">Lease Payment</div></div>
+        <div class="driver-stat"><div class="stat-num">Growing</div><div class="stat-label">Fleet Every Month</div></div>
+      </div>
+      <div class="driver-steps">
+        <div class="driver-step">
+          <div class="driver-step-num">1</div>
+          <div class="driver-step-title">Apply</div>
+          <p>Fill out our Driver Registration Form with your details and driving experience.</p>
+        </div>
+        <div class="driver-step">
+          <div class="driver-step-num">2</div>
+          <div class="driver-step-title">Get Verified</div>
+          <p>Our team reviews your application and documents, then reaches out to confirm.</p>
+        </div>
+        <div class="driver-step">
+          <div class="driver-step-num">3</div>
+          <div class="driver-step-title">Drive &amp; Earn</div>
+          <p>Sign your monthly lease, pick up your car, and start driving for income.</p>
+        </div>
+      </div>
+      <div>
+        <a href="https://forms.gle/8A5kRBSRUosY3T5PA" target="_blank" rel="noopener" class="btn-primary">Register as a Driver →</a>
       </div>
     </div>
   </section>
