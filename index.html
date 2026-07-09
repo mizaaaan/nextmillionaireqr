@@ -672,6 +672,82 @@
     .driver-step-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: #fff; }
     .driver-step p { color: rgba(255, 255, 255, 0.85); font-size: 14px; line-height: 1.6; }
 
+    .fleet-head {
+      margin-top: 56px;
+      margin-bottom: 24px;
+    }
+    .fleet-title {
+      font-size: 22px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .fleet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .fleet-card {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .fleet-card:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-4px);
+    }
+    .fleet-photo {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .fleet-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .fleet-info {
+      padding: 14px 16px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .fleet-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .fleet-status {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 999px;
+      text-decoration: none;
+      white-space: nowrap;
+      border: 1px solid transparent;
+      transition: all 0.3s ease;
+    }
+    .fleet-status.booked {
+      background: rgba(255, 255, 255, 0.15);
+      color: rgba(255, 255, 255, 0.65);
+      cursor: not-allowed;
+    }
+    .fleet-status.available {
+      background: #fff;
+      color: #1a1a1a;
+    }
+    .fleet-status.available:hover {
+      background: transparent;
+      color: #fff;
+      border-color: #fff;
+    }
+
     .values-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -814,6 +890,11 @@
       .driver-steps { grid-template-columns: 1fr; gap: 16px; }
       .driver-step { padding: 22px; }
 
+      /* Fleet grid */
+      .fleet-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+      .fleet-info { padding: 10px 12px 14px; flex-direction: column; align-items: flex-start; gap: 8px; }
+      .fleet-status { width: 100%; text-align: center; }
+
       /* Buttons */
       .buttons { flex-direction: column; gap: 12px; }
       .btn-primary, .btn-secondary { text-align: center; }
@@ -852,7 +933,6 @@
             <a href="team.html">Team</a>
             <a href="values.html">Values</a>
             <a href="contact.html">Contact</a>
-            <a href="#driver-rental">Drivers</a>
           </div>
           <button class="hamburger" id="hamburgerBtn">
             <span></span>
@@ -866,7 +946,6 @@
             <a href="team.html">Team</a>
             <a href="values.html">Values</a>
             <a href="contact.html">Contact</a>
-            <a href="#driver-rental">Drivers</a>
         </div>
       </div>
       <div class="hero-bottom">
@@ -957,9 +1036,7 @@
         <p class="muted" style="margin-top:14px; max-width:640px;">We've built our own fleet step by step — now 10 cars strong and growing every month. Each vehicle is available for commercial rent on a simple monthly lease: you drive it for income, and you pay us monthly. No large upfront purchase, no long-term commitment.</p>
       </div>
       <div class="driver-stats">
-        <div class="driver-stat"><div class="stat-num">10+</div><div class="stat-label">Cars in Fleet</div></div>
-        <div class="driver-stat"><div class="stat-num">Monthly</div><div class="stat-label">Lease Payment</div></div>
-        <div class="driver-stat"><div class="stat-num">Growing</div><div class="stat-label">Fleet Every Month</div></div>
+        
       </div>
       <div class="driver-steps">
         <div class="driver-step">
@@ -981,6 +1058,12 @@
       <div>
         <a href="https://forms.gle/8A5kRBSRUosY3T5PA" target="_blank" rel="noopener" class="btn-primary">Register as a Driver →</a>
       </div>
+
+      <div class="fleet-head">
+        <h3 class="fleet-title">Our Fleet</h3>
+        <p class="muted">Browse our vehicles below. An "Apply to Rent" button means the car is open — a "Booked" badge means it's already leased.</p>
+      </div>
+      <div class="fleet-grid" id="fleetGrid"></div>
     </div>
   </section>
 
@@ -1086,6 +1169,54 @@
     const tagWrap = document.querySelector(".tag-wrap");
     if (tagWrap) setTimeout(() => tagWrap.classList.add("show"), 1400);
 
+  </script>
+
+  <script>
+    // ===================================================================
+    // DRIVER FLEET — Our Fleet grid (in the "Drive With Us" section)
+    //
+    // HOW TO ADD A NEW CAR:
+    //   1. Add the car's photo to the images/fleet/ folder.
+    //   2. Add one line below with its filename, a short label, and status.
+    //   3. status: "available" -> shows an "Apply to Rent" button (links to the driver form)
+    //      status: "booked"    -> shows a grey "Booked" badge (not clickable)
+    //   The grid updates automatically — no other changes needed.
+    // ===================================================================
+    const fleetCars = [
+      { image: "images/fleet/car-01.jpg", label: "Car 1", status: "booked" },
+      { image: "images/fleet/car-02.jpg", label: "Car 2", status: "booked" },
+      { image: "images/fleet/car-03.jpg", label: "Car 3", status: "booked" },
+      { image: "images/fleet/car-04.jpg", label: "Car 4", status: "booked" },
+      { image: "images/fleet/car-05.jpg", label: "Car 5", status: "booked" },
+      { image: "images/fleet/car-06.jpg", label: "Car 6", status: "booked" },
+      { image: "images/fleet/car-07.jpg", label: "Car 7", status: "booked" },
+      { image: "images/fleet/car-08.jpg", label: "Car 8", status: "booked" },
+      { image: "images/fleet/car-09.jpg", label: "Car 9", status: "booked" },
+      { image: "images/fleet/car-10.jpg", label: "Car 10", status: "booked" },
+      { image: "images/fleet/car-11.jpg", label: "Car 11", status: "booked" },
+      { image: "images/fleet/car-12.jpg", label: "Car 12", status: "booked" },
+    ];
+
+    const driverFormUrl = "https://forms.gle/8A5kRBSRUosY3T5PA";
+
+    function renderFleet() {
+      const grid = document.getElementById("fleetGrid");
+      if (!grid) return;
+      grid.innerHTML = fleetCars.map(function (car) {
+        const action = car.status === "booked"
+          ? '<span class="fleet-status booked">Booked</span>'
+          : '<a href="' + driverFormUrl + '" target="_blank" rel="noopener" class="fleet-status available">Apply to Rent</a>';
+        return '' +
+          '<div class="fleet-card">' +
+            '<div class="fleet-photo"><img src="' + car.image + '" alt="' + car.label + '" loading="lazy"></div>' +
+            '<div class="fleet-info">' +
+              '<span class="fleet-label">' + car.label + '</span>' +
+              action +
+            '</div>' +
+          '</div>';
+      }).join("");
+    }
+    renderFleet();
   </script>
 </body>
 </html>
