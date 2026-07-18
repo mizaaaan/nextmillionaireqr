@@ -1,2 +1,2 @@
-# nextmillionaireqr
-https://mizaaaan.github.io/nextmillionaireqr/
+# nextmillionaireqr3
+https://mizaaaan.github.io/nextmillionaireqr1/

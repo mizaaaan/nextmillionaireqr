@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>(function(){try{var t=localStorage.getItem('nm-theme')||((window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Next Millionaire | About</title>
@@ -16,7 +17,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Hind+Siliguri:wght@400;500;600;700&family=Markazi+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     /* Entire CSS copied verbatim from the uploaded index.html to preserve design */
@@ -102,6 +103,7 @@
     }
     .nav-links {
       display: flex;
+      align-items: center;
       gap: 32px;
       font-size: 14px;
     }
@@ -653,6 +655,156 @@
       .member-card { padding: 20px; }
       .member-name { font-size: 16px; }
     }
+  
+    /* ============ Language switcher & i18n ============ */
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: 10px;
+      padding-left: 10px;
+      border-left: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    .lang-switch button {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      font-family: 'Inter', sans-serif;
+    }
+    .lang-switch button:hover {
+      border-color: #fff;
+      color: #fff;
+    }
+    .lang-switch button.active {
+      background: #fff;
+      color: #1a1a1a;
+      border-color: #fff;
+    }
+    .mobile-menu .lang-switch {
+      margin: 12px 24px 4px;
+      padding-left: 0;
+      padding-top: 16px;
+      border-left: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    /* Bangla / Arabic type */
+    body.lang-bn { font-family: 'Hind Siliguri', 'Inter', sans-serif; }
+    body.lang-ar { font-family: 'Markazi Text', 'Inter', sans-serif; }
+
+    /* RTL adjustments (Arabic) */
+    html[dir="rtl"] .lang-switch {
+      margin-left: 0;
+      margin-right: 10px;
+      padding-left: 0;
+      padding-right: 10px;
+      border-left: none;
+      border-right: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    html[dir="rtl"] .mobile-menu a { border-left: none; border-right: 3px solid transparent; }
+    html[dir="rtl"] .mobile-menu a:hover { border-left-color: transparent; border-right-color: #667eea; }
+    html[dir="rtl"] .eyebrow,
+    html[dir="rtl"] .section-head,
+    html[dir="rtl"] .fleet-head { text-align: right; }
+    html[dir="rtl"] .driver-step,
+    html[dir="rtl"] .value-card,
+    html[dir="rtl"] .gallery-card,
+    html[dir="rtl"] .member-card,
+    html[dir="rtl"] .contact-item,
+    html[dir="rtl"] .glass-card { text-align: right; }
+    html[dir="rtl"] .fleet-info { flex-direction: row-reverse; }
+  
+    /* ============ Theme Toggle Button ============ */
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      margin-left: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 999px;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.85);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+    }
+    .theme-toggle:hover { border-color: #fff; color: #fff; }
+    .theme-toggle svg { width: 16px; height: 16px; display: block; pointer-events: none; }
+    .theme-toggle .icon-moon { display: none; }
+    html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
+    html[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
+    .mobile-menu .theme-toggle { margin: 12px 24px 0; }
+    html[dir="rtl"] .theme-toggle { margin-left: 0; margin-right: 10px; }
+    html[dir="rtl"] .mobile-menu .theme-toggle { margin: 12px 24px 0; }
+
+    /* ============ Dark Theme Palette ============ */
+    html[data-theme="dark"] body { background: #0d0f13; color: #e7e7e7; }
+    html[data-theme="dark"] .mobile-menu { background: rgba(20, 22, 28, 0.55); }
+    html[data-theme="dark"] .content-section { background: #0d0f13; color: #e7e7e7; }
+    html[data-theme="dark"] .section-label { color: rgba(255, 255, 255, 0.55); }
+    html[data-theme="dark"] .section-title { color: #f5f5f5; }
+    html[data-theme="dark"] .muted { color: rgba(255, 255, 255, 0.62); }
+    html[data-theme="dark"] .stat-label { color: rgba(255, 255, 255, 0.55); }
+    html[data-theme="dark"] .stat-num { color: #f5f5f5; }
+    html[data-theme="dark"] .glass-card { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.1); }
+    html[data-theme="dark"] .glass-card::before { display: none; }
+    html[data-theme="dark"] .member-card,
+    html[data-theme="dark"] .gallery-card,
+    html[data-theme="dark"] .value-card,
+    html[data-theme="dark"] .contact-item {
+      background: rgba(255, 255, 255, 0.035);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+    html[data-theme="dark"] .member-card:hover,
+    html[data-theme="dark"] .gallery-card:hover,
+    html[data-theme="dark"] .value-card:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: #54C2FE;
+    }
+    html[data-theme="dark"] #management .member-card,
+    html[data-theme="dark"] #management .member-card:hover { background: rgba(255, 255, 255, 0.035); border-color: rgba(255, 255, 255, 0.1); }
+    html[data-theme="dark"] #management .member-card:hover { border-color: #54C2FE; }
+    html[data-theme="dark"] .member-name,
+    html[data-theme="dark"] #management .member-name,
+    html[data-theme="dark"] .gallery-title,
+    html[data-theme="dark"] .value-title { color: #f5f5f5; }
+    html[data-theme="dark"] .member-role,
+    html[data-theme="dark"] #management .member-role { color: rgba(255, 255, 255, 0.55); }
+    html[data-theme="dark"] #management .muted { color: rgba(255, 255, 255, 0.62); }
+    html[data-theme="dark"] .fleet-card,
+    html[data-theme="dark"] .driver-step { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.1); }
+    html[data-theme="dark"] .fleet-status { color: rgba(255, 255, 255, 0.7); }
+    /* ---- ID-scoped overrides in the original CSS beat the generic dark
+       rules above (higher specificity), so they need their own dark
+       counterparts or text/cards stay dark-on-dark / light-on-light. ---- */
+    html[data-theme="dark"] #values .value-card { background: rgba(255, 255, 255, 0.035); border-color: rgba(255, 255, 255, 0.1); }
+    html[data-theme="dark"] #values .value-card:hover { background: rgba(255, 255, 255, 0.06); border-color: #54C2FE; }
+    html[data-theme="dark"] #values .section-label { color: rgba(255, 255, 255, 0.55); }
+    html[data-theme="dark"] #values .section-title { color: #f5f5f5; }
+    html[data-theme="dark"] #values .muted { color: rgba(255, 255, 255, 0.62); }
+    html[data-theme="dark"] #values .gallery-title,
+    html[data-theme="dark"] #values .value-title { color: #f5f5f5; }
+    html[data-theme="dark"] .content-section:nth-of-type(5) .value-card { color: #f5f5f5; }
+    html[data-theme="dark"] .content-section:nth-of-type(5) .value-card .muted { color: rgba(255, 255, 255, 0.62); }
+
+    html[data-theme="dark"] #contact .section-label { color: rgba(255, 255, 255, 0.8); }
+    html[data-theme="dark"] #contact .section-title { color: #fff; }
+    html[data-theme="dark"] #contact .muted { color: rgba(255, 255, 255, 0.85); }
+    html[data-theme="dark"] #contact .contact-label { color: rgba(255, 255, 255, 0.75); }
+    html[data-theme="dark"] #contact .contact-value { color: #fff; }
+    html[data-theme="dark"] #contact .contact-item { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); }
+    html[data-theme="dark"] #contact .btn-primary { background: #fff; color: #1a1a1a; border-color: transparent; }
+    html[data-theme="dark"] #contact .btn-primary:hover { background: transparent; color: #fff; border-color: #fff; }
+
+
   </style>
 </head>
 <body>
@@ -667,33 +819,35 @@
         <nav class="navbar liquid-glass">
           <a href="index.html" class="logo">Next Millionaire</a>
           <div class="nav-links">
-            <a href="about.html">About</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="team.html">Team</a>
-            <a href="values.html">Values</a>
-            <a href="contact.html">Contact</a>
+            <a href="about.html" data-i18n="nav.about">About</a>
+            <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+            <a href="team.html" data-i18n="nav.team">Team</a>
+            <a href="values.html" data-i18n="nav.values">Values</a>
+            <a href="contact.html" data-i18n="nav.contact">Contact</a>
+            <div class="lang-switch"><button data-lang-btn="en" class="active">EN</button><button data-lang-btn="bn">বাং</button><button data-lang-btn="ar">عربي</button></div><button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
           </div>
           <button class="hamburger" id="hamburgerBtn">
             <span></span><span></span><span></span>
           </button>
         </nav>
         <div class="mobile-menu" id="mobileMenu">
-          <a href="about.html">About</a>
-          <a href="gallery.html">Gallery</a>
-          <a href="team.html">Team</a>
-          <a href="values.html">Values</a>
-          <a href="contact.html">Contact</a>
+          <a href="about.html" data-i18n="nav.about">About</a>
+          <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+          <a href="team.html" data-i18n="nav.team">Team</a>
+          <a href="values.html" data-i18n="nav.values">Values</a>
+          <a href="contact.html" data-i18n="nav.contact">Contact</a>
+          <div class="lang-switch"><button data-lang-btn="en" class="active">EN</button><button data-lang-btn="bn">বাং</button><button data-lang-btn="ar">عربي</button></div><button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
         </div>
       </div>
       <div class="hero-bottom">
         <div class="hero-grid">
           <div>
-            <div class="eyebrow">Est. 2026 · Registered Co-operative</div>
-            <h1>About Next Millionaire</h1>
-            <p class="subheading">Next Millionaire Co-operative was founded with a simple belief: when people work together with shared ownership and mutual accountability, extraordinary things happen.</p>
+            <div class="eyebrow" data-i18n="hero.eyebrow">Est. 2026 · Registered Co-operative</div>
+            <h1 data-i18n="hero.title">About Next Millionaire</h1>
+            <p class="subheading" data-i18n="hero.subtitle">Next Millionaire Co-operative was founded with a simple belief: when people work together with shared ownership and mutual accountability, extraordinary things happen.</p>
             <div class="buttons" id="buttons">
-              <a href="team.html" class="btn-primary">Meet Our Team</a>
-              <a href="about.html" class="btn-secondary liquid-glass">Our Story</a>
+              <a href="team.html" class="btn-primary" data-i18n="hero.btn1">Meet Our Team</a>
+              <a href="about.html" class="btn-secondary liquid-glass" data-i18n="hero.btn2">Our Story</a>
             </div>
           </div>
         </div>
@@ -706,21 +860,21 @@
     <div class="container about-grid">
       <div>
         <div class="section-head">
-          <p class="section-label">About Next Millionaire</p>
-          <h2 class="section-title">A Co-operative Built on Shared Values</h2>
+          <p class="section-label" data-i18n="about.label">About Next Millionaire</p>
+          <h2 class="section-title" data-i18n="about.title">A Co-operative Built on Shared Values</h2>
         </div>
-        <p class="muted">Next Millionaire Co-operative was founded with a simple belief: when people work together with shared ownership and mutual accountability, extraordinary things happen. We unite farmers, consumers, and entrepreneurs into a resilient economic community.</p>
-        <p class="muted" style="margin-top:14px;">Our democratic structure ensures every member has a voice. Profits are reinvested into the community, creating lasting impact across generations.</p>
+        <p class="muted" data-i18n="about.para1">Next Millionaire Co-operative was founded with a simple belief: when people work together with shared ownership and mutual accountability, extraordinary things happen. We unite farmers, consumers, and entrepreneurs into a resilient economic community.</p>
+        <p class="muted" style="margin-top:14px;" data-i18n="about.para2">Our democratic structure ensures every member has a voice. Profits are reinvested into the community, creating lasting impact across generations.</p>
       </div>
       <div class="glass-card liquid-glass">
         <div class="stats-grid">
-          <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Active Members</div></div>
-          <div class="stat"><div class="stat-num">1</div><div class="stat-label">Years of Service</div></div>
-          <div class="stat"><div class="stat-num">৳10M</div><div class="stat-label">Annual Turnover</div></div>
-          <div class="stat"><div class="stat-num">32</div><div class="stat-label">Villages Served</div></div>
+          <div class="stat"><div class="stat-num">50+</div><div class="stat-label" data-i18n="stat.members">Active Members</div></div>
+          <div class="stat"><div class="stat-num">1</div><div class="stat-label" data-i18n="stat.years">Years of Service</div></div>
+          <div class="stat"><div class="stat-num">৳10M</div><div class="stat-label" data-i18n="stat.turnover">Annual Turnover</div></div>
+          <div class="stat"><div class="stat-num">32</div><div class="stat-label" data-i18n="stat.villages">Villages Served</div></div>
         </div>
-        <p class="muted" style="margin-top:28px;">🌱 Cultivating community wealth through democratic enterprise</p>
-        <p class="muted" style="margin-top:10px;">98% Member Satisfaction</p>
+        <p class="muted" style="margin-top:28px;" data-i18n="about.tagline1">🌱 Cultivating community wealth through democratic enterprise</p>
+        <p class="muted" style="margin-top:10px;" data-i18n="about.tagline2">98% Member Satisfaction</p>
       </div>
     </div>
   </section>
@@ -729,10 +883,74 @@
   <footer>
     <div class="footer-inner">
       <strong>Next Millionaire</strong>
-      <div>Building community wealth through shared ownership.</div>
+      <div data-i18n="footer.tagline">Building community wealth through shared ownership.</div>
       <div>© <span id="year"></span> Next Millionaire </div>
     </div>
   </footer>
+
+  <script>
+    window.translations = {
+      en: {
+        "nav.about": "About", "nav.gallery": "Gallery", "nav.team": "Team", "nav.values": "Values", "nav.contact": "Contact",
+        "hero.eyebrow": "Est. 2026 · Registered Co-operative",
+        "hero.title": "About Next Millionaire",
+        "hero.subtitle": "Next Millionaire Co-operative was founded with a simple belief: when people work together with shared ownership and mutual accountability, extraordinary things happen.",
+        "hero.btn1": "Meet Our Team",
+        "hero.btn2": "Our Story",
+        "about.label": "About Next Millionaire",
+        "about.title": "A Co-operative Built on Shared Values",
+        "about.para1": "Next Millionaire Co-operative was founded with a simple belief: when people work together with shared ownership and mutual accountability, extraordinary things happen. We unite farmers, consumers, and entrepreneurs into a resilient economic community.",
+        "about.para2": "Our democratic structure ensures every member has a voice. Profits are reinvested into the community, creating lasting impact across generations.",
+        "stat.members": "Active Members",
+        "stat.years": "Years of Service",
+        "stat.turnover": "Annual Turnover",
+        "stat.villages": "Villages Served",
+        "about.tagline1": "🌱 Cultivating community wealth through democratic enterprise",
+        "about.tagline2": "98% Member Satisfaction",
+        "footer.tagline": "Building community wealth through shared ownership."
+      },
+      bn: {
+        "nav.about": "আমাদের সম্পর্কে", "nav.gallery": "গ্যালারি", "nav.team": "টিম", "nav.values": "মূল্যবোধ", "nav.contact": "যোগাযোগ",
+        "hero.eyebrow": "প্রতিষ্ঠিত ২০২৬ · নিবন্ধিত সমবায় সমিতি",
+        "hero.title": "নেক্সট মিলিয়নিয়ার সম্পর্কে",
+        "hero.subtitle": "নেক্সট মিলিয়নিয়ার কো-অপারেটিভ একটি সহজ বিশ্বাস নিয়ে প্রতিষ্ঠিত হয়েছে: মানুষ যখন যৌথ মালিকানা ও পারস্পরিক জবাবদিহিতার মাধ্যমে একসাথে কাজ করে, তখন অসাধারণ কিছু ঘটে।",
+        "hero.btn1": "আমাদের টিমের সাথে পরিচিত হোন",
+        "hero.btn2": "আমাদের গল্প",
+        "about.label": "নেক্সট মিলিয়নিয়ার সম্পর্কে",
+        "about.title": "যৌথ মূল্যবোধের উপর গড়া একটি সমবায় সমিতি",
+        "about.para1": "নেক্সট মিলিয়নিয়ার কো-অপারেটিভ একটি সহজ বিশ্বাস নিয়ে প্রতিষ্ঠিত হয়েছে: মানুষ যখন যৌথ মালিকানা ও পারস্পরিক জবাবদিহিতার মাধ্যমে একসাথে কাজ করে, তখন অসাধারণ কিছু ঘটে। আমরা কৃষক, ভোক্তা এবং উদ্যোক্তাদের একত্রিত করে একটি টেকসই অর্থনৈতিক সম্প্রদায় গড়ে তুলি।",
+        "about.para2": "আমাদের গণতান্ত্রিক কাঠামো নিশ্চিত করে যে প্রতিটি সদস্যের মতামতের গুরুত্ব রয়েছে। মুনাফা সম্প্রদায়ে পুনর্বিনিয়োগ করা হয়, যা প্রজন্ম থেকে প্রজন্মে স্থায়ী প্রভাব তৈরি করে।",
+        "stat.members": "সক্রিয় সদস্য",
+        "stat.years": "সেবার বছর",
+        "stat.turnover": "বার্ষিক লেনদেন",
+        "stat.villages": "সেবাপ্রাপ্ত গ্রাম",
+        "about.tagline1": "🌱 গণতান্ত্রিক উদ্যোগের মাধ্যমে সমষ্টিগত সম্পদ গড়ে তোলা",
+        "about.tagline2": "৯৮% সদস্য সন্তুষ্টি",
+        "footer.tagline": "যৌথ মালিকানার মাধ্যমে সমষ্টিগত সম্পদ গড়ে তোলা।"
+      },
+      ar: {
+        "nav.about": "من نحن", "nav.gallery": "معرض الصور", "nav.team": "الفريق", "nav.values": "قيمنا", "nav.contact": "تواصل معنا",
+        "hero.eyebrow": "تأسست 2026 · جمعية تعاونية مسجلة",
+        "hero.title": "عن نكست ميليونير",
+        "hero.subtitle": "تأسست جمعية نكست ميليونير التعاونية على إيمان بسيط: عندما يعمل الناس معًا بملكية مشتركة ومساءلة متبادلة، تحدث أمور استثنائية.",
+        "hero.btn1": "تعرف على فريقنا",
+        "hero.btn2": "قصتنا",
+        "about.label": "عن نكست ميليونير",
+        "about.title": "جمعية تعاونية مبنية على قيم مشتركة",
+        "about.para1": "تأسست جمعية نكست ميليونير التعاونية على إيمان بسيط: عندما يعمل الناس معًا بملكية مشتركة ومساءلة متبادلة، تحدث أمور استثنائية. نجمع المزارعين والمستهلكين ورواد الأعمال في مجتمع اقتصادي قوي ومترابط.",
+        "about.para2": "يضمن هيكلنا الديمقراطي أن يكون لكل عضو صوت مسموع. يُعاد استثمار الأرباح في المجتمع، مما يخلق أثرًا دائمًا عبر الأجيال.",
+        "stat.members": "الأعضاء النشطون",
+        "stat.years": "سنوات الخدمة",
+        "stat.turnover": "الإيرادات السنوية",
+        "stat.villages": "القرى التي نخدمها",
+        "about.tagline1": "🌱 نزرع ثروة المجتمع من خلال المشاريع الديمقراطية",
+        "about.tagline2": "98% رضا الأعضاء",
+        "footer.tagline": "نبني ثروة المجتمع من خلال الملكية المشتركة."
+      }
+    };
+  </script>
+  <script src="js/theme-toggle.js"></script>
+  <script src="js/i18n.js"></script>
 
   <script>
     // small script to set year and mobile menu toggle (copied from original behavior)

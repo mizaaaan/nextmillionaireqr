@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>(function(){try{var t=localStorage.getItem('nm-theme')||((window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Next Millionaire | Gallery</title>
@@ -16,7 +17,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Hind+Siliguri:wght@400;500;600;700&family=Markazi+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     /* Entire CSS copied verbatim from the uploaded index.html to preserve design */
@@ -102,6 +103,7 @@
     }
     .nav-links {
       display: flex;
+      align-items: center;
       gap: 32px;
       font-size: 14px;
     }
@@ -673,6 +675,173 @@
       .member-card { padding: 20px; }
       .member-name { font-size: 16px; }
     }
+  
+    /* ============ Language switcher & i18n ============ */
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: 10px;
+      padding-left: 10px;
+      border-left: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    .lang-switch button {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      font-family: 'Inter', sans-serif;
+    }
+    .lang-switch button:hover {
+      border-color: #fff;
+      color: #fff;
+    }
+    .lang-switch button.active {
+      background: #fff;
+      color: #1a1a1a;
+      border-color: #fff;
+    }
+    .mobile-menu .lang-switch {
+      margin: 12px 24px 4px;
+      padding-left: 0;
+      padding-top: 16px;
+      border-left: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    /* Bangla / Arabic type */
+    body.lang-bn { font-family: 'Hind Siliguri', 'Inter', sans-serif; }
+    body.lang-ar { font-family: 'Markazi Text', 'Inter', sans-serif; }
+
+    /* RTL adjustments (Arabic) */
+    html[dir="rtl"] .lang-switch {
+      margin-left: 0;
+      margin-right: 10px;
+      padding-left: 0;
+      padding-right: 10px;
+      border-left: none;
+      border-right: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    html[dir="rtl"] .mobile-menu a { border-left: none; border-right: 3px solid transparent; }
+    html[dir="rtl"] .mobile-menu a:hover { border-left-color: transparent; border-right-color: #667eea; }
+    html[dir="rtl"] .eyebrow,
+    html[dir="rtl"] .section-head,
+    html[dir="rtl"] .fleet-head { text-align: right; }
+    html[dir="rtl"] .driver-step,
+    html[dir="rtl"] .value-card,
+    html[dir="rtl"] .gallery-card,
+    html[dir="rtl"] .member-card,
+    html[dir="rtl"] .contact-item,
+    html[dir="rtl"] .glass-card { text-align: right; }
+    html[dir="rtl"] .fleet-info { flex-direction: row-reverse; }
+  
+    /* ============ Theme Toggle Button ============ */
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      margin-left: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 999px;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.85);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+    }
+    .theme-toggle:hover { border-color: #fff; color: #fff; }
+    .theme-toggle svg { width: 16px; height: 16px; display: block; pointer-events: none; }
+    .theme-toggle .icon-moon { display: none; }
+    html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
+    html[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
+    .mobile-menu .theme-toggle { margin: 12px 24px 0; }
+    html[dir="rtl"] .theme-toggle { margin-left: 0; margin-right: 10px; }
+    html[dir="rtl"] .mobile-menu .theme-toggle { margin: 12px 24px 0; }
+
+    /* ============ Dark Theme Palette ============ */
+    html[data-theme="dark"] body { background: #0d0f13; color: #e7e7e7; }
+    html[data-theme="dark"] .mobile-menu { background: rgba(20, 22, 28, 0.55); }
+    html[data-theme="dark"] .content-section { background: #0d0f13; color: #e7e7e7; }
+    html[data-theme="dark"] .section-label { color: rgba(255, 255, 255, 0.55); }
+    html[data-theme="dark"] .section-title { color: #f5f5f5; }
+    html[data-theme="dark"] .muted { color: rgba(255, 255, 255, 0.62); }
+    html[data-theme="dark"] .stat-label { color: rgba(255, 255, 255, 0.55); }
+    html[data-theme="dark"] .stat-num { color: #f5f5f5; }
+    html[data-theme="dark"] .glass-card { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.1); }
+    html[data-theme="dark"] .glass-card::before { display: none; }
+    html[data-theme="dark"] .member-card,
+    html[data-theme="dark"] .gallery-card,
+    html[data-theme="dark"] .value-card,
+    html[data-theme="dark"] .contact-item {
+      background: rgba(255, 255, 255, 0.035);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+    html[data-theme="dark"] .member-card:hover,
+    html[data-theme="dark"] .gallery-card:hover,
+    html[data-theme="dark"] .value-card:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: #54C2FE;
+    }
+    html[data-theme="dark"] #management .member-card,
+    html[data-theme="dark"] #management .member-card:hover { background: rgba(255, 255, 255, 0.035); border-color: rgba(255, 255, 255, 0.1); }
+    html[data-theme="dark"] #management .member-card:hover { border-color: #54C2FE; }
+    html[data-theme="dark"] .member-name,
+    html[data-theme="dark"] #management .member-name,
+    html[data-theme="dark"] .gallery-title,
+    html[data-theme="dark"] .value-title { color: #f5f5f5; }
+    html[data-theme="dark"] .member-role,
+    html[data-theme="dark"] #management .member-role { color: rgba(255, 255, 255, 0.55); }
+    html[data-theme="dark"] #management .muted { color: rgba(255, 255, 255, 0.62); }
+    html[data-theme="dark"] .fleet-card,
+    html[data-theme="dark"] .driver-step { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.1); }
+    html[data-theme="dark"] .fleet-status { color: rgba(255, 255, 255, 0.7); }
+    /* ---- ID-scoped overrides in the original CSS beat the generic dark
+       rules above (higher specificity), so they need their own dark
+       counterparts or text/cards stay dark-on-dark / light-on-light. ---- */
+    html[data-theme="dark"] #values .value-card { background: rgba(255, 255, 255, 0.035); border-color: rgba(255, 255, 255, 0.1); }
+    html[data-theme="dark"] #values .value-card:hover { background: rgba(255, 255, 255, 0.06); border-color: #54C2FE; }
+    html[data-theme="dark"] #values .section-label { color: rgba(255, 255, 255, 0.55); }
+    html[data-theme="dark"] #values .section-title { color: #f5f5f5; }
+    html[data-theme="dark"] #values .muted { color: rgba(255, 255, 255, 0.62); }
+    html[data-theme="dark"] #values .gallery-title,
+    html[data-theme="dark"] #values .value-title { color: #f5f5f5; }
+    html[data-theme="dark"] .content-section:nth-of-type(5) .value-card { color: #f5f5f5; }
+    html[data-theme="dark"] .content-section:nth-of-type(5) .value-card .muted { color: rgba(255, 255, 255, 0.62); }
+
+    html[data-theme="dark"] #contact .section-label { color: rgba(255, 255, 255, 0.8); }
+    html[data-theme="dark"] #contact .section-title { color: #fff; }
+    html[data-theme="dark"] #contact .muted { color: rgba(255, 255, 255, 0.85); }
+    html[data-theme="dark"] #contact .contact-label { color: rgba(255, 255, 255, 0.75); }
+    html[data-theme="dark"] #contact .contact-value { color: #fff; }
+    html[data-theme="dark"] #contact .contact-item { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); }
+    html[data-theme="dark"] #contact .btn-primary { background: #fff; color: #1a1a1a; border-color: transparent; }
+    html[data-theme="dark"] #contact .btn-primary:hover { background: transparent; color: #fff; border-color: #fff; }
+
+
+    html[data-theme="dark"] .content-section:nth-of-type(1),
+    html[data-theme="dark"] .content-section:nth-of-type(3),
+    html[data-theme="dark"] .content-section:nth-of-type(6) { background: #1a4f6e; color: #fff; }
+    html[data-theme="dark"] .content-section:nth-of-type(2),
+    html[data-theme="dark"] .content-section:nth-of-type(4),
+    html[data-theme="dark"] .content-section:nth-of-type(5) { background: #0d0f13; color: #e7e7e7; }
+    html[data-theme="dark"] .content-section:nth-of-type(n+2):nth-of-type(even) .section-label,
+    html[data-theme="dark"] .content-section:nth-of-type(5) .section-label { color: rgba(255, 255, 255, 0.55); }
+    html[data-theme="dark"] .content-section:nth-of-type(n+2):nth-of-type(even) .section-title,
+    html[data-theme="dark"] .content-section:nth-of-type(5) .section-title { color: #f5f5f5; }
+    html[data-theme="dark"] .content-section:nth-of-type(n+2):nth-of-type(even) .muted,
+    html[data-theme="dark"] .content-section:nth-of-type(5) .muted { color: rgba(255, 255, 255, 0.62); }
+    html[data-theme="dark"] .content-section:nth-of-type(5) .value-card { color: #f5f5f5; }
+    html[data-theme="dark"] .content-section:nth-of-type(5) .value-card .muted { color: rgba(255, 255, 255, 0.62); }
+    html[data-theme="dark"] .content-section:nth-of-type(5) .value-title { color: #f5f5f5; }
+    html[data-theme="dark"] .content-section:nth-of-type(n+2):nth-of-type(even) .member-contact { color: #7fd3ff; }
+
   </style>
 </head>
 <body>
@@ -686,33 +855,35 @@
         <nav class="navbar liquid-glass">
           <a href="index.html" class="logo">Next Millionaire</a>
           <div class="nav-links">
-            <a href="about.html">About</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="team.html">Team</a>
-            <a href="values.html">Values</a>
-            <a href="contact.html">Contact</a>
+            <a href="about.html" data-i18n="nav.about">About</a>
+            <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+            <a href="team.html" data-i18n="nav.team">Team</a>
+            <a href="values.html" data-i18n="nav.values">Values</a>
+            <a href="contact.html" data-i18n="nav.contact">Contact</a>
+            <div class="lang-switch"><button data-lang-btn="en" class="active">EN</button><button data-lang-btn="bn">বাং</button><button data-lang-btn="ar">عربي</button></div><button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
           </div>
           <button class="hamburger" id="hamburgerBtn">
             <span></span><span></span><span></span>
           </button>
         </nav>
         <div class="mobile-menu" id="mobileMenu">
-          <a href="about.html">About</a>
-          <a href="gallery.html">Gallery</a>
-          <a href="team.html">Team</a>
-          <a href="values.html">Values</a>
-          <a href="contact.html">Contact</a>
+          <a href="about.html" data-i18n="nav.about">About</a>
+          <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+          <a href="team.html" data-i18n="nav.team">Team</a>
+          <a href="values.html" data-i18n="nav.values">Values</a>
+          <a href="contact.html" data-i18n="nav.contact">Contact</a>
+          <div class="lang-switch"><button data-lang-btn="en" class="active">EN</button><button data-lang-btn="bn">বাং</button><button data-lang-btn="ar">عربي</button></div><button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
         </div>
       </div>
       <div class="hero-bottom">
         <div class="hero-grid">
           <div>
-            <div class="eyebrow">Our Work in Action</div>
-            <h1>Programs & Impact Gallery</h1>
-            <p class="subheading">See how our initiatives are transforming lives and communities across the region.</p>
+            <div class="eyebrow" data-i18n="hero.eyebrow">Our Work in Action</div>
+            <h1 data-i18n="hero.title">Programs & Impact Gallery</h1>
+            <p class="subheading" data-i18n="hero.subtitle">See how our initiatives are transforming lives and communities across the region.</p>
             <div class="buttons" id="buttons">
-              <a href="team.html" class="btn-primary">Meet Our Team</a>
-              <a href="about.html" class="btn-secondary liquid-glass">Our Story</a>
+              <a href="team.html" class="btn-primary" data-i18n="hero.btn1">Meet Our Team</a>
+              <a href="about.html" class="btn-secondary liquid-glass" data-i18n="hero.btn2">Our Story</a>
             </div>
           </div>
         </div>
@@ -723,17 +894,17 @@
   <section class="content-section" id="gallery">
     <div class="container">
       <div class="section-head">
-        <p class="section-label">Our Work in Action</p>
-        <h2 class="section-title">Programs & Impact Gallery</h2>
-        <p class="muted" style="margin-top:14px;">See how our initiatives are transforming lives and communities across the region.</p>
+        <p class="section-label" data-i18n="hero.eyebrow">Our Work in Action</p>
+        <h2 class="section-title" data-i18n="hero.title">Programs & Impact Gallery</h2>
+        <p class="muted" style="margin-top:14px;" data-i18n="hero.subtitle">See how our initiatives are transforming lives and communities across the region.</p>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-card"><div class="icon">🌾</div><div class="gallery-title">Agricultural Training</div><p class="muted">Member education on sustainable farming techniques and modern crop management practices.</p></div>
-        <div class="gallery-card"><div class="icon">💼</div><div class="gallery-title">Business Skills</div><p class="muted">Financial literacy, market access, and entrepreneurship workshops for cooperative members.</p></div>
-        <div class="gallery-card"><div class="icon">👨‍👩‍👧‍👦</div><div class="gallery-title">Community Outreach</div><p class="muted">Engaging with rural communities to build sustainable development and social networks.</p></div>
-        <div class="gallery-card"><div class="icon">📊</div><div class="gallery-title">Financial Planning</div><p class="muted">Member-focused financial services and microfinance initiatives for growth and stability.</p></div>
-        <div class="gallery-card"><div class="icon">🌿</div><div class="gallery-title">Sustainability Initiatives</div><p class="muted">Environmental conservation programs and organic farming promotion across member farms.</p></div>
-        <div class="gallery-card"><div class="icon">🏆</div><div class="gallery-title">Member Success Stories</div><p class="muted">Celebrating the achievements and milestones reached by our dedicated cooperative members.</p></div>
+        <div class="gallery-card"><div class="icon">🌾</div><div class="gallery-title" data-i18n="g1.t">Agricultural Training</div><p class="muted" data-i18n="g1.d">Member education on sustainable farming techniques and modern crop management practices.</p></div>
+        <div class="gallery-card"><div class="icon">💼</div><div class="gallery-title" data-i18n="g2.t">Business Skills</div><p class="muted" data-i18n="g2.d">Financial literacy, market access, and entrepreneurship workshops for cooperative members.</p></div>
+        <div class="gallery-card"><div class="icon">👨‍👩‍👧‍👦</div><div class="gallery-title" data-i18n="g3.t">Community Outreach</div><p class="muted" data-i18n="g3.d">Engaging with rural communities to build sustainable development and social networks.</p></div>
+        <div class="gallery-card"><div class="icon">📊</div><div class="gallery-title" data-i18n="g4.t">Financial Planning</div><p class="muted" data-i18n="g4.d">Member-focused financial services and microfinance initiatives for growth and stability.</p></div>
+        <div class="gallery-card"><div class="icon">🌿</div><div class="gallery-title" data-i18n="g5.t">Sustainability Initiatives</div><p class="muted" data-i18n="g5.d">Environmental conservation programs and organic farming promotion across member farms.</p></div>
+        <div class="gallery-card"><div class="icon">🏆</div><div class="gallery-title" data-i18n="g6.t">Member Success Stories</div><p class="muted" data-i18n="g6.d">Celebrating the achievements and milestones reached by our dedicated cooperative members.</p></div>
       </div>
     </div>
   </section>
@@ -741,10 +912,62 @@
   <footer>
     <div class="footer-inner">
       <strong>Next Millionaire</strong>
-      <div>Building community wealth through shared ownership.</div>
+      <div data-i18n="footer.tagline">Building community wealth through shared ownership.</div>
       <div>© <span id="year"></span> Next Millionaire </div>
     </div>
   </footer>
+
+  <script>
+    window.translations = {
+      en: {
+        "nav.about": "About", "nav.gallery": "Gallery", "nav.team": "Team", "nav.values": "Values", "nav.contact": "Contact",
+        "hero.eyebrow": "Our Work in Action",
+        "hero.title": "Programs &amp; Impact Gallery",
+        "hero.subtitle": "See how our initiatives are transforming lives and communities across the region.",
+        "hero.btn1": "Meet Our Team",
+        "hero.btn2": "Our Story",
+        "g1.t": "Agricultural Training", "g1.d": "Member education on sustainable farming techniques and modern crop management practices.",
+        "g2.t": "Business Skills", "g2.d": "Financial literacy, market access, and entrepreneurship workshops for cooperative members.",
+        "g3.t": "Community Outreach", "g3.d": "Engaging with rural communities to build sustainable development and social networks.",
+        "g4.t": "Financial Planning", "g4.d": "Member-focused financial services and microfinance initiatives for growth and stability.",
+        "g5.t": "Sustainability Initiatives", "g5.d": "Environmental conservation programs and organic farming promotion across member farms.",
+        "g6.t": "Member Success Stories", "g6.d": "Celebrating the achievements and milestones reached by our dedicated cooperative members.",
+        "footer.tagline": "Building community wealth through shared ownership."
+      },
+      bn: {
+        "nav.about": "আমাদের সম্পর্কে", "nav.gallery": "গ্যালারি", "nav.team": "টিম", "nav.values": "মূল্যবোধ", "nav.contact": "যোগাযোগ",
+        "hero.eyebrow": "আমাদের কর্মকাণ্ড",
+        "hero.title": "কর্মসূচি ও প্রভাবের গ্যালারি",
+        "hero.subtitle": "দেখুন কীভাবে আমাদের উদ্যোগ পুরো অঞ্চল জুড়ে মানুষের জীবন ও সম্প্রদায়কে বদলে দিচ্ছে।",
+        "hero.btn1": "আমাদের টিমের সাথে পরিচিত হোন",
+        "hero.btn2": "আমাদের গল্প",
+        "g1.t": "কৃষি প্রশিক্ষণ", "g1.d": "টেকসই কৃষি কৌশল ও আধুনিক ফসল ব্যবস্থাপনা বিষয়ে সদস্যদের প্রশিক্ষণ।",
+        "g2.t": "ব্যবসায়িক দক্ষতা", "g2.d": "সমবায় সদস্যদের জন্য আর্থিক সাক্ষরতা, বাজার সংযোগ এবং উদ্যোক্তা কর্মশালা।",
+        "g3.t": "সম্প্রদায়ের সাথে যোগাযোগ", "g3.d": "টেকসই উন্নয়ন ও সামাজিক নেটওয়ার্ক গড়তে গ্রামীণ সম্প্রদায়ের সাথে সম্পৃক্ততা।",
+        "g4.t": "আর্থিক পরিকল্পনা", "g4.d": "প্রবৃদ্ধি ও স্থিতিশীলতার জন্য সদস্যকেন্দ্রিক আর্থিক সেবা ও ক্ষুদ্রঋণ উদ্যোগ।",
+        "g5.t": "টেকসই উদ্যোগ", "g5.d": "সদস্যদের খামারজুড়ে পরিবেশ সংরক্ষণ কর্মসূচি ও জৈব কৃষির প্রসার।",
+        "g6.t": "সদস্যদের সাফল্যের গল্প", "g6.d": "আমাদের নিবেদিতপ্রাণ সমবায় সদস্যদের অর্জন ও মাইলফলক উদযাপন।",
+        "footer.tagline": "যৌথ মালিকানার মাধ্যমে সমষ্টিগত সম্পদ গড়ে তোলা।"
+      },
+      ar: {
+        "nav.about": "من نحن", "nav.gallery": "معرض الصور", "nav.team": "الفريق", "nav.values": "قيمنا", "nav.contact": "تواصل معنا",
+        "hero.eyebrow": "أعمالنا في الميدان",
+        "hero.title": "معرض البرامج والأثر",
+        "hero.subtitle": "شاهد كيف تُحدث مبادراتنا تحولًا في حياة الناس والمجتمعات في جميع أنحاء المنطقة.",
+        "hero.btn1": "تعرف على فريقنا",
+        "hero.btn2": "قصتنا",
+        "g1.t": "التدريب الزراعي", "g1.d": "تدريب الأعضاء على تقنيات الزراعة المستدامة وأساليب إدارة المحاصيل الحديثة.",
+        "g2.t": "المهارات التجارية", "g2.d": "ورش عمل حول المعرفة المالية والوصول إلى الأسواق وريادة الأعمال لأعضاء الجمعية.",
+        "g3.t": "التواصل المجتمعي", "g3.d": "التفاعل مع المجتمعات الريفية لبناء تنمية مستدامة وشبكات اجتماعية.",
+        "g4.t": "التخطيط المالي", "g4.d": "خدمات مالية تركز على الأعضاء ومبادرات التمويل الأصغر لتحقيق النمو والاستقرار.",
+        "g5.t": "مبادرات الاستدامة", "g5.d": "برامج للحفاظ على البيئة وتعزيز الزراعة العضوية في مزارع الأعضاء.",
+        "g6.t": "قصص نجاح الأعضاء", "g6.d": "الاحتفاء بإنجازات وأعضاء جمعيتنا المتفانين ومحطاتهم المهمة.",
+        "footer.tagline": "نبني ثروة المجتمع من خلال الملكية المشتركة."
+      }
+    };
+  </script>
+  <script src="js/theme-toggle.js"></script>
+  <script src="js/i18n.js"></script>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();

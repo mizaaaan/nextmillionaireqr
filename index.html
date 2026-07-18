@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>(function(){try{var t=localStorage.getItem('nm-theme')||((window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Next Millionaire | Build Your Dreams</title>
@@ -15,9 +16,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Hind+Siliguri:wght@400;500;600;700&family=Markazi+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+  
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
@@ -100,6 +102,7 @@
     }
     .nav-links {
       display: flex;
+      align-items: center;
       gap: 32px;
       font-size: 14px;
     }
@@ -897,6 +900,181 @@
       .member-card { padding: 20px; }
       .member-name { font-size: 16px; }
     }
+  
+    /* ============ Language switcher & i18n ============ */
+    .lang-switch {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: 10px;
+      padding-left: 10px;
+      border-left: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    .lang-switch button {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      font-family: 'Inter', sans-serif;
+    }
+    .lang-switch button:hover {
+      border-color: #fff;
+      color: #fff;
+    }
+    .lang-switch button.active {
+      background: #fff;
+      color: #1a1a1a;
+      border-color: #fff;
+    }
+    .mobile-menu .lang-switch {
+      margin: 12px 24px 4px;
+      padding-left: 0;
+      padding-top: 16px;
+      border-left: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    /* Bangla / Arabic type */
+    body.lang-bn { font-family: 'Hind Siliguri', 'Inter', sans-serif; }
+    body.lang-ar { font-family: 'Markazi Text', 'Inter', sans-serif; }
+
+    /* RTL adjustments (Arabic) */
+    html[dir="rtl"] .lang-switch {
+      margin-left: 0;
+      margin-right: 10px;
+      padding-left: 0;
+      padding-right: 10px;
+      border-left: none;
+      border-right: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    html[dir="rtl"] .mobile-menu a { border-left: none; border-right: 3px solid transparent; }
+    html[dir="rtl"] .mobile-menu a:hover { border-left-color: transparent; border-right-color: #667eea; }
+    html[dir="rtl"] .eyebrow,
+    html[dir="rtl"] .section-head,
+    html[dir="rtl"] .fleet-head { text-align: right; }
+    html[dir="rtl"] .driver-step,
+    html[dir="rtl"] .value-card,
+    html[dir="rtl"] .gallery-card,
+    html[dir="rtl"] .member-card,
+    html[dir="rtl"] .contact-item,
+    html[dir="rtl"] .glass-card { text-align: right; }
+    html[dir="rtl"] .fleet-info { flex-direction: row-reverse; }
+  
+    /* ============ Theme Toggle Button ============ */
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      margin-left: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 999px;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.85);
+      cursor: pointer;
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+    }
+    .theme-toggle:hover { border-color: #fff; color: #fff; }
+    .theme-toggle svg { width: 16px; height: 16px; display: block; pointer-events: none; }
+    .theme-toggle .icon-moon { display: none; }
+    html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
+    html[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
+    .mobile-menu .theme-toggle { margin: 12px 24px 0; }
+    html[dir="rtl"] .theme-toggle { margin-left: 0; margin-right: 10px; }
+    html[dir="rtl"] .mobile-menu .theme-toggle { margin: 12px 24px 0; }
+
+    /* ============ Dark Theme Palette ============ */
+    html[data-theme="dark"] body { background: #0d0f13; color: #e7e7e7; }
+    html[data-theme="dark"] .mobile-menu { background: rgba(20, 22, 28, 0.55); }
+    html[data-theme="dark"] .content-section { background: #0d0f13; color: #e7e7e7; }
+    html[data-theme="dark"] .section-label { color: rgba(255, 255, 255, 0.55); }
+    html[data-theme="dark"] .section-title { color: #f5f5f5; }
+    html[data-theme="dark"] .muted { color: rgba(255, 255, 255, 0.62); }
+    html[data-theme="dark"] .stat-label { color: rgba(255, 255, 255, 0.55); }
+    html[data-theme="dark"] .stat-num { color: #f5f5f5; }
+    html[data-theme="dark"] .glass-card { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.1); }
+    html[data-theme="dark"] .glass-card::before { display: none; }
+    html[data-theme="dark"] .member-card,
+    html[data-theme="dark"] .gallery-card,
+    html[data-theme="dark"] .value-card,
+    html[data-theme="dark"] .contact-item {
+      background: rgba(255, 255, 255, 0.035);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+    html[data-theme="dark"] .member-card:hover,
+    html[data-theme="dark"] .gallery-card:hover,
+    html[data-theme="dark"] .value-card:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: #54C2FE;
+    }
+    html[data-theme="dark"] #management .member-card,
+    html[data-theme="dark"] #management .member-card:hover { background: rgba(255, 255, 255, 0.035); border-color: rgba(255, 255, 255, 0.1); }
+    html[data-theme="dark"] #management .member-card:hover { border-color: #54C2FE; }
+    html[data-theme="dark"] .member-name,
+    html[data-theme="dark"] #management .member-name,
+    html[data-theme="dark"] .gallery-title,
+    html[data-theme="dark"] .value-title { color: #f5f5f5; }
+    html[data-theme="dark"] .member-role,
+    html[data-theme="dark"] #management .member-role { color: rgba(255, 255, 255, 0.55); }
+    html[data-theme="dark"] #management .muted { color: rgba(255, 255, 255, 0.62); }
+    html[data-theme="dark"] .fleet-card,
+    html[data-theme="dark"] .driver-step { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.1); }
+    html[data-theme="dark"] .fleet-status { color: rgba(255, 255, 255, 0.7); }
+    /* index.html only: #values / #contact / #driver-rental set their OWN
+       background directly (an id selector), which beats the generic
+       nth-of-type dark backgrounds above — so they stay stuck in their
+       light-mode colour without their own dark counterpart. */
+    html[data-theme="dark"] #values { background: #0d0f13; color: #e7e7e7; }
+    html[data-theme="dark"] #contact { background: #1a4f6e; color: #fff; }
+    html[data-theme="dark"] #driver-rental { background: #1a4f6e; color: #fff; }
+
+    /* ---- ID-scoped overrides in the original CSS beat the generic dark
+       rules above (higher specificity), so they need their own dark
+       counterparts or text/cards stay dark-on-dark / light-on-light. ---- */
+    html[data-theme="dark"] #values .value-card { background: rgba(255, 255, 255, 0.035); border-color: rgba(255, 255, 255, 0.1); }
+    html[data-theme="dark"] #values .value-card:hover { background: rgba(255, 255, 255, 0.06); border-color: #54C2FE; }
+    html[data-theme="dark"] #values .section-label { color: rgba(255, 255, 255, 0.55); }
+    html[data-theme="dark"] #values .section-title { color: #f5f5f5; }
+    html[data-theme="dark"] #values .muted { color: rgba(255, 255, 255, 0.62); }
+    html[data-theme="dark"] #values .gallery-title,
+    html[data-theme="dark"] #values .value-title { color: #f5f5f5; }
+    html[data-theme="dark"] .content-section:nth-of-type(5) .value-card { color: #f5f5f5; }
+    html[data-theme="dark"] .content-section:nth-of-type(5) .value-card .muted { color: rgba(255, 255, 255, 0.62); }
+
+    html[data-theme="dark"] #contact .section-label { color: rgba(255, 255, 255, 0.8); }
+    html[data-theme="dark"] #contact .section-title { color: #fff; }
+    html[data-theme="dark"] #contact .muted { color: rgba(255, 255, 255, 0.85); }
+    html[data-theme="dark"] #contact .contact-label { color: rgba(255, 255, 255, 0.75); }
+    html[data-theme="dark"] #contact .contact-value { color: #fff; }
+    html[data-theme="dark"] #contact .contact-item { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); }
+    html[data-theme="dark"] #contact .btn-primary { background: #fff; color: #1a1a1a; border-color: transparent; }
+    html[data-theme="dark"] #contact .btn-primary:hover { background: transparent; color: #fff; border-color: #fff; }
+
+
+    html[data-theme="dark"] .content-section:nth-of-type(1),
+    html[data-theme="dark"] .content-section:nth-of-type(3),
+    html[data-theme="dark"] .content-section:nth-of-type(6) { background: #1a4f6e; color: #fff; }
+    html[data-theme="dark"] .content-section:nth-of-type(2),
+    html[data-theme="dark"] .content-section:nth-of-type(4),
+    html[data-theme="dark"] .content-section:nth-of-type(5) { background: #0d0f13; color: #e7e7e7; }
+    html[data-theme="dark"] .content-section:nth-of-type(n+2):nth-of-type(even) .section-label,
+    html[data-theme="dark"] .content-section:nth-of-type(5) .section-label { color: rgba(255, 255, 255, 0.55); }
+    html[data-theme="dark"] .content-section:nth-of-type(n+2):nth-of-type(even) .section-title,
+    html[data-theme="dark"] .content-section:nth-of-type(5) .section-title { color: #f5f5f5; }
+    html[data-theme="dark"] .content-section:nth-of-type(n+2):nth-of-type(even) .muted,
+    html[data-theme="dark"] .content-section:nth-of-type(5) .muted { color: rgba(255, 255, 255, 0.62); }
+    html[data-theme="dark"] .content-section:nth-of-type(5) .value-card { color: #f5f5f5; }
+    html[data-theme="dark"] .content-section:nth-of-type(5) .value-card .muted { color: rgba(255, 255, 255, 0.62); }
+    html[data-theme="dark"] .content-section:nth-of-type(5) .value-title { color: #f5f5f5; }
+    html[data-theme="dark"] .content-section:nth-of-type(n+2):nth-of-type(even) .member-contact { color: #7fd3ff; }
+
   </style>
 </head>
 <body>
@@ -912,11 +1090,12 @@
         <nav class="navbar liquid-glass">
           <a href="index.html" class="logo">Next Millionaire</a>
           <div class="nav-links">
-            <a href="about.html">About</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="team.html">Team</a>
-            <a href="values.html">Values</a>
-            <a href="contact.html">Contact</a>
+            <a href="about.html" data-i18n="nav.about">About</a>
+            <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+            <a href="team.html" data-i18n="nav.team">Team</a>
+            <a href="values.html" data-i18n="nav.values">Values</a>
+            <a href="contact.html" data-i18n="nav.contact">Contact</a>
+            <div class="lang-switch"><button data-lang-btn="en" class="active">EN</button><button data-lang-btn="bn">বাং</button><button data-lang-btn="ar">عربي</button></div><button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
           </div>
           <button class="hamburger" id="hamburgerBtn">
             <span></span>
@@ -925,22 +1104,23 @@
           </button>
         </nav>
         <div class="mobile-menu" id="mobileMenu">
-          <a href="about.html">About</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="team.html">Team</a>
-            <a href="values.html">Values</a>
-            <a href="contact.html">Contact</a>
+          <a href="about.html" data-i18n="nav.about">About</a>
+            <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+            <a href="team.html" data-i18n="nav.team">Team</a>
+            <a href="values.html" data-i18n="nav.values">Values</a>
+            <a href="contact.html" data-i18n="nav.contact">Contact</a>
+            <div class="lang-switch"><button data-lang-btn="en" class="active">EN</button><button data-lang-btn="bn">বাং</button><button data-lang-btn="ar">عربي</button></div><button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
         </div>
       </div>
       <div class="hero-bottom">
         <div class="hero-grid">
           <div>
-            <div class="eyebrow">Est. 2026 · Registered Co-operative</div>
+            <div class="eyebrow" data-i18n="hero.eyebrow">Est. 2026 · Registered Co-operative</div>
             <h1 id="heading"></h1>
-            <p class="subheading" id="subheading">Next Millionaire Co-operative empowers communities through shared ownership, sustainable agriculture, and collective prosperity — rooted in trust, grown by people.</p>
+            <p class="subheading" id="subheading" data-i18n="hero.subtitle">Next Millionaire Co-operative empowers communities through shared ownership, sustainable agriculture, and collective prosperity — rooted in trust, grown by people.</p>
             <div class="buttons" id="buttons">
-              <a href="#management" class="btn-primary">Meet Our Team</a>
-              <a href="#about" class="btn-secondary liquid-glass">Our Story</a>
+              <a href="#management" class="btn-primary" data-i18n="hero.btn1">Meet Our Team</a>
+              <a href="#about" class="btn-secondary liquid-glass" data-i18n="hero.btn2">Our Story</a>
             </div>
           </div>
 
@@ -953,44 +1133,39 @@
     <div class="container about-grid">
       <div>
         <div class="section-head">
-          <p class="section-label">About Next Millionaire</p>
-          <h2 class="section-title">A Co-operative Built on Shared Values</h2>
+          <p class="section-label" data-i18n="about.label">About Next Millionaire</p>
+          <h2 class="section-title" data-i18n="about.title">A Co-operative Built on Shared Values</h2>
         </div>
-        <p class="muted">Next Millionaire Co-operative was founded with a simple belief: when people work together with shared ownership and mutual accountability, extraordinary things happen. We unite farmers, consumers, and entrepreneurs into a resilient economic community.</p>
-        <p class="muted" style="margin-top:14px;">Our democratic structure ensures every member has a voice. Profits are reinvested into the community, creating lasting impact across generations.</p>
+        <p class="muted" data-i18n="about.para1">Next Millionaire Co-operative was founded with a simple belief: when people work together with shared ownership and mutual accountability, extraordinary things happen. We unite farmers, consumers, and entrepreneurs into a resilient economic community.</p>
+        <p class="muted" style="margin-top:14px;" data-i18n="about.para2">Our democratic structure ensures every member has a voice. Profits are reinvested into the community, creating lasting impact across generations.</p>
       </div>
       <div class="glass-card liquid-glass">
         <div class="stats-grid">
-          <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Active Members</div></div>
-          <div class="stat"><div class="stat-num">1</div><div class="stat-label">Years of Service</div></div>
-          <div class="stat"><div class="stat-num">৳10M</div><div class="stat-label">Annual Turnover</div></div>
-          <div class="stat"><div class="stat-num">32</div><div class="stat-label">Villages Served</div></div>
+          <div class="stat"><div class="stat-num">50+</div><div class="stat-label" data-i18n="stat.members">Active Members</div></div>
+          <div class="stat"><div class="stat-num">1</div><div class="stat-label" data-i18n="stat.years">Years of Service</div></div>
+          <div class="stat"><div class="stat-num">৳10M</div><div class="stat-label" data-i18n="stat.turnover">Annual Turnover</div></div>
+          <div class="stat"><div class="stat-num">32</div><div class="stat-label" data-i18n="stat.villages">Villages Served</div></div>
         </div>
-        <p class="muted" style="margin-top:28px;">🌱 Cultivating community wealth through democratic enterprise</p>
-        <p class="muted" style="margin-top:10px;">98% Member Satisfaction</p>
+        <p class="muted" style="margin-top:28px;" data-i18n="about.tagline1">🌱 Cultivating community wealth through democratic enterprise</p>
+        <p class="muted" style="margin-top:10px;" data-i18n="about.tagline2">98% Member Satisfaction</p>
       </div>
     </div>
   </section>
   
-
-
-  
-
-
   <section class="content-section" id="gallery">
     <div class="container">
       <div class="section-head">
-        <p class="section-label">Our Work in Action</p>
-        <h2 class="section-title">Programs & Impact Gallery</h2>
-        <p class="muted" style="margin-top:14px;">See how our initiatives are transforming lives and communities across the region.</p>
+        <p class="section-label" data-i18n="gallery.label">Our Work in Action</p>
+        <h2 class="section-title" data-i18n="gallery.title">Programs & Impact Gallery</h2>
+        <p class="muted" style="margin-top:14px;" data-i18n="gallery.subtitle">See how our initiatives are transforming lives and communities across the region.</p>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-card"><div class="icon">🌾</div><div class="gallery-title">Agricultural Training</div><p class="muted">Member education on sustainable farming techniques and modern crop management practices.</p></div>
-        <div class="gallery-card"><div class="icon">💼</div><div class="gallery-title">Business Skills</div><p class="muted">Financial literacy, market access, and entrepreneurship workshops for cooperative members.</p></div>
-        <div class="gallery-card"><div class="icon">👨‍👩‍👧‍👦</div><div class="gallery-title">Community Outreach</div><p class="muted">Engaging with rural communities to build sustainable development and social networks.</p></div>
-        <div class="gallery-card"><div class="icon">📊</div><div class="gallery-title">Financial Planning</div><p class="muted">Member-focused financial services and microfinance initiatives for growth and stability.</p></div>
-        <div class="gallery-card"><div class="icon">🌿</div><div class="gallery-title">Sustainability Initiatives</div><p class="muted">Environmental conservation programs and organic farming promotion across member farms.</p></div>
-        <div class="gallery-card"><div class="icon">🏆</div><div class="gallery-title">Member Success Stories</div><p class="muted">Celebrating the achievements and milestones reached by our dedicated cooperative members.</p></div>
+        <div class="gallery-card"><div class="icon">🌾</div><div class="gallery-title" data-i18n="g1.t">Agricultural Training</div><p class="muted" data-i18n="g1.d">Member education on sustainable farming techniques and modern crop management practices.</p></div>
+        <div class="gallery-card"><div class="icon">💼</div><div class="gallery-title" data-i18n="g2.t">Business Skills</div><p class="muted" data-i18n="g2.d">Financial literacy, market access, and entrepreneurship workshops for cooperative members.</p></div>
+        <div class="gallery-card"><div class="icon">👨‍👩‍👧‍👦</div><div class="gallery-title" data-i18n="g3.t">Community Outreach</div><p class="muted" data-i18n="g3.d">Engaging with rural communities to build sustainable development and social networks.</p></div>
+        <div class="gallery-card"><div class="icon">📊</div><div class="gallery-title" data-i18n="g4.t">Financial Planning</div><p class="muted" data-i18n="g4.d">Member-focused financial services and microfinance initiatives for growth and stability.</p></div>
+        <div class="gallery-card"><div class="icon">🌿</div><div class="gallery-title" data-i18n="g5.t">Sustainability Initiatives</div><p class="muted" data-i18n="g5.d">Environmental conservation programs and organic farming promotion across member farms.</p></div>
+        <div class="gallery-card"><div class="icon">🏆</div><div class="gallery-title" data-i18n="g6.t">Member Success Stories</div><p class="muted" data-i18n="g6.d">Celebrating the achievements and milestones reached by our dedicated cooperative members.</p></div>
       </div>
     </div>
   </section>
@@ -998,16 +1173,16 @@
   <section class="content-section" id="management">
     <div class="container">
       <div class="section-head">
-        <p class="section-label">Leadership</p>
-        <h2 class="section-title">Our Management Team</h2>
+        <p class="section-label" data-i18n="mgmt.label">Leadership</p>
+        <h2 class="section-title" data-i18n="mgmt.title">Our Management Team</h2>
       </div>
       <div class="team-grid">
-        <div class="member-card"><div class="avatar"><img src="images/Mamun.jpg" alt="Md Mamun">MM</div><div class="member-name">Md Mamun</div><div class="member-role">executive</div><p class="muted">Visionary leader with 20+ years in co-operative management and rural development.</p><div class="member-contact">mamun@nextmillionaireqr.com</div></div>
-        <div class="member-card"><div class="avatar"><img src="images/salam.jpeg" alt="Abdus Salam">AS</div><div class="member-name">Abdus Salam</div><div class="member-role">co-executive</div><p class="muted">Champion of women's empowerment and microfinance programs across 15 districts.</p><div class="member-contact">abdus@nextmillionaireqr.com</div></div>
-        <div class="member-card"><div class="avatar"><img src="images/najm.jpg" alt="Nazmul Hossain Sujan">NH</div><div class="member-name">Nazmul Hossain Sujan</div><div class="member-role">co-executive</div><p class="muted">CPA with expertise in co-operative accounting standards and fiscal transparency.</p><div class="member-contact">nazmul@nextmillionaireqr.com</div></div>
-        <div class="member-card"><div class="avatar"><img src="images/rakib.jpg" alt="Abdur Rakib">AR</div><div class="member-name">Abdur Rakib</div><div class="member-role">co-executive</div><p class="muted">Champion of women's empowerment and microfinance programs across 15 districts.</p><div class="member-contact">rakib@nextmillionaireqr.com</div></div>
-        <div class="member-card"><div class="avatar"><img src="images/jahangir.jpg" alt="Md Jahangir Hossain">JH</div><div class="member-name">Md Jahangir Hossain</div><div class="member-role">co-executive</div><p class="muted">Ensures governance compliance and maintains democratic member participation records.</p><div class="member-contact">jahangir@nextmillionaireqr.com</div></div>
-        <div class="member-card"><div class="avatar"><img src="images/mizan.jpg" alt="Md Mizanur Rahman">MR</div><div class="member-name">Md Mizanur Rahman</div><div class="member-role">IT Expert</div><p class="muted">IT expert in modern web design, development and UX solutions daily!</p><div class="member-contact">mizan@nextmillionaireqr.com</div></div>
+        <div class="member-card"><div class="avatar"><img src="images/Mamun.jpg" alt="Md Mamun">MM</div><div class="member-name">Md Mamun</div><div class="member-role" data-i18n="role.exec">executive</div><p class="muted" data-i18n="bio.leader">Visionary leader with 20+ years in co-operative management and rural development.</p><div class="member-contact">mamun@nextmillionaireqr.com</div></div>
+        <div class="member-card"><div class="avatar"><img src="images/salam.jpeg" alt="Abdus Salam">AS</div><div class="member-name">Abdus Salam</div><div class="member-role" data-i18n="role.coexec">co-executive</div><p class="muted" data-i18n="bio.champion">Champion of women's empowerment and microfinance programs across 15 districts.</p><div class="member-contact">abdus@nextmillionaireqr.com</div></div>
+        <div class="member-card"><div class="avatar"><img src="images/najm.jpg" alt="Nazmul Hossain Sujan">NH</div><div class="member-name">Nazmul Hossain Sujan</div><div class="member-role" data-i18n="role.coexec">co-executive</div><p class="muted" data-i18n="bio.cpa">CPA with expertise in co-operative accounting standards and fiscal transparency.</p><div class="member-contact">nazmul@nextmillionaireqr.com</div></div>
+        <div class="member-card"><div class="avatar"><img src="images/rakib.jpg" alt="Abdur Rakib">AR</div><div class="member-name">Abdur Rakib</div><div class="member-role" data-i18n="role.coexec">co-executive</div><p class="muted" data-i18n="bio.champion">Champion of women's empowerment and microfinance programs across 15 districts.</p><div class="member-contact">rakib@nextmillionaireqr.com</div></div>
+        <div class="member-card"><div class="avatar"><img src="images/jahangir.jpg" alt="Md Jahangir Hossain">JH</div><div class="member-name">Md Jahangir Hossain</div><div class="member-role" data-i18n="role.coexec">co-executive</div><p class="muted" data-i18n="bio.gov">Ensures governance compliance and maintains democratic member participation records.</p><div class="member-contact">jahangir@nextmillionaireqr.com</div></div>
+        <div class="member-card"><div class="avatar"><img src="images/mizan.jpg" alt="Md Mizanur Rahman">MR</div><div class="member-name">Md Mizanur Rahman</div><div class="member-role" data-i18n="role.it">IT Expert</div><p class="muted" data-i18n="bio.it">IT expert in modern web design, development and UX solutions daily!</p><div class="member-contact">mizan@nextmillionaireqr.com</div></div>
 
       </div>
     </div>
@@ -1016,34 +1191,34 @@
   <section class="content-section" id="driver-rental">
     <div class="container">
       <div class="section-head">
-        <p class="section-label">Commercial Fleet · Driver Program</p>
-        <h2 class="section-title">Rent a Car. Drive Your Way to Income.</h2>
-        <p class="muted" style="margin-top:14px; max-width:640px;">We've built our own fleet step by step — now 10 cars strong and growing every month. Each vehicle is available for commercial rent on a simple monthly lease: you drive it for income, and you pay us monthly. No large upfront purchase, no long-term commitment.</p>
+        <p class="section-label" data-i18n="dr.label">Commercial Fleet · Driver Program</p>
+        <h2 class="section-title" data-i18n="dr.title">Rent a Car. Drive Your Way to Income.</h2>
+        <p class="muted" style="margin-top:14px; max-width:640px;" data-i18n="dr.intro">We've built our own fleet step by step — now 10 cars strong and growing every month. Each vehicle is available for commercial rent on a simple monthly lease: you drive it for income, and you pay us monthly. No large upfront purchase, no long-term commitment.</p>
       </div>
       <div class="driver-steps">
         <div class="driver-step">
           <div class="driver-step-num">1</div>
-          <div class="driver-step-title">Apply</div>
-          <p>Fill out our Driver Registration Form with your details and driving experience.</p>
+          <div class="driver-step-title" data-i18n="dr.s1t">Apply</div>
+          <p data-i18n="dr.s1d">Fill out our Driver Registration Form with your details and driving experience.</p>
         </div>
         <div class="driver-step">
           <div class="driver-step-num">2</div>
-          <div class="driver-step-title">Get Verified</div>
-          <p>Our team reviews your application and documents, then reaches out to confirm.</p>
+          <div class="driver-step-title" data-i18n="dr.s2t">Get Verified</div>
+          <p data-i18n="dr.s2d">Our team reviews your application and documents, then reaches out to confirm.</p>
         </div>
         <div class="driver-step">
           <div class="driver-step-num">3</div>
-          <div class="driver-step-title">Drive &amp; Earn</div>
-          <p>Sign your monthly lease, pick up your car, and start driving for income.</p>
+          <div class="driver-step-title" data-i18n="dr.s3t">Drive &amp; Earn</div>
+          <p data-i18n="dr.s3d">Sign your monthly lease, pick up your car, and start driving for income.</p>
         </div>
       </div>
       <div>
-        <a href="https://forms.gle/8A5kRBSRUosY3T5PA" target="_blank" rel="noopener" class="btn-primary">Register as a Driver →</a>
+        <a href="https://forms.gle/8A5kRBSRUosY3T5PA" target="_blank" rel="noopener" class="btn-primary" data-i18n="dr.cta">Register as a Driver →</a>
       </div>
 
       <div class="fleet-head">
-        <h3 class="fleet-title">Our Fleet</h3>
-        <p class="muted">Browse our vehicles below. An "Apply to Rent" button means the car is open — a "Booked" badge means it's already leased.</p>
+        <h3 class="fleet-title" data-i18n="dr.fleetTitle">Our Fleet</h3>
+        <p class="muted" data-i18n="dr.fleetSubtitle">Browse our vehicles below. An "Apply to Rent" button means the car is open — a "Booked" badge means it's already leased.</p>
       </div>
       <div class="fleet-grid" id="fleetGrid"></div>
     </div>
@@ -1052,16 +1227,16 @@
   <section class="content-section" id="values">
     <div class="container">
       <div class="section-head">
-        <p class="section-label">Our Principles</p>
-        <h2 class="section-title">Built on Timeless Values</h2>
+        <p class="section-label" data-i18n="values.label">Our Principles</p>
+        <h2 class="section-title" data-i18n="values.title">Built on Timeless Values</h2>
       </div>
       <div class="values-grid">
-        <div class="value-card"><div class="icon">🤝</div><div class="value-title">Democratic Control</div><p class="muted">One member, one vote. Every decision is made collectively, ensuring all voices shape our direction equally.</p></div>
-        <div class="value-card"><div class="icon">💡</div><div class="value-title">Education & Training</div><p class="muted">We invest continuously in member skills, financial literacy, and leadership development for long-term empowerment.</p></div>
-        <div class="value-card"><div class="icon">🌿</div><div class="value-title">Environmental Stewardship</div><p class="muted">Sustainable practices protect the land and resources for future generations of our farming community.</p></div>
-        <div class="value-card"><div class="icon">⚖️</div><div class="value-title">Equitable Distribution</div><p class="muted">Surplus is distributed fairly based on member participation — rewarding contribution, not capital ownership.</p></div>
-        <div class="value-card"><div class="icon">🛡️</div><div class="value-title">Transparency</div><p class="muted">Open books, open decisions. Every member has access to financial records and governance documents.</p></div>
-        <div class="value-card"><div class="icon">🌍</div><div class="value-title">Community Concern</div><p class="muted">We work for the sustainable development of our communities through policies accepted by our members.</p></div>
+        <div class="value-card"><div class="icon">🤝</div><div class="value-title" data-i18n="v1.t">Democratic Control</div><p class="muted" data-i18n="v1.d">One member, one vote. Every decision is made collectively, ensuring all voices shape our direction equally.</p></div>
+        <div class="value-card"><div class="icon">💡</div><div class="value-title" data-i18n="v2.t">Education & Training</div><p class="muted" data-i18n="v2.d">We invest continuously in member skills, financial literacy, and leadership development for long-term empowerment.</p></div>
+        <div class="value-card"><div class="icon">🌿</div><div class="value-title" data-i18n="v3.t">Environmental Stewardship</div><p class="muted" data-i18n="v3.d">Sustainable practices protect the land and resources for future generations of our farming community.</p></div>
+        <div class="value-card"><div class="icon">⚖️</div><div class="value-title" data-i18n="v4.t">Equitable Distribution</div><p class="muted" data-i18n="v4.d">Surplus is distributed fairly based on member participation — rewarding contribution, not capital ownership.</p></div>
+        <div class="value-card"><div class="icon">🛡️</div><div class="value-title" data-i18n="v5.t">Transparency</div><p class="muted" data-i18n="v5.d">Open books, open decisions. Every member has access to financial records and governance documents.</p></div>
+        <div class="value-card"><div class="icon">🌍</div><div class="value-title" data-i18n="v6.t">Community Concern</div><p class="muted" data-i18n="v6.d">We work for the sustainable development of our communities through policies accepted by our members.</p></div>
       </div>
     </div>
   </section>
@@ -1069,17 +1244,17 @@
   <section class="content-section" id="contact">
     <div class="container">
       <div class="section-head">
-        <p class="section-label">Get In Touch</p>
-        <h2 class="section-title">Join Our Co-operative</h2>
-        <p class="muted" style="margin-top:14px; max-width:620px;">Become a member or partner with us. Together we can build a more equitable and sustainable future.</p>
+        <p class="section-label" data-i18n="contact.label">Get In Touch</p>
+        <h2 class="section-title" data-i18n="contact.title">Join Our Co-operative</h2>
+        <p class="muted" style="margin-top:14px; max-width:620px;" data-i18n="contact.subtitle">Become a member or partner with us. Together we can build a more equitable and sustainable future.</p>
       </div>
       <div class="contact-grid">
-        <div class="contact-item"><div class="contact-label">Address</div><div class="contact-value">Al Funduq Street, West Bay,<br>Doha, Qatar</div></div>
-        <div class="contact-item"><div class="contact-label">Phone</div><div class="contact-value">+880 1912-142028<br>+880 1812-345678</div></div>
-        <div class="contact-item"><div class="contact-label">Email</div><div class="contact-value">info@nextmillionaireqr.com<br>join@nextmillionaireqr.com</div></div>
-        <div class="contact-item"><div class="contact-label">Office Hours</div><div class="contact-value">Sun - Thu: 9am - 5pm<br>Friday: 10am - 1pm</div></div>
+        <div class="contact-item"><div class="contact-label" data-i18n="c.address">Address</div><div class="contact-value">Al Funduq Street, West Bay,<br>Doha, Qatar</div></div>
+        <div class="contact-item"><div class="contact-label" data-i18n="c.phone">Phone</div><div class="contact-value">+880 1912-142028<br>+880 1812-345678</div></div>
+        <div class="contact-item"><div class="contact-label" data-i18n="c.email">Email</div><div class="contact-value">info@nextmillionaireqr.com<br>join@nextmillionaireqr.com</div></div>
+        <div class="contact-item"><div class="contact-label" data-i18n="c.hours">Office Hours</div><div class="contact-value" data-i18n="c.hoursVal">Sun - Thu: 9am - 5pm<br>Friday: 10am - 1pm</div></div>
       </div>
-      <div style="margin-top:32px;"><a href="#" class="btn-primary">Send Us a Message</a></div>
+      <div style="margin-top:32px;"><a href="#" class="btn-primary" data-i18n="contact.btn">Send Us a Message</a></div>
     </div>
   </section>
 
@@ -1087,7 +1262,7 @@
     <div class="footer-inner">
       <strong>Next Millionaire</strong>
       <span>© 2026 Next Millionaire · Registration No. CO-4471/2010</span>
-      <span>Committed to ICA Co-operative Principles</span>
+      <span data-i18n="footer.ica">Committed to ICA Co-operative Principles</span>
     </div>
   </footer>
 
@@ -1118,33 +1293,59 @@
       }
     });
 
-    // Character animation for heading
+    // Character animation for heading (language-aware)
     const heading = document.getElementById("heading");
-    const lines = ["Build Your", "Dreams"];
-    const charDelay = 30;
-    const initialDelay = 200;
-    heading.innerHTML = "";
+    window.heroLines = {
+      en: ["Build Your", "Dreams"],
+      bn: ["আপনার স্বপ্ন", "গড়ে তুলুন"],
+      ar: ["ابنِ", "أحلامك"]
+    };
 
-    lines.forEach((line, lineIndex) => {
-      const lineSpan = document.createElement("span");
-      lineSpan.style.display = "block";
-      [...line].forEach((char, charIndex) => {
-        const span = document.createElement("span");
-        span.className = "char";
-        span.innerHTML = char === " " ? "&nbsp;" : char;
-        const delay = initialDelay + lineIndex * line.length * charDelay + charIndex * charDelay;
-        span.style.transitionDelay = delay + "ms";
-        lineSpan.appendChild(span);
-      });
-      heading.appendChild(lineSpan);
-    });
+    window.setHeroHeading = function (lang) {
+      const lines = window.heroLines[lang] || window.heroLines.en;
+      const charDelay = 30;
+      const initialDelay = 200;
+      heading.innerHTML = "";
 
-    setTimeout(() => {
-      document.querySelectorAll(".char").forEach((char) => {
-        char.style.opacity = "1";
-        char.style.transform = "translateX(0)";
+      // Latin script (English) can safely animate letter-by-letter since each
+      // character is an independent glyph. Bengali and Arabic use connected/
+      // shaped scripts (conjuncts, matras, ligatures) that must stay together
+      // in the same box to render correctly, so those animate word-by-word.
+      const isShapedScript = lang === "bn" || lang === "ar";
+
+      lines.forEach((line, lineIndex) => {
+        const lineSpan = document.createElement("span");
+        lineSpan.style.display = "block";
+
+        const units = isShapedScript ? line.split(" ") : [...line];
+
+        units.forEach((unit, unitIndex) => {
+          const span = document.createElement("span");
+          span.className = "char";
+          span.innerHTML = unit === "" ? "&nbsp;" : unit;
+          const delay = initialDelay + lineIndex * units.length * charDelay + unitIndex * charDelay;
+          span.style.transitionDelay = delay + "ms";
+          lineSpan.appendChild(span);
+
+          // Re-insert a real space between words so text wraps/reads normally
+          if (isShapedScript && unitIndex < units.length - 1) {
+            lineSpan.appendChild(document.createTextNode(" "));
+          }
+        });
+
+        heading.appendChild(lineSpan);
       });
-    }, 50);
+
+      setTimeout(() => {
+        heading.querySelectorAll(".char").forEach((char) => {
+          char.style.opacity = "1";
+          char.style.transform = "translateX(0)";
+        });
+      }, 50);
+    };
+
+    window.setHeroHeading("en");
+
     setTimeout(() => document.getElementById("subheading").classList.add("show"), 800);
     setTimeout(() => document.getElementById("buttons").classList.add("show"), 1200);
     // Trigger tag-wrap visibility if element exists
@@ -1159,46 +1360,226 @@
     //
     // HOW TO ADD A NEW CAR:
     //   1. Add the car's photo to the images/fleet/ folder.
-    //   2. Add one line below with its filename, a short label, and status.
+    //   2. Add one line below with its filename and status.
     //   3. status: "available" -> shows an "Apply to Rent" button (links to the driver form)
     //      status: "booked"    -> shows a grey "Booked" badge (not clickable)
     //   The grid updates automatically — no other changes needed.
     // ===================================================================
     const fleetCars = [
-      { image: "images/fleet/car-01.jpg", label: "Car 1", status: "booked" },
-      { image: "images/fleet/car-02.jpg", label: "Car 2", status: "booked" },
-      { image: "images/fleet/car-03.jpg", label: "Car 3", status: "booked" },
-      { image: "images/fleet/car-04.jpg", label: "Car 4", status: "booked" },
-      { image: "images/fleet/car-05.jpg", label: "Car 5", status: "booked" },
-      { image: "images/fleet/car-06.jpg", label: "Car 6", status: "booked" },
-      { image: "images/fleet/car-07.jpg", label: "Car 7", status: "booked" },
-      { image: "images/fleet/car-08.jpg", label: "Car 8", status: "booked" },
-      { image: "images/fleet/car-09.jpg", label: "Car 9", status: "booked" },
-      { image: "images/fleet/car-10.jpg", label: "Car 10", status: "booked" },
-      { image: "images/fleet/car-11.jpg", label: "Car 11", status: "booked" },
-      { image: "images/fleet/car-12.jpg", label: "Car 12", status: "booked" },
+      { image: "images/fleet/car-01.jpg", num: 1, status: "booked" },
+      { image: "images/fleet/car-02.jpg", num: 2, status: "booked" },
+      { image: "images/fleet/car-03.jpg", num: 3, status: "booked" },
+      { image: "images/fleet/car-04.jpg", num: 4, status: "booked" },
+      { image: "images/fleet/car-05.jpg", num: 5, status: "booked" },
+      { image: "images/fleet/car-06.jpg", num: 6, status: "booked" },
+      { image: "images/fleet/car-07.jpg", num: 7, status: "booked" },
+      { image: "images/fleet/car-08.jpg", num: 8, status: "booked" },
+      { image: "images/fleet/car-09.jpg", num: 9, status: "booked" },
+      { image: "images/fleet/car-10.jpg", num: 10, status: "booked" },
+      { image: "images/fleet/car-11.jpg", num: 11, status: "booked" },
+      { image: "images/fleet/car-12.jpg", num: 12, status: "booked" },
     ];
 
     const driverFormUrl = "https://forms.gle/8A5kRBSRUosY3T5PA";
 
-    function renderFleet() {
+    const fleetWords = {
+      en: { car: "Car", booked: "Booked", apply: "Apply to Rent" },
+      bn: { car: "গাড়ি", booked: "বুক করা হয়েছে", apply: "ভাড়ার জন্য আবেদন করুন" },
+      ar: { car: "سيارة", booked: "محجوزة", apply: "قدّم للإيجار" }
+    };
+
+    window.renderFleet = function (lang) {
       const grid = document.getElementById("fleetGrid");
       if (!grid) return;
+      const words = fleetWords[lang] || fleetWords.en;
       grid.innerHTML = fleetCars.map(function (car) {
+        const label = words.car + " " + car.num;
         const action = car.status === "booked"
-          ? '<span class="fleet-status booked">Booked</span>'
-          : '<a href="' + driverFormUrl + '" target="_blank" rel="noopener" class="fleet-status available">Apply to Rent</a>';
+          ? '<span class="fleet-status booked">' + words.booked + '</span>'
+          : '<a href="' + driverFormUrl + '" target="_blank" rel="noopener" class="fleet-status available">' + words.apply + '</a>';
         return '' +
           '<div class="fleet-card">' +
-            '<div class="fleet-photo"><img src="' + car.image + '" alt="' + car.label + '" loading="lazy"></div>' +
+            '<div class="fleet-photo"><img src="' + car.image + '" alt="' + label + '" loading="lazy"></div>' +
             '<div class="fleet-info">' +
-              '<span class="fleet-label">' + car.label + '</span>' +
+              '<span class="fleet-label">' + label + '</span>' +
               action +
             '</div>' +
           '</div>';
       }).join("");
-    }
-    renderFleet();
+    };
+    window.renderFleet("en");
   </script>
+
+  <script>
+    window.translations = {
+      en: {
+        "nav.about": "About", "nav.gallery": "Gallery", "nav.team": "Team", "nav.values": "Values", "nav.contact": "Contact",
+        "hero.eyebrow": "Est. 2026 · Registered Co-operative",
+        "hero.subtitle": "Next Millionaire Co-operative empowers communities through shared ownership, sustainable agriculture, and collective prosperity — rooted in trust, grown by people.",
+        "hero.btn1": "Meet Our Team",
+        "hero.btn2": "Our Story",
+        "about.label": "About Next Millionaire",
+        "about.title": "A Co-operative Built on Shared Values",
+        "about.para1": "Next Millionaire Co-operative was founded with a simple belief: when people work together with shared ownership and mutual accountability, extraordinary things happen. We unite farmers, consumers, and entrepreneurs into a resilient economic community.",
+        "about.para2": "Our democratic structure ensures every member has a voice. Profits are reinvested into the community, creating lasting impact across generations.",
+        "stat.members": "Active Members", "stat.years": "Years of Service", "stat.turnover": "Annual Turnover", "stat.villages": "Villages Served",
+        "about.tagline1": "🌱 Cultivating community wealth through democratic enterprise",
+        "about.tagline2": "98% Member Satisfaction",
+        "gallery.label": "Our Work in Action",
+        "gallery.title": "Programs &amp; Impact Gallery",
+        "gallery.subtitle": "See how our initiatives are transforming lives and communities across the region.",
+        "g1.t": "Agricultural Training", "g1.d": "Member education on sustainable farming techniques and modern crop management practices.",
+        "g2.t": "Business Skills", "g2.d": "Financial literacy, market access, and entrepreneurship workshops for cooperative members.",
+        "g3.t": "Community Outreach", "g3.d": "Engaging with rural communities to build sustainable development and social networks.",
+        "g4.t": "Financial Planning", "g4.d": "Member-focused financial services and microfinance initiatives for growth and stability.",
+        "g5.t": "Sustainability Initiatives", "g5.d": "Environmental conservation programs and organic farming promotion across member farms.",
+        "g6.t": "Member Success Stories", "g6.d": "Celebrating the achievements and milestones reached by our dedicated cooperative members.",
+        "mgmt.label": "Leadership",
+        "mgmt.title": "Our Management Team",
+        "role.exec": "executive", "role.coexec": "co-executive", "role.it": "IT Expert",
+        "bio.leader": "Visionary leader with 20+ years in co-operative management and rural development.",
+        "bio.champion": "Champion of women's empowerment and microfinance programs across 15 districts.",
+        "bio.cpa": "CPA with expertise in co-operative accounting standards and fiscal transparency.",
+        "bio.gov": "Ensures governance compliance and maintains democratic member participation records.",
+        "bio.it": "IT expert in modern web design, development and UX solutions daily!",
+        "dr.label": "Commercial Fleet · Driver Program",
+        "dr.title": "Rent a Car. Drive Your Way to Income.",
+        "dr.intro": "We've built our own fleet step by step — now 10 cars strong and growing every month. Each vehicle is available for commercial rent on a simple monthly lease: you drive it for income, and you pay us monthly. No large upfront purchase, no long-term commitment.",
+        "dr.s1t": "Apply", "dr.s1d": "Fill out our Driver Registration Form with your details and driving experience.",
+        "dr.s2t": "Get Verified", "dr.s2d": "Our team reviews your application and documents, then reaches out to confirm.",
+        "dr.s3t": "Drive &amp; Earn", "dr.s3d": "Sign your monthly lease, pick up your car, and start driving for income.",
+        "dr.cta": "Register as a Driver →",
+        "dr.fleetTitle": "Our Fleet",
+        "dr.fleetSubtitle": "Browse our vehicles below. An \"Apply to Rent\" button means the car is open — a \"Booked\" badge means it's already leased.",
+        "values.label": "Our Principles",
+        "values.title": "Built on Timeless Values",
+        "v1.t": "Democratic Control", "v1.d": "One member, one vote. Every decision is made collectively, ensuring all voices shape our direction equally.",
+        "v2.t": "Education &amp; Training", "v2.d": "We invest continuously in member skills, financial literacy, and leadership development for long-term empowerment.",
+        "v3.t": "Environmental Stewardship", "v3.d": "Sustainable practices protect the land and resources for future generations of our farming community.",
+        "v4.t": "Equitable Distribution", "v4.d": "Surplus is distributed fairly based on member participation — rewarding contribution, not capital ownership.",
+        "v5.t": "Transparency", "v5.d": "Open books, open decisions. Every member has access to financial records and governance documents.",
+        "v6.t": "Community Concern", "v6.d": "We work for the sustainable development of our communities through policies accepted by our members.",
+        "contact.label": "Get In Touch",
+        "contact.title": "Join Our Co-operative",
+        "contact.subtitle": "Become a member or partner with us. Together we can build a more equitable and sustainable future.",
+        "c.address": "Address", "c.phone": "Phone", "c.email": "Email", "c.hours": "Office Hours",
+        "c.hoursVal": "Sun - Thu: 9am - 5pm<br>Friday: 10am - 1pm",
+        "contact.btn": "Send Us a Message",
+        "footer.ica": "Committed to ICA Co-operative Principles"
+      },
+      bn: {
+        "nav.about": "আমাদের সম্পর্কে", "nav.gallery": "গ্যালারি", "nav.team": "টিম", "nav.values": "মূল্যবোধ", "nav.contact": "যোগাযোগ",
+        "hero.eyebrow": "প্রতিষ্ঠিত ২০২৬ · নিবন্ধিত সমবায় সমিতি",
+        "hero.subtitle": "নেক্সট মিলিয়নিয়ার কো-অপারেটিভ যৌথ মালিকানা, টেকসই কৃষি এবং সমষ্টিগত সমৃদ্ধির মাধ্যমে সম্প্রদায়কে ক্ষমতায়ন করে — বিশ্বাসে প্রোথিত, মানুষের হাতে গড়া।",
+        "hero.btn1": "আমাদের টিমের সাথে পরিচিত হোন",
+        "hero.btn2": "আমাদের গল্প",
+        "about.label": "নেক্সট মিলিয়নিয়ার সম্পর্কে",
+        "about.title": "যৌথ মূল্যবোধের উপর গড়া একটি সমবায় সমিতি",
+        "about.para1": "নেক্সট মিলিয়নিয়ার কো-অপারেটিভ একটি সহজ বিশ্বাস নিয়ে প্রতিষ্ঠিত হয়েছে: মানুষ যখন যৌথ মালিকানা ও পারস্পরিক জবাবদিহিতার মাধ্যমে একসাথে কাজ করে, তখন অসাধারণ কিছু ঘটে। আমরা কৃষক, ভোক্তা এবং উদ্যোক্তাদের একত্রিত করে একটি টেকসই অর্থনৈতিক সম্প্রদায় গড়ে তুলি।",
+        "about.para2": "আমাদের গণতান্ত্রিক কাঠামো নিশ্চিত করে যে প্রতিটি সদস্যের মতামতের গুরুত্ব রয়েছে। মুনাফা সম্প্রদায়ে পুনর্বিনিয়োগ করা হয়, যা প্রজন্ম থেকে প্রজন্মে স্থায়ী প্রভাব তৈরি করে।",
+        "stat.members": "সক্রিয় সদস্য", "stat.years": "সেবার বছর", "stat.turnover": "বার্ষিক লেনদেন", "stat.villages": "সেবাপ্রাপ্ত গ্রাম",
+        "about.tagline1": "🌱 গণতান্ত্রিক উদ্যোগের মাধ্যমে সমষ্টিগত সম্পদ গড়ে তোলা",
+        "about.tagline2": "৯৮% সদস্য সন্তুষ্টি",
+        "gallery.label": "আমাদের কর্মকাণ্ড",
+        "gallery.title": "কর্মসূচি ও প্রভাবের গ্যালারি",
+        "gallery.subtitle": "দেখুন কীভাবে আমাদের উদ্যোগ পুরো অঞ্চল জুড়ে মানুষের জীবন ও সম্প্রদায়কে বদলে দিচ্ছে।",
+        "g1.t": "কৃষি প্রশিক্ষণ", "g1.d": "টেকসই কৃষি কৌশল ও আধুনিক ফসল ব্যবস্থাপনা বিষয়ে সদস্যদের প্রশিক্ষণ।",
+        "g2.t": "ব্যবসায়িক দক্ষতা", "g2.d": "সমবায় সদস্যদের জন্য আর্থিক সাক্ষরতা, বাজার সংযোগ এবং উদ্যোক্তা কর্মশালা।",
+        "g3.t": "সম্প্রদায়ের সাথে যোগাযোগ", "g3.d": "টেকসই উন্নয়ন ও সামাজিক নেটওয়ার্ক গড়তে গ্রামীণ সম্প্রদায়ের সাথে সম্পৃক্ততা।",
+        "g4.t": "আর্থিক পরিকল্পনা", "g4.d": "প্রবৃদ্ধি ও স্থিতিশীলতার জন্য সদস্যকেন্দ্রিক আর্থিক সেবা ও ক্ষুদ্রঋণ উদ্যোগ।",
+        "g5.t": "টেকসই উদ্যোগ", "g5.d": "সদস্যদের খামারজুড়ে পরিবেশ সংরক্ষণ কর্মসূচি ও জৈব কৃষির প্রসার।",
+        "g6.t": "সদস্যদের সাফল্যের গল্প", "g6.d": "আমাদের নিবেদিতপ্রাণ সমবায় সদস্যদের অর্জন ও মাইলফলক উদযাপন।",
+        "mgmt.label": "নেতৃত্ব",
+        "mgmt.title": "আমাদের ব্যবস্থাপনা টিম",
+        "role.exec": "নির্বাহী", "role.coexec": "সহ-নির্বাহী", "role.it": "আইটি বিশেষজ্ঞ",
+        "bio.leader": "সমবায় ব্যবস্থাপনা ও গ্রামীণ উন্নয়নে ২০+ বছরের অভিজ্ঞতাসম্পন্ন দূরদর্শী নেতা।",
+        "bio.champion": "১৫টি জেলাজুড়ে নারীর ক্ষমতায়ন ও ক্ষুদ্রঋণ কর্মসূচির একজন প্রবক্তা।",
+        "bio.cpa": "সমবায় হিসাবরক্ষণ মান ও আর্থিক স্বচ্ছতায় দক্ষ একজন সিপিএ (চার্টার্ড অ্যাকাউন্ট্যান্ট)।",
+        "bio.gov": "পরিচালনাগত সম্মতি নিশ্চিত করেন এবং গণতান্ত্রিক সদস্য অংশগ্রহণের রেকর্ড সংরক্ষণ করেন।",
+        "bio.it": "আধুনিক ওয়েব ডিজাইন, ডেভেলপমেন্ট এবং ইউএক্স সমাধানে দক্ষ আইটি বিশেষজ্ঞ!",
+        "dr.label": "বাণিজ্যিক বহর · চালক কর্মসূচি",
+        "dr.title": "গাড়ি ভাড়া নিন। আয়ের পথে গাড়ি চালান।",
+        "dr.intro": "আমরা ধাপে ধাপে নিজস্ব গাড়ির বহর গড়ে তুলেছি — এখন ১০টি গাড়ি নিয়ে, এবং প্রতি মাসে তা আরও বাড়ছে। প্রতিটি গাড়ি একটি সহজ মাসিক লিজে বাণিজ্যিক ভাড়ায় পাওয়া যায়: আপনি আয়ের জন্য গাড়ি চালাবেন এবং আমাদের মাসিক অর্থ পরিশোধ করবেন। কোনো বড় অগ্রিম অর্থ প্রয়োজন নেই, দীর্ঘমেয়াদী প্রতিশ্রুতিরও দরকার নেই।",
+        "dr.s1t": "আবেদন করুন", "dr.s1d": "আপনার তথ্য ও ড্রাইভিং অভিজ্ঞতাসহ আমাদের চালক নিবন্ধন ফর্ম পূরণ করুন।",
+        "dr.s2t": "যাচাই সম্পন্ন করুন", "dr.s2d": "আমাদের টিম আপনার আবেদন ও কাগজপত্র যাচাই করে নিশ্চিত করতে যোগাযোগ করবে।",
+        "dr.s3t": "গাড়ি চালান ও আয় করুন", "dr.s3d": "মাসিক লিজে স্বাক্ষর করুন, গাড়ি সংগ্রহ করুন এবং আয়ের জন্য গাড়ি চালানো শুরু করুন।",
+        "dr.cta": "চালক হিসেবে নিবন্ধন করুন →",
+        "dr.fleetTitle": "আমাদের গাড়ির বহর",
+        "dr.fleetSubtitle": "নিচে আমাদের গাড়িগুলো দেখুন। \"Apply to Rent\" বাটন মানে গাড়িটি খালি আছে — \"Booked\" ব্যাজ মানে এটি ইতিমধ্যে লিজ দেওয়া হয়েছে।",
+        "values.label": "আমাদের নীতিমালা",
+        "values.title": "চিরন্তন মূল্যবোধের উপর প্রতিষ্ঠিত",
+        "v1.t": "গণতান্ত্রিক নিয়ন্ত্রণ", "v1.d": "একজন সদস্য, একটি ভোট। প্রতিটি সিদ্ধান্ত যৌথভাবে নেওয়া হয়, যাতে সকলের মতামত সমানভাবে আমাদের দিকনির্দেশনা গঠন করে।",
+        "v2.t": "শিক্ষা ও প্রশিক্ষণ", "v2.d": "দীর্ঘমেয়াদী ক্ষমতায়নের জন্য আমরা সদস্যদের দক্ষতা, আর্থিক সাক্ষরতা এবং নেতৃত্ব উন্নয়নে ক্রমাগত বিনিয়োগ করি।",
+        "v3.t": "পরিবেশগত তত্ত্বাবধান", "v3.d": "টেকসই চর্চা আমাদের কৃষি সম্প্রদায়ের ভবিষ্যৎ প্রজন্মের জন্য জমি ও সম্পদ রক্ষা করে।",
+        "v4.t": "ন্যায্য বণ্টন", "v4.d": "সদস্যদের অংশগ্রহণের ভিত্তিতে উদ্বৃত্ত ন্যায্যভাবে বণ্টন করা হয় — যা মূলধনের মালিকানা নয়, অবদানকে পুরস্কৃত করে।",
+        "v5.t": "স্বচ্ছতা", "v5.d": "উন্মুক্ত হিসাব, উন্মুক্ত সিদ্ধান্ত। প্রতিটি সদস্যের আর্থিক নথি ও পরিচালনা সংক্রান্ত নথিতে প্রবেশাধিকার রয়েছে।",
+        "v6.t": "সম্প্রদায়ের প্রতি দায়বদ্ধতা", "v6.d": "আমরা সদস্যদের গৃহীত নীতিমালার মাধ্যমে আমাদের সম্প্রদায়ের টেকসই উন্নয়নে কাজ করি।",
+        "contact.label": "যোগাযোগ করুন",
+        "contact.title": "আমাদের সমবায়ে যোগ দিন",
+        "contact.subtitle": "সদস্য হন অথবা আমাদের সাথে অংশীদার হন। একসাথে আমরা আরও ন্যায্য ও টেকসই ভবিষ্যৎ গড়তে পারি।",
+        "c.address": "ঠিকানা", "c.phone": "ফোন", "c.email": "ইমেইল", "c.hours": "অফিসের সময়",
+        "c.hoursVal": "রবি - বৃহস্পতি: সকাল ৯টা - বিকাল ৫টা<br>শুক্রবার: সকাল ১০টা - দুপুর ১টা",
+        "contact.btn": "আমাদের বার্তা পাঠান",
+        "footer.ica": "আইসিএ সমবায় নীতিমালার প্রতি প্রতিশ্রুতিবদ্ধ"
+      },
+      ar: {
+        "nav.about": "من نحن", "nav.gallery": "معرض الصور", "nav.team": "الفريق", "nav.values": "قيمنا", "nav.contact": "تواصل معنا",
+        "hero.eyebrow": "تأسست 2026 · جمعية تعاونية مسجلة",
+        "hero.subtitle": "تعمل جمعية نكست ميليونير التعاونية على تمكين المجتمعات من خلال الملكية المشتركة والزراعة المستدامة والازدهار الجماعي — متجذرة في الثقة، وينميها الناس.",
+        "hero.btn1": "تعرف على فريقنا",
+        "hero.btn2": "قصتنا",
+        "about.label": "عن نكست ميليونير",
+        "about.title": "جمعية تعاونية مبنية على قيم مشتركة",
+        "about.para1": "تأسست جمعية نكست ميليونير التعاونية على إيمان بسيط: عندما يعمل الناس معًا بملكية مشتركة ومساءلة متبادلة، تحدث أمور استثنائية. نجمع المزارعين والمستهلكين ورواد الأعمال في مجتمع اقتصادي قوي ومترابط.",
+        "about.para2": "يضمن هيكلنا الديمقراطي أن يكون لكل عضو صوت مسموع. يُعاد استثمار الأرباح في المجتمع، مما يخلق أثرًا دائمًا عبر الأجيال.",
+        "stat.members": "الأعضاء النشطون", "stat.years": "سنوات الخدمة", "stat.turnover": "الإيرادات السنوية", "stat.villages": "القرى التي نخدمها",
+        "about.tagline1": "🌱 نزرع ثروة المجتمع من خلال المشاريع الديمقراطية",
+        "about.tagline2": "98% رضا الأعضاء",
+        "gallery.label": "أعمالنا في الميدان",
+        "gallery.title": "معرض البرامج والأثر",
+        "gallery.subtitle": "شاهد كيف تُحدث مبادراتنا تحولًا في حياة الناس والمجتمعات في جميع أنحاء المنطقة.",
+        "g1.t": "التدريب الزراعي", "g1.d": "تدريب الأعضاء على تقنيات الزراعة المستدامة وأساليب إدارة المحاصيل الحديثة.",
+        "g2.t": "المهارات التجارية", "g2.d": "ورش عمل حول المعرفة المالية والوصول إلى الأسواق وريادة الأعمال لأعضاء الجمعية.",
+        "g3.t": "التواصل المجتمعي", "g3.d": "التفاعل مع المجتمعات الريفية لبناء تنمية مستدامة وشبكات اجتماعية.",
+        "g4.t": "التخطيط المالي", "g4.d": "خدمات مالية تركز على الأعضاء ومبادرات التمويل الأصغر لتحقيق النمو والاستقرار.",
+        "g5.t": "مبادرات الاستدامة", "g5.d": "برامج للحفاظ على البيئة وتعزيز الزراعة العضوية في مزارع الأعضاء.",
+        "g6.t": "قصص نجاح الأعضاء", "g6.d": "الاحتفاء بإنجازات وأعضاء جمعيتنا المتفانين ومحطاتهم المهمة.",
+        "mgmt.label": "القيادة",
+        "mgmt.title": "فريق الإدارة لدينا",
+        "role.exec": "المدير التنفيذي", "role.coexec": "نائب تنفيذي", "role.it": "خبير تقنية المعلومات",
+        "bio.leader": "قائد صاحب رؤية يمتلك خبرة تزيد عن 20 عامًا في الإدارة التعاونية والتنمية الريفية.",
+        "bio.champion": "رائد في برامج تمكين المرأة والتمويل الأصغر عبر 15 منطقة.",
+        "bio.cpa": "محاسب قانوني معتمد يتمتع بخبرة في معايير المحاسبة التعاونية والشفافية المالية.",
+        "bio.gov": "يضمن الالتزام بالحوكمة ويحتفظ بسجلات مشاركة الأعضاء الديمقراطية.",
+        "bio.it": "خبير تقنية معلومات متخصص في تصميم وتطوير المواقع وحلول تجربة المستخدم يوميًا!",
+        "dr.label": "الأسطول التجاري · برنامج السائقين",
+        "dr.title": "استأجر سيارة. اقُد طريقك نحو الدخل.",
+        "dr.intro": "قمنا ببناء أسطولنا الخاص خطوة بخطوة — ويضم الآن 10 سيارات، ويستمر في النمو كل شهر. كل سيارة متاحة للإيجار التجاري بعقد إيجار شهري بسيط: تقود السيارة لتحقيق دخل، وتدفع لنا شهريًا. بدون دفعة أولى كبيرة، وبدون التزام طويل الأمد.",
+        "dr.s1t": "قدّم طلبك", "dr.s1d": "املأ استمارة تسجيل السائق ببياناتك وخبرتك في القيادة.",
+        "dr.s2t": "التحقق من طلبك", "dr.s2d": "يراجع فريقنا طلبك ومستنداتك، ثم يتواصل معك للتأكيد.",
+        "dr.s3t": "قُد واكسب", "dr.s3d": "وقّع عقد الإيجار الشهري، واستلم سيارتك، وابدأ القيادة لتحقيق الدخل.",
+        "dr.cta": "سجّل كسائق ←",
+        "dr.fleetTitle": "أسطولنا",
+        "dr.fleetSubtitle": "تصفح سياراتنا أدناه. زر \"التقديم للإيجار\" يعني أن السيارة متاحة — وشارة \"محجوزة\" تعني أنها مؤجرة بالفعل.",
+        "values.label": "مبادئنا",
+        "values.title": "مبني على قيم خالدة",
+        "v1.t": "الرقابة الديمقراطية", "v1.d": "عضو واحد، صوت واحد. يُتخذ كل قرار بشكل جماعي، بما يضمن أن تُشكّل جميع الآراء اتجاهنا بالتساوي.",
+        "v2.t": "التعليم والتدريب", "v2.d": "نستثمر باستمرار في مهارات الأعضاء والمعرفة المالية وتطوير القيادات من أجل التمكين طويل الأمد.",
+        "v3.t": "الإشراف البيئي", "v3.d": "تحمي الممارسات المستدامة الأرض والموارد للأجيال القادمة من مجتمعنا الزراعي.",
+        "v4.t": "التوزيع العادل", "v4.d": "يُوزَّع الفائض بعدالة بناءً على مشاركة الأعضاء — لمكافأة المساهمة، لا ملكية رأس المال.",
+        "v5.t": "الشفافية", "v5.d": "سجلات مفتوحة، وقرارات مفتوحة. يمكن لكل عضو الاطلاع على السجلات المالية ووثائق الحوكمة.",
+        "v6.t": "الاهتمام بالمجتمع", "v6.d": "نعمل من أجل التنمية المستدامة لمجتمعاتنا من خلال سياسات يوافق عليها أعضاؤنا.",
+        "contact.label": "تواصل معنا",
+        "contact.title": "انضم إلى جمعيتنا التعاونية",
+        "contact.subtitle": "كن عضوًا أو شريكًا معنا. معًا يمكننا بناء مستقبل أكثر عدلاً واستدامة.",
+        "c.address": "العنوان", "c.phone": "الهاتف", "c.email": "البريد الإلكتروني", "c.hours": "ساعات العمل",
+        "c.hoursVal": "الأحد - الخميس: 9 صباحًا - 5 مساءً<br>الجمعة: 10 صباحًا - 1 ظهرًا",
+        "contact.btn": "أرسل لنا رسالة",
+        "footer.ica": "ملتزمون بمبادئ التحالف التعاوني الدولي (ICA)"
+      }
+    };
+  </script>
+  <script src="js/theme-toggle.js"></script>
+  <script src="js/i18n.js"></script>
 </body>
 </html>
