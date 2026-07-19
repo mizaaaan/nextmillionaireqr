@@ -774,6 +774,19 @@
       margin-top: 56px;
       margin-bottom: 24px;
     }
+    .fleet-head-row {
+      margin-top: 56px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .fleet-subtitle {
+      margin-top: 10px;
+      margin-bottom: 28px;
+      max-width: 640px;
+    }
     .fleet-title {
       font-size: 22px;
       font-weight: 600;
@@ -844,6 +857,107 @@
       background: transparent;
       color: #fff;
       border-color: #fff;
+    }
+
+    /* ── Homepage fleet preview: white card grid (photo, title, blurb, CTA) ── */
+    .fleet-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .fleet-card-v2 {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .fleet-card-v2:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.2);
+    }
+    .fleet-card-v2-photo {
+      position: relative;
+      aspect-ratio: 16 / 11;
+      overflow: hidden;
+      background: #eef1f3;
+    }
+    .fleet-card-v2-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .fleet-pill {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .fleet-pill.available { background: rgba(255, 255, 255, 0.95); color: #1a8449; }
+    .fleet-pill.available .dot { width: 6px; height: 6px; border-radius: 50%; background: #21b25e; display: inline-block; }
+    .fleet-pill.booked { background: rgba(20, 24, 28, 0.7); color: #fff; }
+    .fleet-card-v2-body {
+      padding: 22px 22px 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .fleet-card-v2-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+    .fleet-card-v2-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #666;
+      flex: 1;
+    }
+    .fleet-card-v2-divider {
+      height: 1px;
+      background: #ececec;
+      margin: 18px 0 16px;
+    }
+    .fleet-card-v2-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .fleet-card-v2-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #999;
+    }
+    .fleet-card-v2-btn {
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      white-space: nowrap;
+      background: #1a4f6e;
+      color: #fff;
+      border: 1px solid transparent;
+      transition: all 0.3s ease;
+    }
+    .fleet-card-v2-btn:hover { background: #123a52; }
+    .fleet-card-v2-btn.booked {
+      background: #eee;
+      color: #999;
+      cursor: not-allowed;
     }
 
     .values-grid {
@@ -926,6 +1040,7 @@
       .values-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+      .fleet-cards-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     /* ── Mobile (≤768px): single column, tighter spacing ── */
@@ -943,6 +1058,7 @@
       .content-section { padding: 60px 16px; }
       .section-head { margin-bottom: 32px; }
       .section-head-row { flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 32px; }
+      .fleet-head-row { flex-direction: column; align-items: flex-start; gap: 10px; }
       .section-head-row .section-head { flex: none; width: 100%; }
 
       /* About */
@@ -994,6 +1110,9 @@
       .fleet-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
       .fleet-info { padding: 10px 12px 14px; flex-direction: column; align-items: flex-start; gap: 8px; }
       .fleet-status { width: 100%; text-align: center; }
+
+      /* Homepage fleet showcase — stack to 1 column on mobile */
+      .fleet-cards-grid { grid-template-columns: 1fr; gap: 18px; }
 
       /* Buttons */
       .buttons { flex-direction: column; gap: 12px; }
@@ -1070,6 +1189,8 @@
     html[dir="rtl"] .eyebrow,
     html[dir="rtl"] .section-head,
     html[dir="rtl"] .fleet-head { text-align: right; }
+    html[dir="rtl"] .fleet-head-row { flex-direction: row-reverse; text-align: right; }
+    html[dir="rtl"] .fleet-subtitle { text-align: right; }
     html[dir="rtl"] .driver-step,
     html[dir="rtl"] .value-card,
     html[dir="rtl"] .gallery-card,
@@ -1080,6 +1201,7 @@
     html[dir="rtl"] .section-link:hover .arrow,
     html[dir="rtl"] .card-link:hover .arrow { transform: scaleX(-1) translateX(3px); }
     html[dir="rtl"] .fleet-info { flex-direction: row-reverse; }
+    html[dir="rtl"] .fleet-card-v2-foot { flex-direction: row-reverse; }
     html[dir="rtl"] .about-heading,
     html[dir="rtl"] .about-copy .muted,
     html[dir="rtl"] .quote-text { text-align: right; }
@@ -1155,6 +1277,12 @@
     html[data-theme="dark"] .fleet-card,
     html[data-theme="dark"] .driver-step { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.1); }
     html[data-theme="dark"] .fleet-status { color: rgba(255, 255, 255, 0.7); }
+    html[data-theme="dark"] .fleet-card-v2 { background: rgba(255, 255, 255, 0.05); box-shadow: none; border: 1px solid rgba(255, 255, 255, 0.1); }
+    html[data-theme="dark"] .fleet-card-v2-title { color: #f5f5f5; }
+    html[data-theme="dark"] .fleet-card-v2-desc { color: rgba(255, 255, 255, 0.6); }
+    html[data-theme="dark"] .fleet-card-v2-divider { background: rgba(255, 255, 255, 0.12); }
+    html[data-theme="dark"] .fleet-card-v2-label { color: rgba(255, 255, 255, 0.45); }
+    html[data-theme="dark"] .fleet-card-v2-btn.booked { background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.5); }
     /* index.html only: #driver-rental sets its OWN background directly
        (an id selector), which beats the generic nth-of-type dark
        backgrounds above — so it needs its own dark counterpart. */
@@ -1350,20 +1478,26 @@
         <a href="https://forms.gle/8A5kRBSRUosY3T5PA" target="_blank" rel="noopener" class="btn-primary" data-i18n="dr.cta">Register as a Driver →</a>
       </div>
 
-      <div class="fleet-head">
+      <div class="fleet-head-row">
         <h3 class="fleet-title" data-i18n="dr.fleetTitle">Our Fleet</h3>
-        <p class="muted" data-i18n="dr.fleetSubtitle">Browse our vehicles below. An "Apply to Rent" button means the car is open — a "Booked" badge means it's already leased.</p>
+        <a href="fleet.html" class="section-link" data-i18n="fleet.viewAll">View Full Fleet <span class="arrow">⟶</span></a>
       </div>
-      <div class="fleet-grid" id="fleetGrid"></div>
+      <p class="muted fleet-subtitle" data-i18n="dr.fleetSubtitle">Browse our vehicles below. An "Apply to Rent" button means the car is open — a "Booked" badge means it's already leased.</p>
+
+      <div class="fleet-cards-grid" id="fleetGrid"></div>
     </div>
   </section>
 
+
   <section class="content-section" id="contact">
     <div class="container">
-      <div class="section-head">
-        <p class="section-label" data-i18n="contact.label">Get In Touch</p>
-        <h2 class="section-title" data-i18n="contact.title">Join Our Co-operative</h2>
-        <p class="muted" style="margin-top:14px; max-width:620px;" data-i18n="contact.subtitle">Become a member or partner with us. Together we can build a more equitable and sustainable future.</p>
+      <div class="section-head-row">
+        <div class="section-head">
+          <p class="section-label" data-i18n="contact.label">Get In Touch</p>
+          <h2 class="section-title" data-i18n="contact.title">Join Our Co-operative</h2>
+          <p class="muted" style="margin-top:14px; max-width:620px;" data-i18n="contact.subtitle">Become a member or partner with us. Together we can build a more equitable and sustainable future.</p>
+        </div>
+        <a href="contact.html" class="section-link" data-i18n="contact.viewAll">View Contact Details <span class="arrow">⟶</span></a>
       </div>
       <div class="contact-grid">
         <div class="contact-item"><div class="contact-label" data-i18n="c.address">Address</div><div class="contact-value">Al Funduq Street, West Bay,<br>Doha, Qatar</div></div>
@@ -1482,27 +1616,35 @@
     //      status: "booked"    -> shows a grey "Booked" badge (not clickable)
     //   The grid updates automatically — no other changes needed.
     // ===================================================================
+    // Homepage shows only a preview of the fleet (first 3 cars).
+    // The full 12-car list lives on fleet.html — see the "View Full Fleet" link below.
     const fleetCars = [
       { image: "images/fleet/car-01.jpg", num: 1, status: "booked" },
       { image: "images/fleet/car-02.jpg", num: 2, status: "booked" },
       { image: "images/fleet/car-03.jpg", num: 3, status: "booked" },
-      { image: "images/fleet/car-04.jpg", num: 4, status: "booked" },
-      { image: "images/fleet/car-05.jpg", num: 5, status: "booked" },
-      { image: "images/fleet/car-06.jpg", num: 6, status: "booked" },
-      { image: "images/fleet/car-07.jpg", num: 7, status: "booked" },
-      { image: "images/fleet/car-08.jpg", num: 8, status: "booked" },
-      { image: "images/fleet/car-09.jpg", num: 9, status: "booked" },
-      { image: "images/fleet/car-10.jpg", num: 10, status: "booked" },
-      { image: "images/fleet/car-11.jpg", num: 11, status: "booked" },
-      { image: "images/fleet/car-12.jpg", num: 12, status: "booked" },
     ];
 
     const driverFormUrl = "https://forms.gle/8A5kRBSRUosY3T5PA";
 
     const fleetWords = {
-      en: { car: "Car", booked: "Booked", apply: "Apply to Rent" },
-      bn: { car: "গাড়ি", booked: "বুক করা হয়েছে", apply: "ভাড়ার জন্য আবেদন করুন" },
-      ar: { car: "سيارة", booked: "محجوزة", apply: "قدّم للإيجار" }
+      en: {
+        car: "Car", booked: "Booked", available: "Available", apply: "Apply to Rent",
+        monthlyLease: "Monthly Lease", currentlyLeased: "Currently Leased",
+        descAvailable: "Ready for immediate pickup — apply today and start driving for income.",
+        descBooked: "Currently leased to one of our driver partners."
+      },
+      bn: {
+        car: "গাড়ি", booked: "বুক করা হয়েছে", available: "খালি আছে", apply: "ভাড়ার জন্য আবেদন করুন",
+        monthlyLease: "মাসিক লিজ", currentlyLeased: "বর্তমানে লিজ দেওয়া",
+        descAvailable: "সাথে সাথে পিকআপের জন্য প্রস্তুত — আজই আবেদন করুন এবং আয় শুরু করুন।",
+        descBooked: "বর্তমানে আমাদের একজন ড্রাইভার পার্টনারের কাছে লিজ দেওয়া আছে।"
+      },
+      ar: {
+        car: "سيارة", booked: "محجوزة", available: "متاحة", apply: "قدّم للإيجار",
+        monthlyLease: "إيجار شهري", currentlyLeased: "مؤجرة حاليًا",
+        descAvailable: "جاهزة للاستلام الفوري — قدّم اليوم وابدأ بتحقيق دخل.",
+        descBooked: "مؤجرة حاليًا لأحد شركائنا السائقين."
+      }
     };
 
     window.renderFleet = function (lang) {
@@ -1511,15 +1653,29 @@
       const words = fleetWords[lang] || fleetWords.en;
       grid.innerHTML = fleetCars.map(function (car) {
         const label = words.car + " " + car.num;
-        const action = car.status === "booked"
-          ? '<span class="fleet-status booked">' + words.booked + '</span>'
-          : '<a href="' + driverFormUrl + '" target="_blank" rel="noopener" class="fleet-status available">' + words.apply + '</a>';
+        const isBooked = car.status === "booked";
+        const pill = isBooked
+          ? '<span class="fleet-pill booked">' + words.booked + '</span>'
+          : '<span class="fleet-pill available"><span class="dot"></span>' + words.available + '</span>';
+        const desc = isBooked ? words.descBooked : words.descAvailable;
+        const footLabel = isBooked ? words.currentlyLeased : words.monthlyLease;
+        const action = isBooked
+          ? '<span class="fleet-card-v2-btn booked">' + words.booked + '</span>'
+          : '<a href="' + driverFormUrl + '" target="_blank" rel="noopener" class="fleet-card-v2-btn">' + words.apply + '</a>';
         return '' +
-          '<div class="fleet-card">' +
-            '<div class="fleet-photo"><img src="' + car.image + '" alt="' + label + '" loading="lazy"></div>' +
-            '<div class="fleet-info">' +
-              '<span class="fleet-label">' + label + '</span>' +
-              action +
+          '<div class="fleet-card-v2">' +
+            '<div class="fleet-card-v2-photo">' +
+              '<img src="' + car.image + '" alt="' + label + '" loading="lazy">' +
+              pill +
+            '</div>' +
+            '<div class="fleet-card-v2-body">' +
+              '<h4 class="fleet-card-v2-title">' + label + '</h4>' +
+              '<p class="fleet-card-v2-desc">' + desc + '</p>' +
+              '<div class="fleet-card-v2-divider"></div>' +
+              '<div class="fleet-card-v2-foot">' +
+                '<span class="fleet-card-v2-label">' + footLabel + '</span>' +
+                action +
+              '</div>' +
             '</div>' +
           '</div>';
       }).join("");
@@ -1575,6 +1731,7 @@
         "dr.cta": "Register as a Driver →",
         "dr.fleetTitle": "Our Fleet",
         "dr.fleetSubtitle": "Browse our vehicles below. An \"Apply to Rent\" button means the car is open — a \"Booked\" badge means it's already leased.",
+        "fleet.viewAll": "View Full Fleet <span class=\"arrow\">⟶</span>",
         "values.label": "Our Principles",
         "values.title": "Built on Timeless Values",
         "v1.t": "Democratic Control", "v1.d": "One member, one vote. Every decision is made collectively, ensuring all voices shape our direction equally.",
@@ -1586,6 +1743,7 @@
         "contact.label": "Get In Touch",
         "contact.title": "Join Our Co-operative",
         "contact.subtitle": "Become a member or partner with us. Together we can build a more equitable and sustainable future.",
+        "contact.viewAll": "View Contact Details <span class=\"arrow\">⟶</span>",
         "c.address": "Address", "c.phone": "Phone", "c.email": "Email", "c.hours": "Office Hours",
         "c.hoursVal": "Sun - Thu: 9am - 5pm<br>Friday: 10am - 1pm",
         "contact.btn": "Send Us a Message",
@@ -1637,6 +1795,7 @@
         "dr.cta": "চালক হিসেবে নিবন্ধন করুন →",
         "dr.fleetTitle": "আমাদের গাড়ির বহর",
         "dr.fleetSubtitle": "নিচে আমাদের গাড়িগুলো দেখুন। \"Apply to Rent\" বাটন মানে গাড়িটি খালি আছে — \"Booked\" ব্যাজ মানে এটি ইতিমধ্যে লিজ দেওয়া হয়েছে।",
+        "fleet.viewAll": "সম্পূর্ণ ফ্লিট দেখুন <span class=\"arrow\">⟶</span>",
         "values.label": "আমাদের নীতিমালা",
         "values.title": "চিরন্তন মূল্যবোধের উপর প্রতিষ্ঠিত",
         "v1.t": "গণতান্ত্রিক নিয়ন্ত্রণ", "v1.d": "একজন সদস্য, একটি ভোট। প্রতিটি সিদ্ধান্ত যৌথভাবে নেওয়া হয়, যাতে সকলের মতামত সমানভাবে আমাদের দিকনির্দেশনা গঠন করে।",
@@ -1648,6 +1807,7 @@
         "contact.label": "যোগাযোগ করুন",
         "contact.title": "আমাদের সমবায়ে যোগ দিন",
         "contact.subtitle": "সদস্য হন অথবা আমাদের সাথে অংশীদার হন। একসাথে আমরা আরও ন্যায্য ও টেকসই ভবিষ্যৎ গড়তে পারি।",
+        "contact.viewAll": "যোগাযোগের বিবরণ দেখুন <span class=\"arrow\">⟶</span>",
         "c.address": "ঠিকানা", "c.phone": "ফোন", "c.email": "ইমেইল", "c.hours": "অফিসের সময়",
         "c.hoursVal": "রবি - বৃহস্পতি: সকাল ৯টা - বিকাল ৫টা<br>শুক্রবার: সকাল ১০টা - দুপুর ১টা",
         "contact.btn": "আমাদের বার্তা পাঠান",
@@ -1699,6 +1859,7 @@
         "dr.cta": "سجّل كسائق ←",
         "dr.fleetTitle": "أسطولنا",
         "dr.fleetSubtitle": "تصفح سياراتنا أدناه. زر \"التقديم للإيجار\" يعني أن السيارة متاحة — وشارة \"محجوزة\" تعني أنها مؤجرة بالفعل.",
+        "fleet.viewAll": "عرض الأسطول الكامل <span class=\"arrow\">⟶</span>",
         "values.label": "مبادئنا",
         "values.title": "مبني على قيم خالدة",
         "v1.t": "الرقابة الديمقراطية", "v1.d": "عضو واحد، صوت واحد. يُتخذ كل قرار بشكل جماعي، بما يضمن أن تُشكّل جميع الآراء اتجاهنا بالتساوي.",
@@ -1710,6 +1871,7 @@
         "contact.label": "تواصل معنا",
         "contact.title": "انضم إلى جمعيتنا التعاونية",
         "contact.subtitle": "كن عضوًا أو شريكًا معنا. معًا يمكننا بناء مستقبل أكثر عدلاً واستدامة.",
+        "contact.viewAll": "عرض تفاصيل التواصل <span class=\"arrow\">⟶</span>",
         "c.address": "العنوان", "c.phone": "الهاتف", "c.email": "البريد الإلكتروني", "c.hours": "ساعات العمل",
         "c.hoursVal": "الأحد - الخميس: 9 صباحًا - 5 مساءً<br>الجمعة: 10 صباحًا - 1 ظهرًا",
         "contact.btn": "أرسل لنا رسالة",
