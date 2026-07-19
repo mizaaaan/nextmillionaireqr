@@ -1,22 +1,15 @@
-<!-- gallery.html -->
+<!-- fleet.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <script>(function(){try{var t=localStorage.getItem('nm-theme')||((window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Next Millionaire | Gallery</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Next Millionaire | Fleet</title>
 
-  <!-- Favicons and fonts (same as original) -->
+  <!-- Favicons and fonts (same) -->
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="images/android-chrome-512x512.png">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Hind+Siliguri:wght@400;500;600;700&family=Markazi+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -293,8 +286,120 @@
       padding: 80px 24px;
       background: #fff;
     }
-    #values {
+    #fleet {
       padding-top: 40px;
+      background: #54C2FE;
+      color: #fff;
+    }
+    #fleet .section-label { color: rgba(255, 255, 255, 0.8); }
+    #fleet .section-title { color: #fff; }
+    #fleet .muted { color: rgba(255, 255, 255, 0.85); }
+    .driver-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .driver-step {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      padding: 28px;
+      transition: all 0.3s ease;
+    }
+    .driver-step:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-4px);
+    }
+    .driver-step-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    .driver-step-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: #fff; }
+    .driver-step p { color: rgba(255, 255, 255, 0.85); font-size: 14px; line-height: 1.6; }
+    .fleet-head {
+      margin-top: 56px;
+      margin-bottom: 24px;
+    }
+    .fleet-title {
+      font-size: 22px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .fleet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .fleet-card {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .fleet-card:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-4px);
+    }
+    .fleet-photo {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .fleet-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .fleet-info {
+      padding: 14px 16px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .fleet-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .fleet-status {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 999px;
+      text-decoration: none;
+      white-space: nowrap;
+      border: 1px solid transparent;
+      transition: all 0.3s ease;
+    }
+    .fleet-status.booked {
+      background: rgba(255, 255, 255, 0.15);
+      color: rgba(255, 255, 255, 0.65);
+      cursor: not-allowed;
+    }
+    .fleet-status.available {
+      background: #fff;
+      color: #1a1a1a;
+    }
+    .fleet-status.available:hover {
+      background: transparent;
+      color: #fff;
+      border-color: #fff;
     }
     .content-section:nth-of-type(1) {
       background: #54C2FE;
@@ -343,6 +448,23 @@
       margin: 0 auto;
     }
     .section-head { margin-bottom: 48px; }
+    .section-label {
+      display: inline-block;
+      color: #666;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 36px;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+      line-height: 1.1;
+      max-width: 600px;
+      color: #1a1a1a;
+    }
 
     .about-grid {
       display: grid;
@@ -374,6 +496,10 @@
       color: #666;
       text-transform: uppercase;
       letter-spacing: 0.05em;
+    }
+    .muted {
+      color: #666;
+      line-height: 1.6;
     }
 
     .team-grid {
@@ -453,6 +579,9 @@
       margin-top: 12px;
       word-break: break-word;
     }
+    .content-section:nth-of-type(n+2):nth-of-type(even) .member-contact {
+      color: rgba(255, 255, 255, 0.9);
+    }
     #management .member-contact {
       color: #54C2FE;
     }
@@ -462,63 +591,49 @@
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 24px;
     }
-    .gallery-card, .value-card {
+    .gallery-card {
       background: #f8f9fa;
       padding: 32px;
       border-radius: 12px;
       border: 1px solid #e0e0e0;
       transition: all 0.3s ease;
     }
-    .gallery-card:hover, .value-card:hover {
+    .content-section:nth-of-type(3) .gallery-card,
+    .content-section:nth-of-type(4) .member-card {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .gallery-card:hover {
       background: #fff;
       border-color: #54C2FE;
       transform: translateY(-4px);
       box-shadow: 0 8px 24px rgba(84, 194, 254, 0.15);
+    }
+    .content-section:nth-of-type(3) .gallery-card:hover,
+    .content-section:nth-of-type(4) .member-card:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+    .content-section:nth-of-type(n+2):nth-of-type(even) .gallery-card {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .content-section:nth-of-type(n+2):nth-of-type(even) .gallery-card:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.4);
     }
     .icon {
       font-size: 40px;
       margin-bottom: 16px;
       display: block;
     }
-    .value-card .icon {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-    .gallery-title, .value-title {
+    .gallery-title {
       font-size: 16px;
       font-weight: 600;
       margin-bottom: 12px;
       color: inherit;
     }
-    .value-title {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: inherit;
-    }
-    .content-section:nth-of-type(5) .value-card {
-      color: #1a1a1a;
-    }
-    .content-section:nth-of-type(5) .value-card .muted {
-      color: #555;
-    }
-    .content-section:nth-of-type(5) .value-title {
-      color: #1a1a1a;
-    }
 
-    #values .section-label {
-      color: rgba(0, 0, 0, 0.6);
-    }
-    #values .section-title {
-      color: #1a1a1a;
-    }
-    #values .muted {
-      color: rgba(0, 0, 0, 0.65);
-    }
-    #values .gallery-title,
-    #values .value-title {
-      color: #1a1a1a;
-    }
 
     #contact .section-label {
       color: rgba(255, 255, 255, 0.8);
@@ -550,27 +665,6 @@
       border-color: #fff;
     }
 
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      max-width: 100%;
-    }
-    .value-card {
-      background: #f5f5f5;
-      padding: 32px;
-      border-radius: 16px;
-      border: 1px solid #e0e0e0;
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-    .value-card:hover {
-      background: #fff;
-      border-color: #54C2FE;
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(84, 194, 254, 0.15);
-    }
 
     .contact-grid {
       display: grid;
@@ -584,12 +678,20 @@
       border-radius: 12px;
       border: 1px solid #e0e0e0;
     }
+    .content-section:nth-of-type(n+2):nth-of-type(even) .contact-item {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
     .contact-label {
       font-size: 12px;
+      color: #666;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       margin-bottom: 8px;
       display: block;
+    }
+    .content-section:nth-of-type(n+2):nth-of-type(even) .contact-label {
+      color: rgba(255, 255, 255, 0.8);
     }
     .contact-value {
       font-size: 14px;
@@ -625,9 +727,6 @@
       .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
       }
-      .values-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
     }
 
     @media (max-width: 768px) {
@@ -659,10 +758,11 @@
       .member-role { font-size: 12px; }
       .gallery-grid { grid-template-columns: 1fr; gap: 16px; }
       .gallery-card { padding: 24px; }
-      .values-grid { grid-template-columns: 1fr; gap: 16px; }
-      .value-card { padding: 24px; }
-      .value-title { font-size: 16px; }
-      .value-card .icon { font-size: 36px; margin-bottom: 14px; }
+      .driver-steps { grid-template-columns: 1fr; gap: 16px; }
+      .driver-step { padding: 22px; }
+      .fleet-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+      .fleet-info { padding: 10px 12px 14px; flex-direction: column; align-items: flex-start; gap: 8px; }
+      .fleet-status { width: 100%; text-align: center; }
       .contact-grid { grid-template-columns: 1fr; gap: 16px; }
       .contact-item { padding: 20px; }
       .buttons { flex-direction: column; gap: 12px; }
@@ -737,7 +837,6 @@
     html[dir="rtl"] .section-head,
     html[dir="rtl"] .fleet-head { text-align: right; }
     html[dir="rtl"] .driver-step,
-    html[dir="rtl"] .value-card,
     html[dir="rtl"] .gallery-card,
     html[dir="rtl"] .member-card,
     html[dir="rtl"] .contact-item,
@@ -782,14 +881,12 @@
     html[data-theme="dark"] .glass-card::before { display: none; }
     html[data-theme="dark"] .member-card,
     html[data-theme="dark"] .gallery-card,
-    html[data-theme="dark"] .value-card,
     html[data-theme="dark"] .contact-item {
       background: rgba(255, 255, 255, 0.035);
       border-color: rgba(255, 255, 255, 0.1);
     }
     html[data-theme="dark"] .member-card:hover,
-    html[data-theme="dark"] .gallery-card:hover,
-    html[data-theme="dark"] .value-card:hover {
+    html[data-theme="dark"] .gallery-card:hover {
       background: rgba(255, 255, 255, 0.06);
       border-color: #54C2FE;
     }
@@ -798,8 +895,7 @@
     html[data-theme="dark"] #management .member-card:hover { border-color: #54C2FE; }
     html[data-theme="dark"] .member-name,
     html[data-theme="dark"] #management .member-name,
-    html[data-theme="dark"] .gallery-title,
-    html[data-theme="dark"] .value-title { color: #f5f5f5; }
+    html[data-theme="dark"] .gallery-title { color: #f5f5f5; }
     html[data-theme="dark"] .member-role,
     html[data-theme="dark"] #management .member-role { color: rgba(255, 255, 255, 0.55); }
     html[data-theme="dark"] #management .muted { color: rgba(255, 255, 255, 0.62); }
@@ -809,15 +905,7 @@
     /* ---- ID-scoped overrides in the original CSS beat the generic dark
        rules above (higher specificity), so they need their own dark
        counterparts or text/cards stay dark-on-dark / light-on-light. ---- */
-    html[data-theme="dark"] #values .value-card { background: rgba(255, 255, 255, 0.035); border-color: rgba(255, 255, 255, 0.1); }
-    html[data-theme="dark"] #values .value-card:hover { background: rgba(255, 255, 255, 0.06); border-color: #54C2FE; }
-    html[data-theme="dark"] #values .section-label { color: rgba(255, 255, 255, 0.55); }
-    html[data-theme="dark"] #values .section-title { color: #f5f5f5; }
-    html[data-theme="dark"] #values .muted { color: rgba(255, 255, 255, 0.62); }
-    html[data-theme="dark"] #values .gallery-title,
-    html[data-theme="dark"] #values .value-title { color: #f5f5f5; }
-    html[data-theme="dark"] .content-section:nth-of-type(5) .value-card { color: #f5f5f5; }
-    html[data-theme="dark"] .content-section:nth-of-type(5) .value-card .muted { color: rgba(255, 255, 255, 0.62); }
+    html[data-theme="dark"] #fleet { background: #1a4f6e; color: #fff; }
 
     html[data-theme="dark"] #contact .section-label { color: rgba(255, 255, 255, 0.8); }
     html[data-theme="dark"] #contact .section-title { color: #fff; }
@@ -841,9 +929,6 @@
     html[data-theme="dark"] .content-section:nth-of-type(5) .section-title { color: #f5f5f5; }
     html[data-theme="dark"] .content-section:nth-of-type(n+2):nth-of-type(even) .muted,
     html[data-theme="dark"] .content-section:nth-of-type(5) .muted { color: rgba(255, 255, 255, 0.62); }
-    html[data-theme="dark"] .content-section:nth-of-type(5) .value-card { color: #f5f5f5; }
-    html[data-theme="dark"] .content-section:nth-of-type(5) .value-card .muted { color: rgba(255, 255, 255, 0.62); }
-    html[data-theme="dark"] .content-section:nth-of-type(5) .value-title { color: #f5f5f5; }
     html[data-theme="dark"] .content-section:nth-of-type(n+2):nth-of-type(even) .member-contact { color: #7fd3ff; }
 
   </style>
@@ -882,12 +967,12 @@
       <div class="hero-bottom">
         <div class="hero-grid">
           <div>
-            <div class="eyebrow" data-i18n="hero.eyebrow">Our Work in Action</div>
-            <h1 data-i18n="hero.title">Programs & Impact Gallery</h1>
-            <p class="subheading" data-i18n="hero.subtitle">See how our initiatives are transforming lives and communities across the region.</p>
+            <div class="eyebrow" data-i18n="hero.eyebrow">Commercial Fleet · Driver Program</div>
+            <h1 data-i18n="hero.title">Our Fleet</h1>
+            <p class="subheading" data-i18n="hero.subtitle">Built one car at a time — now growing every month. Rent a vehicle on a simple monthly lease and drive your way to a steady income.</p>
             <div class="buttons" id="buttons">
-              <a href="team.html" class="btn-primary" data-i18n="hero.btn1">Meet Our Team</a>
-              <a href="about.html" class="btn-secondary liquid-glass" data-i18n="hero.btn2">Our Story</a>
+              <a href="https://forms.gle/8A5kRBSRUosY3T5PA" target="_blank" rel="noopener" class="btn-primary" data-i18n="hero.btn1">Register as a Driver</a>
+              <a href="#fleet" class="btn-secondary liquid-glass" data-i18n="hero.btn2">View Available Cars</a>
             </div>
           </div>
         </div>
@@ -895,21 +980,40 @@
     </div>
   </section>
 
-  <section class="content-section" id="gallery">
+  <section class="content-section" id="fleet">
     <div class="container">
       <div class="section-head">
-        <p class="section-label" data-i18n="hero.eyebrow">Our Work in Action</p>
-        <h2 class="section-title" data-i18n="hero.title">Programs & Impact Gallery</h2>
-        <p class="muted" style="margin-top:14px;" data-i18n="hero.subtitle">See how our initiatives are transforming lives and communities across the region.</p>
+        <p class="section-label" data-i18n="fleet.label">Commercial Fleet · Driver Program</p>
+        <h2 class="section-title" data-i18n="fleet.title">Rent a Car. Drive Your Way to Income.</h2>
+        <p class="muted" style="margin-top:14px; max-width:640px;" data-i18n="fleet.intro">We've built our own fleet step by step — now 12 cars strong and growing every month. Each vehicle is available for commercial rent on a simple monthly lease: you drive it for income, and you pay us monthly. No large upfront purchase, no long-term commitment.</p>
       </div>
-      <div class="gallery-grid">
-        <div class="gallery-card"><div class="icon">🌾</div><div class="gallery-title" data-i18n="g1.t">Agricultural Training</div><p class="muted" data-i18n="g1.d">Member education on sustainable farming techniques and modern crop management practices.</p></div>
-        <div class="gallery-card"><div class="icon">💼</div><div class="gallery-title" data-i18n="g2.t">Business Skills</div><p class="muted" data-i18n="g2.d">Financial literacy, market access, and entrepreneurship workshops for cooperative members.</p></div>
-        <div class="gallery-card"><div class="icon">👨‍👩‍👧‍👦</div><div class="gallery-title" data-i18n="g3.t">Community Outreach</div><p class="muted" data-i18n="g3.d">Engaging with rural communities to build sustainable development and social networks.</p></div>
-        <div class="gallery-card"><div class="icon">📊</div><div class="gallery-title" data-i18n="g4.t">Financial Planning</div><p class="muted" data-i18n="g4.d">Member-focused financial services and microfinance initiatives for growth and stability.</p></div>
-        <div class="gallery-card"><div class="icon">🌿</div><div class="gallery-title" data-i18n="g5.t">Sustainability Initiatives</div><p class="muted" data-i18n="g5.d">Environmental conservation programs and organic farming promotion across member farms.</p></div>
-        <div class="gallery-card"><div class="icon">🏆</div><div class="gallery-title" data-i18n="g6.t">Member Success Stories</div><p class="muted" data-i18n="g6.d">Celebrating the achievements and milestones reached by our dedicated cooperative members.</p></div>
+
+      <div class="driver-steps">
+        <div class="driver-step">
+          <div class="driver-step-num">1</div>
+          <div class="driver-step-title" data-i18n="fleet.s1t">Apply</div>
+          <p data-i18n="fleet.s1d">Fill out our Driver Registration Form with your details and driving experience.</p>
+        </div>
+        <div class="driver-step">
+          <div class="driver-step-num">2</div>
+          <div class="driver-step-title" data-i18n="fleet.s2t">Get Verified</div>
+          <p data-i18n="fleet.s2d">Our team reviews your application and documents, then reaches out to confirm.</p>
+        </div>
+        <div class="driver-step">
+          <div class="driver-step-num">3</div>
+          <div class="driver-step-title" data-i18n="fleet.s3t">Drive &amp; Earn</div>
+          <p data-i18n="fleet.s3d">Sign your monthly lease, pick up your car, and start driving for income.</p>
+        </div>
       </div>
+      <div>
+        <a href="https://forms.gle/8A5kRBSRUosY3T5PA" target="_blank" rel="noopener" class="btn-primary" data-i18n="fleet.cta">Register as a Driver →</a>
+      </div>
+
+      <div class="fleet-head">
+        <h3 class="fleet-title" data-i18n="fleet.fleetTitle">Our Fleet</h3>
+        <p class="muted" data-i18n="fleet.fleetSubtitle">Browse our vehicles below. An "Apply to Rent" button means the car is open — a "Booked" badge means it's already leased.</p>
+      </div>
+      <div class="fleet-grid" id="fleetGrid"></div>
     </div>
   </section>
 
@@ -917,55 +1021,110 @@
     <div class="footer-inner">
       <strong>Next Millionaire</strong>
       <div data-i18n="footer.tagline">Building community wealth through shared ownership.</div>
-      <div>© <span id="year"></span> Next Millionaire </div>
+      <div>© <span id="year"></span> Next Millionaire</div>
     </div>
   </footer>
+
+  <script>
+    const fleetCars = [
+      { image: "images/fleet/car-01.jpg", num: 1, status: "booked" },
+      { image: "images/fleet/car-02.jpg", num: 2, status: "booked" },
+      { image: "images/fleet/car-03.jpg", num: 3, status: "booked" },
+      { image: "images/fleet/car-04.jpg", num: 4, status: "booked" },
+      { image: "images/fleet/car-05.jpg", num: 5, status: "booked" },
+      { image: "images/fleet/car-06.jpg", num: 6, status: "booked" },
+      { image: "images/fleet/car-07.jpg", num: 7, status: "booked" },
+      { image: "images/fleet/car-08.jpg", num: 8, status: "booked" },
+      { image: "images/fleet/car-09.jpg", num: 9, status: "booked" },
+      { image: "images/fleet/car-10.jpg", num: 10, status: "booked" },
+      { image: "images/fleet/car-11.jpg", num: 11, status: "booked" },
+      { image: "images/fleet/car-12.jpg", num: 12, status: "booked" },
+    ];
+
+    const driverFormUrl = "https://forms.gle/8A5kRBSRUosY3T5PA";
+
+    const fleetWords = {
+      en: { car: "Car", booked: "Booked", apply: "Apply to Rent" },
+      bn: { car: "গাড়ি", booked: "বুক করা হয়েছে", apply: "ভাড়ার জন্য আবেদন করুন" },
+      ar: { car: "سيارة", booked: "محجوزة", apply: "قدّم للإيجار" }
+    };
+
+    window.renderFleet = function (lang) {
+      const grid = document.getElementById("fleetGrid");
+      if (!grid) return;
+      const words = fleetWords[lang] || fleetWords.en;
+      grid.innerHTML = fleetCars.map(function (car) {
+        const label = words.car + " " + car.num;
+        const action = car.status === "booked"
+          ? '<span class="fleet-status booked">' + words.booked + '</span>'
+          : '<a href="' + driverFormUrl + '" target="_blank" rel="noopener" class="fleet-status available">' + words.apply + '</a>';
+        return '' +
+          '<div class="fleet-card">' +
+            '<div class="fleet-photo"><img src="' + car.image + '" alt="' + label + '" loading="lazy"></div>' +
+            '<div class="fleet-info">' +
+              '<span class="fleet-label">' + label + '</span>' +
+              action +
+            '</div>' +
+          '</div>';
+      }).join("");
+    };
+    window.renderFleet("en");
+  </script>
 
   <script>
     window.translations = {
       en: {
         "nav.about": "About", "nav.gallery": "Gallery", "nav.team": "Team", "nav.fleet": "Fleet", "nav.contact": "Contact",
-        "hero.eyebrow": "Our Work in Action",
-        "hero.title": "Programs &amp; Impact Gallery",
-        "hero.subtitle": "See how our initiatives are transforming lives and communities across the region.",
-        "hero.btn1": "Meet Our Team",
-        "hero.btn2": "Our Story",
-        "g1.t": "Agricultural Training", "g1.d": "Member education on sustainable farming techniques and modern crop management practices.",
-        "g2.t": "Business Skills", "g2.d": "Financial literacy, market access, and entrepreneurship workshops for cooperative members.",
-        "g3.t": "Community Outreach", "g3.d": "Engaging with rural communities to build sustainable development and social networks.",
-        "g4.t": "Financial Planning", "g4.d": "Member-focused financial services and microfinance initiatives for growth and stability.",
-        "g5.t": "Sustainability Initiatives", "g5.d": "Environmental conservation programs and organic farming promotion across member farms.",
-        "g6.t": "Member Success Stories", "g6.d": "Celebrating the achievements and milestones reached by our dedicated cooperative members.",
+        "hero.eyebrow": "Commercial Fleet · Driver Program",
+        "hero.title": "Our Fleet",
+        "hero.subtitle": "Built one car at a time — now growing every month. Rent a vehicle on a simple monthly lease and drive your way to a steady income.",
+        "hero.btn1": "Register as a Driver",
+        "hero.btn2": "View Available Cars",
+        "fleet.label": "Commercial Fleet · Driver Program",
+        "fleet.title": "Rent a Car. Drive Your Way to Income.",
+        "fleet.intro": "We've built our own fleet step by step — now 12 cars strong and growing every month. Each vehicle is available for commercial rent on a simple monthly lease: you drive it for income, and you pay us monthly. No large upfront purchase, no long-term commitment.",
+        "fleet.s1t": "Apply", "fleet.s1d": "Fill out our Driver Registration Form with your details and driving experience.",
+        "fleet.s2t": "Get Verified", "fleet.s2d": "Our team reviews your application and documents, then reaches out to confirm.",
+        "fleet.s3t": "Drive &amp; Earn", "fleet.s3d": "Sign your monthly lease, pick up your car, and start driving for income.",
+        "fleet.cta": "Register as a Driver →",
+        "fleet.fleetTitle": "Our Fleet",
+        "fleet.fleetSubtitle": "Browse our vehicles below. An \"Apply to Rent\" button means the car is open — a \"Booked\" badge means it's already leased.",
         "footer.tagline": "Building community wealth through shared ownership."
       },
       bn: {
         "nav.about": "আমাদের সম্পর্কে", "nav.gallery": "গ্যালারি", "nav.team": "টিম", "nav.fleet": "ফ্লিট", "nav.contact": "যোগাযোগ",
-        "hero.eyebrow": "আমাদের কর্মকাণ্ড",
-        "hero.title": "কর্মসূচি ও প্রভাবের গ্যালারি",
-        "hero.subtitle": "দেখুন কীভাবে আমাদের উদ্যোগ পুরো অঞ্চল জুড়ে মানুষের জীবন ও সম্প্রদায়কে বদলে দিচ্ছে।",
-        "hero.btn1": "আমাদের টিমের সাথে পরিচিত হোন",
-        "hero.btn2": "আমাদের গল্প",
-        "g1.t": "কৃষি প্রশিক্ষণ", "g1.d": "টেকসই কৃষি কৌশল ও আধুনিক ফসল ব্যবস্থাপনা বিষয়ে সদস্যদের প্রশিক্ষণ।",
-        "g2.t": "ব্যবসায়িক দক্ষতা", "g2.d": "সমবায় সদস্যদের জন্য আর্থিক সাক্ষরতা, বাজার সংযোগ এবং উদ্যোক্তা কর্মশালা।",
-        "g3.t": "সম্প্রদায়ের সাথে যোগাযোগ", "g3.d": "টেকসই উন্নয়ন ও সামাজিক নেটওয়ার্ক গড়তে গ্রামীণ সম্প্রদায়ের সাথে সম্পৃক্ততা।",
-        "g4.t": "আর্থিক পরিকল্পনা", "g4.d": "প্রবৃদ্ধি ও স্থিতিশীলতার জন্য সদস্যকেন্দ্রিক আর্থিক সেবা ও ক্ষুদ্রঋণ উদ্যোগ।",
-        "g5.t": "টেকসই উদ্যোগ", "g5.d": "সদস্যদের খামারজুড়ে পরিবেশ সংরক্ষণ কর্মসূচি ও জৈব কৃষির প্রসার।",
-        "g6.t": "সদস্যদের সাফল্যের গল্প", "g6.d": "আমাদের নিবেদিতপ্রাণ সমবায় সদস্যদের অর্জন ও মাইলফলক উদযাপন।",
+        "hero.eyebrow": "বাণিজ্যিক বহর · চালক কর্মসূচি",
+        "hero.title": "আমাদের ফ্লিট",
+        "hero.subtitle": "একটি একটি করে গাড়ি দিয়ে আমরা এই বহর গড়ে তুলেছি — প্রতি মাসে তা আরও বাড়ছে। সহজ মাসিক লিজে একটি গাড়ি ভাড়া নিন এবং স্থির আয়ের পথে গাড়ি চালান।",
+        "hero.btn1": "চালক হিসেবে নিবন্ধন করুন",
+        "hero.btn2": "উপলব্ধ গাড়িগুলো দেখুন",
+        "fleet.label": "বাণিজ্যিক বহর · চালক কর্মসূচি",
+        "fleet.title": "গাড়ি ভাড়া নিন। আয়ের পথে গাড়ি চালান।",
+        "fleet.intro": "আমরা ধাপে ধাপে নিজস্ব গাড়ির বহর গড়ে তুলেছি — এখন ১২টি গাড়ি নিয়ে, এবং প্রতি মাসে তা আরও বাড়ছে। প্রতিটি গাড়ি একটি সহজ মাসিক লিজে বাণিজ্যিক ভাড়ায় পাওয়া যায়: আপনি আয়ের জন্য গাড়ি চালাবেন এবং আমাদের মাসিক অর্থ পরিশোধ করবেন। কোনো বড় অগ্রিম অর্থ প্রয়োজন নেই, দীর্ঘমেয়াদী প্রতিশ্রুতিরও দরকার নেই।",
+        "fleet.s1t": "আবেদন করুন", "fleet.s1d": "আপনার তথ্য ও ড্রাইভিং অভিজ্ঞতাসহ আমাদের চালক নিবন্ধন ফর্ম পূরণ করুন।",
+        "fleet.s2t": "যাচাই সম্পন্ন করুন", "fleet.s2d": "আমাদের টিম আপনার আবেদন ও কাগজপত্র যাচাই করে নিশ্চিত করতে যোগাযোগ করবে।",
+        "fleet.s3t": "গাড়ি চালান ও আয় করুন", "fleet.s3d": "মাসিক লিজে স্বাক্ষর করুন, গাড়ি সংগ্রহ করুন এবং আয়ের জন্য গাড়ি চালানো শুরু করুন।",
+        "fleet.cta": "চালক হিসেবে নিবন্ধন করুন →",
+        "fleet.fleetTitle": "আমাদের গাড়ির বহর",
+        "fleet.fleetSubtitle": "নিচে আমাদের গাড়িগুলো দেখুন। \"Apply to Rent\" বাটন মানে গাড়িটি খালি আছে — \"Booked\" ব্যাজ মানে এটি ইতিমধ্যে লিজ দেওয়া হয়েছে।",
         "footer.tagline": "যৌথ মালিকানার মাধ্যমে সমষ্টিগত সম্পদ গড়ে তোলা।"
       },
       ar: {
         "nav.about": "من نحن", "nav.gallery": "معرض الصور", "nav.team": "الفريق", "nav.fleet": "الأسطول", "nav.contact": "تواصل معنا",
-        "hero.eyebrow": "أعمالنا في الميدان",
-        "hero.title": "معرض البرامج والأثر",
-        "hero.subtitle": "شاهد كيف تُحدث مبادراتنا تحولًا في حياة الناس والمجتمعات في جميع أنحاء المنطقة.",
-        "hero.btn1": "تعرف على فريقنا",
-        "hero.btn2": "قصتنا",
-        "g1.t": "التدريب الزراعي", "g1.d": "تدريب الأعضاء على تقنيات الزراعة المستدامة وأساليب إدارة المحاصيل الحديثة.",
-        "g2.t": "المهارات التجارية", "g2.d": "ورش عمل حول المعرفة المالية والوصول إلى الأسواق وريادة الأعمال لأعضاء الجمعية.",
-        "g3.t": "التواصل المجتمعي", "g3.d": "التفاعل مع المجتمعات الريفية لبناء تنمية مستدامة وشبكات اجتماعية.",
-        "g4.t": "التخطيط المالي", "g4.d": "خدمات مالية تركز على الأعضاء ومبادرات التمويل الأصغر لتحقيق النمو والاستقرار.",
-        "g5.t": "مبادرات الاستدامة", "g5.d": "برامج للحفاظ على البيئة وتعزيز الزراعة العضوية في مزارع الأعضاء.",
-        "g6.t": "قصص نجاح الأعضاء", "g6.d": "الاحتفاء بإنجازات وأعضاء جمعيتنا المتفانين ومحطاتهم المهمة.",
+        "hero.eyebrow": "الأسطول التجاري · برنامج السائقين",
+        "hero.title": "أسطولنا",
+        "hero.subtitle": "بنينا هذا الأسطول سيارة تلو الأخرى — ويستمر في النمو كل شهر. استأجر سيارة بعقد إيجار شهري بسيط واقُد طريقك نحو دخل ثابت.",
+        "hero.btn1": "سجّل كسائق",
+        "hero.btn2": "شاهد السيارات المتاحة",
+        "fleet.label": "الأسطول التجاري · برنامج السائقين",
+        "fleet.title": "استأجر سيارة. اقُد طريقك نحو الدخل.",
+        "fleet.intro": "قمنا ببناء أسطولنا الخاص خطوة بخطوة — ويضم الآن 12 سيارة، ويستمر في النمو كل شهر. كل سيارة متاحة للإيجار التجاري بعقد إيجار شهري بسيط: تقود السيارة لتحقيق دخل، وتدفع لنا شهريًا. بدون دفعة أولى كبيرة، وبدون التزام طويل الأمد.",
+        "fleet.s1t": "قدّم طلبك", "fleet.s1d": "املأ استمارة تسجيل السائق ببياناتك وخبرتك في القيادة.",
+        "fleet.s2t": "التحقق من طلبك", "fleet.s2d": "يراجع فريقنا طلبك ومستنداتك، ثم يتواصل معك للتأكيد.",
+        "fleet.s3t": "قُد واكسب", "fleet.s3d": "وقّع عقد الإيجار الشهري، واستلم سيارتك، وابدأ القيادة لتحقيق الدخل.",
+        "fleet.cta": "سجّل كسائق ←",
+        "fleet.fleetTitle": "أسطولنا",
+        "fleet.fleetSubtitle": "تصفح سياراتنا أدناه. زر \"التقديم للإيجار\" يعني أن السيارة متاحة — وشارة \"محجوزة\" تعني أنها مؤجرة بالفعل.",
         "footer.tagline": "نبني ثروة المجتمع من خلال الملكية المشتركة."
       }
     };

@@ -318,8 +318,8 @@
       color: #1a1a1a;
     }
     .content-section:nth-of-type(6) {
-      background: #54C2FE;
-      color: #fff;
+      background: #fff;
+      color: #1a1a1a;
     }
     .content-section:nth-of-type(n+2):nth-of-type(even) .section-label {
       color: rgba(0, 0, 0, 0.6);
@@ -344,6 +344,47 @@
       margin: 0 auto;
     }
     .section-head { margin-bottom: 48px; }
+    .section-head-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .section-head-row .section-head { margin-bottom: 0; flex: 1 1 320px; }
+    .section-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: inherit;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: gap 0.2s ease, opacity 0.2s ease;
+    }
+    .section-link-below {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: inherit;
+      text-decoration: none;
+      transition: gap 0.2s ease, opacity 0.2s ease;
+    }
+    .card-link:hover { gap: 10px; opacity: 0.8; }
+    .section-link .arrow,
+    .card-link .arrow { transition: transform 0.2s ease; }
+    .section-link:hover .arrow,
+    .card-link:hover .arrow { transform: translateX(3px); }
     .section-label {
       display: inline-block;
       color: #666;
@@ -362,40 +403,132 @@
       color: #1a1a1a;
     }
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-    .glass-card {
-      padding: 32px;
-      border-radius: 12px;
-    }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-bottom: 24px;
-    }
-    .stat {
-      text-align: center;
-    }
-    .stat-num {
-      font-size: 28px;
-      font-weight: 600;
-      display: block;
-      margin-bottom: 8px;
-    }
-    .stat-label {
-      font-size: 12px;
-      color: #666;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
     .muted {
       color: #666;
       line-height: 1.6;
+    }
+
+    /* ── About section (image + quote card + stats) ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .about-media {
+      position: relative;
+    }
+    .about-media-decor {
+      position: absolute;
+      top: -24px;
+      left: -24px;
+      width: 100%;
+      height: 100%;
+      background: #eef1f6;
+      border-radius: 20px;
+      z-index: 0;
+    }
+    .about-photo {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 100%;
+      height: 430px;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 24px 48px rgba(13, 40, 67, 0.18);
+    }
+    .about-quote-card {
+      position: absolute;
+      z-index: 2;
+      right: -28px;
+      bottom: -32px;
+      width: 76%;
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 14px;
+      padding: 22px 24px;
+      box-shadow: 0 18px 40px rgba(13, 40, 67, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+    .quote-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #5a6472;
+      margin-bottom: 10px;
+    }
+    .quote-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #3fae6a;
+      flex-shrink: 0;
+    }
+    .quote-text {
+      font-style: italic;
+      font-size: 16px;
+      line-height: 1.55;
+      color: #16233a;
+      font-weight: 500;
+    }
+    .about-heading {
+      font-size: 38px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: #0d2843;
+      max-width: 520px;
+      margin-bottom: 20px;
+    }
+    .about-copy .muted { max-width: 540px; }
+    .about-copy .muted + .muted { margin-top: 14px; }
+    .about-stats {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin: 32px 0 28px;
+    }
+    .about-stat-num {
+      font-size: 36px;
+      font-weight: 700;
+      color: #0d2843;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .about-stat-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: #6b7280;
+    }
+    .about-stat-divider {
+      width: 1px;
+      height: 48px;
+      background: #d8dde3;
+      flex-shrink: 0;
+    }
+    .about-cta {
+      display: inline-block;
+      background: #54C2FE;
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      border: 1px solid transparent;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .about-cta:hover {
+      background: transparent;
+      color: #54C2FE;
+      border-color: #54C2FE;
+      transform: translateY(-2px);
     }
 
     .team-grid {
@@ -583,40 +716,17 @@
       color: #1a1a1a;
     }
 
-    /* #contact is nth-of-type(6) = even, but has BLUE background.
-       The generic even-rule sets dark text — override everything to white. */
-    #contact {
+    /* #contact is now a plain white section (nth-of-type(6)), so only the
+       CTA button needs its own brand-colour styling. */
+    #contact .btn-primary {
       background: #54C2FE;
       color: #fff;
-    }
-    #contact .section-label {
-      color: rgba(255, 255, 255, 0.8);
-    }
-    #contact .section-title {
-      color: #fff;
-    }
-    #contact .muted {
-      color: rgba(255, 255, 255, 0.85);
-    }
-    #contact .contact-label {
-      color: rgba(255, 255, 255, 0.75);
-    }
-    #contact .contact-value {
-      color: #fff;
-    }
-    #contact .contact-item {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-    #contact .btn-primary {
-      background: #fff;
-      color: #1a1a1a;
       border-color: transparent;
     }
     #contact .btn-primary:hover {
       background: transparent;
-      color: #fff;
-      border-color: #fff;
+      color: #54C2FE;
+      border-color: #54C2FE;
     }
 
     /* Driver Car Rental */
@@ -770,10 +880,6 @@
       border-radius: 12px;
       border: 1px solid #e0e0e0;
     }
-    .content-section:nth-of-type(n+2):nth-of-type(even) .contact-item {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(255, 255, 255, 0.2);
-    }
     .contact-label {
       font-size: 12px;
       color: #666;
@@ -781,9 +887,6 @@
       letter-spacing: 0.05em;
       margin-bottom: 8px;
       display: block;
-    }
-    .content-section:nth-of-type(n+2):nth-of-type(even) .contact-label {
-      color: rgba(255, 255, 255, 0.8);
     }
     .contact-value {
       font-size: 14px;
@@ -796,6 +899,10 @@
       padding: 32px 24px;
       color: #fff;
       text-align: center;
+    }
+    html[data-theme="dark"] footer {
+      background: #1a4f6e;
+      border-top-color: rgba(255, 255, 255, 0.15);
     }
     .footer-inner {
       max-width: 1200px;
@@ -835,11 +942,17 @@
       /* Sections */
       .content-section { padding: 60px 16px; }
       .section-head { margin-bottom: 32px; }
+      .section-head-row { flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 32px; }
+      .section-head-row .section-head { flex: none; width: 100%; }
 
       /* About */
-      .about-grid { grid-template-columns: 1fr; gap: 24px; }
-      .stats-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
-      .glass-card { padding: 24px; }
+      .about-grid { grid-template-columns: 1fr; gap: 56px; }
+      .about-media-decor { display: none; }
+      .about-photo { height: 300px; }
+      .about-quote-card { position: static; width: 100%; margin-top: 16px; right: auto; bottom: auto; }
+      .about-heading { font-size: 28px; max-width: 100%; }
+      .about-stats { gap: 20px; }
+      .about-stat-num { font-size: 28px; }
 
       /* Management team — 1 column */
       .team-grid {
@@ -895,8 +1008,8 @@
       h1 { font-size: 28px; }
       .section-title { font-size: 22px; }
       .content-section { padding: 48px 14px; }
-      .stats-grid { grid-template-columns: 1fr 1fr; }
-      .stat-num { font-size: 22px; }
+      .about-stat-num { font-size: 24px; }
+      .about-photo { height: 240px; }
       .member-card { padding: 20px; }
       .member-name { font-size: 16px; }
     }
@@ -961,9 +1074,17 @@
     html[dir="rtl"] .value-card,
     html[dir="rtl"] .gallery-card,
     html[dir="rtl"] .member-card,
-    html[dir="rtl"] .contact-item,
-    html[dir="rtl"] .glass-card { text-align: right; }
+    html[dir="rtl"] .contact-item { text-align: right; }
+    html[dir="rtl"] .section-link .arrow,
+    html[dir="rtl"] .card-link .arrow { display: inline-block; transform: scaleX(-1); }
+    html[dir="rtl"] .section-link:hover .arrow,
+    html[dir="rtl"] .card-link:hover .arrow { transform: scaleX(-1) translateX(3px); }
     html[dir="rtl"] .fleet-info { flex-direction: row-reverse; }
+    html[dir="rtl"] .about-heading,
+    html[dir="rtl"] .about-copy .muted,
+    html[dir="rtl"] .quote-text { text-align: right; }
+    html[dir="rtl"] .about-quote-card { right: auto; left: -28px; }
+    html[dir="rtl"] .about-media-decor { left: auto; right: -24px; }
   
     /* ============ Theme Toggle Button ============ */
     .theme-toggle {
@@ -997,10 +1118,17 @@
     html[data-theme="dark"] .section-label { color: rgba(255, 255, 255, 0.55); }
     html[data-theme="dark"] .section-title { color: #f5f5f5; }
     html[data-theme="dark"] .muted { color: rgba(255, 255, 255, 0.62); }
-    html[data-theme="dark"] .stat-label { color: rgba(255, 255, 255, 0.55); }
-    html[data-theme="dark"] .stat-num { color: #f5f5f5; }
-    html[data-theme="dark"] .glass-card { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.1); }
-    html[data-theme="dark"] .glass-card::before { display: none; }
+    html[data-theme="dark"] .about-media-decor { background: rgba(255, 255, 255, 0.06); }
+    html[data-theme="dark"] .about-photo { box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45); }
+    html[data-theme="dark"] .about-quote-card { background: rgba(20, 22, 28, 0.85); border-color: rgba(255, 255, 255, 0.12); }
+    html[data-theme="dark"] .quote-text { color: #e7e7e7; }
+    html[data-theme="dark"] .quote-label { color: rgba(255, 255, 255, 0.55); }
+    html[data-theme="dark"] .about-heading { color: #f5f5f5; }
+    html[data-theme="dark"] .about-stat-num { color: #f5f5f5; }
+    html[data-theme="dark"] .about-stat-label { color: rgba(255, 255, 255, 0.55); }
+    html[data-theme="dark"] .about-stat-divider { background: rgba(255, 255, 255, 0.15); }
+    html[data-theme="dark"] .about-cta { background: #fff; color: #1a1a1a; border-color: transparent; }
+    html[data-theme="dark"] .about-cta:hover { background: transparent; color: #fff; border-color: #fff; }
     html[data-theme="dark"] .member-card,
     html[data-theme="dark"] .gallery-card,
     html[data-theme="dark"] .value-card,
@@ -1027,12 +1155,10 @@
     html[data-theme="dark"] .fleet-card,
     html[data-theme="dark"] .driver-step { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.1); }
     html[data-theme="dark"] .fleet-status { color: rgba(255, 255, 255, 0.7); }
-    /* index.html only: #values / #contact / #driver-rental set their OWN
-       background directly (an id selector), which beats the generic
-       nth-of-type dark backgrounds above — so they stay stuck in their
-       light-mode colour without their own dark counterpart. */
+    /* index.html only: #driver-rental sets its OWN background directly
+       (an id selector), which beats the generic nth-of-type dark
+       backgrounds above — so it needs its own dark counterpart. */
     html[data-theme="dark"] #values { background: #0d0f13; color: #e7e7e7; }
-    html[data-theme="dark"] #contact { background: #1a4f6e; color: #fff; }
     html[data-theme="dark"] #driver-rental { background: #1a4f6e; color: #fff; }
 
     /* ---- ID-scoped overrides in the original CSS beat the generic dark
@@ -1048,22 +1174,18 @@
     html[data-theme="dark"] .content-section:nth-of-type(5) .value-card { color: #f5f5f5; }
     html[data-theme="dark"] .content-section:nth-of-type(5) .value-card .muted { color: rgba(255, 255, 255, 0.62); }
 
-    html[data-theme="dark"] #contact .section-label { color: rgba(255, 255, 255, 0.8); }
-    html[data-theme="dark"] #contact .section-title { color: #fff; }
-    html[data-theme="dark"] #contact .muted { color: rgba(255, 255, 255, 0.85); }
-    html[data-theme="dark"] #contact .contact-label { color: rgba(255, 255, 255, 0.75); }
-    html[data-theme="dark"] #contact .contact-value { color: #fff; }
-    html[data-theme="dark"] #contact .contact-item { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); }
+    html[data-theme="dark"] #contact .contact-label { color: rgba(255, 255, 255, 0.55); }
+    html[data-theme="dark"] #contact .contact-value { color: #e7e7e7; }
     html[data-theme="dark"] #contact .btn-primary { background: #fff; color: #1a1a1a; border-color: transparent; }
     html[data-theme="dark"] #contact .btn-primary:hover { background: transparent; color: #fff; border-color: #fff; }
 
 
     html[data-theme="dark"] .content-section:nth-of-type(1),
-    html[data-theme="dark"] .content-section:nth-of-type(3),
-    html[data-theme="dark"] .content-section:nth-of-type(6) { background: #1a4f6e; color: #fff; }
+    html[data-theme="dark"] .content-section:nth-of-type(3) { background: #1a4f6e; color: #fff; }
     html[data-theme="dark"] .content-section:nth-of-type(2),
     html[data-theme="dark"] .content-section:nth-of-type(4),
-    html[data-theme="dark"] .content-section:nth-of-type(5) { background: #0d0f13; color: #e7e7e7; }
+    html[data-theme="dark"] .content-section:nth-of-type(5),
+    html[data-theme="dark"] .content-section:nth-of-type(6) { background: #0d0f13; color: #e7e7e7; }
     html[data-theme="dark"] .content-section:nth-of-type(n+2):nth-of-type(even) .section-label,
     html[data-theme="dark"] .content-section:nth-of-type(5) .section-label { color: rgba(255, 255, 255, 0.55); }
     html[data-theme="dark"] .content-section:nth-of-type(n+2):nth-of-type(even) .section-title,
@@ -1093,7 +1215,7 @@
             <a href="about.html" data-i18n="nav.about">About</a>
             <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
             <a href="team.html" data-i18n="nav.team">Team</a>
-            <a href="values.html" data-i18n="nav.values">Values</a>
+            <a href="fleet.html" data-i18n="nav.fleet">Fleet</a>
             <a href="contact.html" data-i18n="nav.contact">Contact</a>
             <div class="lang-switch"><button data-lang-btn="en" class="active">EN</button><button data-lang-btn="bn">বাং</button><button data-lang-btn="ar">عربي</button></div><button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
           </div>
@@ -1107,7 +1229,7 @@
           <a href="about.html" data-i18n="nav.about">About</a>
             <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
             <a href="team.html" data-i18n="nav.team">Team</a>
-            <a href="values.html" data-i18n="nav.values">Values</a>
+            <a href="fleet.html" data-i18n="nav.fleet">Fleet</a>
             <a href="contact.html" data-i18n="nav.contact">Contact</a>
             <div class="lang-switch"><button data-lang-btn="en" class="active">EN</button><button data-lang-btn="bn">বাং</button><button data-lang-btn="ar">عربي</button></div><button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
         </div>
@@ -1131,41 +1253,52 @@
 
   <section class="content-section" id="about">
     <div class="container about-grid">
-      <div>
-        <div class="section-head">
-          <p class="section-label" data-i18n="about.label">About Next Millionaire</p>
-          <h2 class="section-title" data-i18n="about.title">A Co-operative Built on Shared Values</h2>
+      <div class="about-media">
+        <div class="about-media-decor"></div>
+        <img class="about-photo" src="https://images.unsplash.com/photo-1758518731706-be5d5230e5a5?fm=jpg&q=80&w=1200&auto=format&fit=crop" alt="Next Millionaire Co-operative team">
+        <div class="about-quote-card">
+          <div class="quote-label"><span class="quote-dot"></span><span data-i18n="about.quoteLabel">Our Core Belief</span></div>
+          <p class="quote-text" data-i18n="about.quote">"When people work together with shared ownership, extraordinary things happen."</p>
         </div>
-        <p class="muted" data-i18n="about.para1">Next Millionaire Co-operative was founded with a simple belief: when people work together with shared ownership and mutual accountability, extraordinary things happen. We unite farmers, consumers, and entrepreneurs into a resilient economic community.</p>
-        <p class="muted" style="margin-top:14px;" data-i18n="about.para2">Our democratic structure ensures every member has a voice. Profits are reinvested into the community, creating lasting impact across generations.</p>
       </div>
-      <div class="glass-card liquid-glass">
-        <div class="stats-grid">
-          <div class="stat"><div class="stat-num">50+</div><div class="stat-label" data-i18n="stat.members">Active Members</div></div>
-          <div class="stat"><div class="stat-num">1</div><div class="stat-label" data-i18n="stat.years">Years of Service</div></div>
-          <div class="stat"><div class="stat-num">৳10M</div><div class="stat-label" data-i18n="stat.turnover">Annual Turnover</div></div>
-          <div class="stat"><div class="stat-num">32</div><div class="stat-label" data-i18n="stat.villages">Villages Served</div></div>
+      <div class="about-copy">
+        <p class="section-label" data-i18n="about.label">About Next Millionaire</p>
+        <h2 class="about-heading" data-i18n="about.title">A Co-operative Built on Shared Values</h2>
+        <p class="muted" data-i18n="about.para1">Next Millionaire Co-operative was founded with a simple belief: when people work together with shared ownership and mutual accountability, extraordinary things happen. We unite farmers, consumers, and entrepreneurs into a resilient economic community.</p>
+        <p class="muted" data-i18n="about.para2">Our democratic structure ensures every member has a voice. Profits are reinvested into the community, creating lasting impact across generations.</p>
+        <div class="about-stats">
+          <div class="about-stat">
+            <div class="about-stat-num">98%</div>
+            <div class="about-stat-label" data-i18n="stat.satisfaction">Member Satisfaction</div>
+          </div>
+          <div class="about-stat-divider"></div>
+          <div class="about-stat">
+            <div class="about-stat-num">100%</div>
+            <div class="about-stat-label" data-i18n="stat.democratic">Democratic Control</div>
+          </div>
         </div>
-        <p class="muted" style="margin-top:28px;" data-i18n="about.tagline1">🌱 Cultivating community wealth through democratic enterprise</p>
-        <p class="muted" style="margin-top:10px;" data-i18n="about.tagline2">98% Member Satisfaction</p>
+        <a href="about.html" class="about-cta" data-i18n="about.cta">Read Our Story</a>
       </div>
     </div>
   </section>
   
   <section class="content-section" id="gallery">
     <div class="container">
-      <div class="section-head">
-        <p class="section-label" data-i18n="gallery.label">Our Work in Action</p>
-        <h2 class="section-title" data-i18n="gallery.title">Programs & Impact Gallery</h2>
-        <p class="muted" style="margin-top:14px;" data-i18n="gallery.subtitle">See how our initiatives are transforming lives and communities across the region.</p>
+      <div class="section-head-row">
+        <div class="section-head">
+          <p class="section-label" data-i18n="gallery.label">Our Work in Action</p>
+          <h2 class="section-title" data-i18n="gallery.title">Programs & Impact Gallery</h2>
+          <p class="muted" style="margin-top:14px;" data-i18n="gallery.subtitle">See how our initiatives are transforming lives and communities across the region.</p>
+        </div>
+        <a href="gallery.html" class="section-link" data-i18n="gallery.viewAll">View Full Gallery <span class="arrow">⟶</span></a>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-card"><div class="icon">🌾</div><div class="gallery-title" data-i18n="g1.t">Agricultural Training</div><p class="muted" data-i18n="g1.d">Member education on sustainable farming techniques and modern crop management practices.</p></div>
-        <div class="gallery-card"><div class="icon">💼</div><div class="gallery-title" data-i18n="g2.t">Business Skills</div><p class="muted" data-i18n="g2.d">Financial literacy, market access, and entrepreneurship workshops for cooperative members.</p></div>
-        <div class="gallery-card"><div class="icon">👨‍👩‍👧‍👦</div><div class="gallery-title" data-i18n="g3.t">Community Outreach</div><p class="muted" data-i18n="g3.d">Engaging with rural communities to build sustainable development and social networks.</p></div>
-        <div class="gallery-card"><div class="icon">📊</div><div class="gallery-title" data-i18n="g4.t">Financial Planning</div><p class="muted" data-i18n="g4.d">Member-focused financial services and microfinance initiatives for growth and stability.</p></div>
-        <div class="gallery-card"><div class="icon">🌿</div><div class="gallery-title" data-i18n="g5.t">Sustainability Initiatives</div><p class="muted" data-i18n="g5.d">Environmental conservation programs and organic farming promotion across member farms.</p></div>
-        <div class="gallery-card"><div class="icon">🏆</div><div class="gallery-title" data-i18n="g6.t">Member Success Stories</div><p class="muted" data-i18n="g6.d">Celebrating the achievements and milestones reached by our dedicated cooperative members.</p></div>
+        <div class="gallery-card"><div class="icon">🌾</div><div class="gallery-title" data-i18n="g1.t">Agricultural Training</div><p class="muted" data-i18n="g1.d">Member education on sustainable farming techniques and modern crop management practices.</p><a href="gallery.html" class="card-link" data-i18n="gallery.learnMore">Learn More <span class="arrow">⟶</span></a></div>
+        <div class="gallery-card"><div class="icon">💼</div><div class="gallery-title" data-i18n="g2.t">Business Skills</div><p class="muted" data-i18n="g2.d">Financial literacy, market access, and entrepreneurship workshops for cooperative members.</p><a href="gallery.html" class="card-link" data-i18n="gallery.learnMore">Learn More <span class="arrow">⟶</span></a></div>
+        <div class="gallery-card"><div class="icon">👨‍👩‍👧‍👦</div><div class="gallery-title" data-i18n="g3.t">Community Outreach</div><p class="muted" data-i18n="g3.d">Engaging with rural communities to build sustainable development and social networks.</p><a href="gallery.html" class="card-link" data-i18n="gallery.learnMore">Learn More <span class="arrow">⟶</span></a></div>
+        <div class="gallery-card"><div class="icon">📊</div><div class="gallery-title" data-i18n="g4.t">Financial Planning</div><p class="muted" data-i18n="g4.d">Member-focused financial services and microfinance initiatives for growth and stability.</p><a href="gallery.html" class="card-link" data-i18n="gallery.learnMore">Learn More <span class="arrow">⟶</span></a></div>
+        <div class="gallery-card"><div class="icon">🌿</div><div class="gallery-title" data-i18n="g5.t">Sustainability Initiatives</div><p class="muted" data-i18n="g5.d">Environmental conservation programs and organic farming promotion across member farms.</p><a href="gallery.html" class="card-link" data-i18n="gallery.learnMore">Learn More <span class="arrow">⟶</span></a></div>
+        <div class="gallery-card"><div class="icon">🏆</div><div class="gallery-title" data-i18n="g6.t">Member Success Stories</div><p class="muted" data-i18n="g6.d">Celebrating the achievements and milestones reached by our dedicated cooperative members.</p><a href="gallery.html" class="card-link" data-i18n="gallery.learnMore">Learn More <span class="arrow">⟶</span></a></div>
       </div>
     </div>
   </section>
@@ -1185,6 +1318,7 @@
         <div class="member-card"><div class="avatar"><img src="images/mizan.jpg" alt="Md Mizanur Rahman">MR</div><div class="member-name">Md Mizanur Rahman</div><div class="member-role" data-i18n="role.it">IT Expert</div><p class="muted" data-i18n="bio.it">IT expert in modern web design, development and UX solutions daily!</p><div class="member-contact">mizan@nextmillionaireqr.com</div></div>
 
       </div>
+      <div class="section-link-below"><a href="team.html" class="section-link" data-i18n="mgmt.viewAll">Meet Our Team <span class="arrow">⟶</span></a></div>
     </div>
   </section>
 
@@ -1221,23 +1355,6 @@
         <p class="muted" data-i18n="dr.fleetSubtitle">Browse our vehicles below. An "Apply to Rent" button means the car is open — a "Booked" badge means it's already leased.</p>
       </div>
       <div class="fleet-grid" id="fleetGrid"></div>
-    </div>
-  </section>
-
-  <section class="content-section" id="values">
-    <div class="container">
-      <div class="section-head">
-        <p class="section-label" data-i18n="values.label">Our Principles</p>
-        <h2 class="section-title" data-i18n="values.title">Built on Timeless Values</h2>
-      </div>
-      <div class="values-grid">
-        <div class="value-card"><div class="icon">🤝</div><div class="value-title" data-i18n="v1.t">Democratic Control</div><p class="muted" data-i18n="v1.d">One member, one vote. Every decision is made collectively, ensuring all voices shape our direction equally.</p></div>
-        <div class="value-card"><div class="icon">💡</div><div class="value-title" data-i18n="v2.t">Education & Training</div><p class="muted" data-i18n="v2.d">We invest continuously in member skills, financial literacy, and leadership development for long-term empowerment.</p></div>
-        <div class="value-card"><div class="icon">🌿</div><div class="value-title" data-i18n="v3.t">Environmental Stewardship</div><p class="muted" data-i18n="v3.d">Sustainable practices protect the land and resources for future generations of our farming community.</p></div>
-        <div class="value-card"><div class="icon">⚖️</div><div class="value-title" data-i18n="v4.t">Equitable Distribution</div><p class="muted" data-i18n="v4.d">Surplus is distributed fairly based on member participation — rewarding contribution, not capital ownership.</p></div>
-        <div class="value-card"><div class="icon">🛡️</div><div class="value-title" data-i18n="v5.t">Transparency</div><p class="muted" data-i18n="v5.d">Open books, open decisions. Every member has access to financial records and governance documents.</p></div>
-        <div class="value-card"><div class="icon">🌍</div><div class="value-title" data-i18n="v6.t">Community Concern</div><p class="muted" data-i18n="v6.d">We work for the sustainable development of our communities through policies accepted by our members.</p></div>
-      </div>
     </div>
   </section>
 
@@ -1413,7 +1530,7 @@
   <script>
     window.translations = {
       en: {
-        "nav.about": "About", "nav.gallery": "Gallery", "nav.team": "Team", "nav.values": "Values", "nav.contact": "Contact",
+        "nav.about": "About", "nav.gallery": "Gallery", "nav.team": "Team", "nav.fleet": "Fleet", "nav.contact": "Contact",
         "hero.eyebrow": "Est. 2026 · Registered Co-operative",
         "hero.subtitle": "Next Millionaire Co-operative empowers communities through shared ownership, sustainable agriculture, and collective prosperity — rooted in trust, grown by people.",
         "hero.btn1": "Meet Our Team",
@@ -1425,8 +1542,14 @@
         "stat.members": "Active Members", "stat.years": "Years of Service", "stat.turnover": "Annual Turnover", "stat.villages": "Villages Served",
         "about.tagline1": "🌱 Cultivating community wealth through democratic enterprise",
         "about.tagline2": "98% Member Satisfaction",
+        "about.quoteLabel": "Our Core Belief",
+        "about.quote": "\"When people work together with shared ownership, extraordinary things happen.\"",
+        "stat.satisfaction": "Member Satisfaction", "stat.democratic": "Democratic Control",
+        "about.cta": "Read Our Story",
         "gallery.label": "Our Work in Action",
         "gallery.title": "Programs &amp; Impact Gallery",
+        "gallery.viewAll": "View Full Gallery <span class=\"arrow\">⟶</span>",
+        "gallery.learnMore": "Learn More <span class=\"arrow\">⟶</span>",
         "gallery.subtitle": "See how our initiatives are transforming lives and communities across the region.",
         "g1.t": "Agricultural Training", "g1.d": "Member education on sustainable farming techniques and modern crop management practices.",
         "g2.t": "Business Skills", "g2.d": "Financial literacy, market access, and entrepreneurship workshops for cooperative members.",
@@ -1436,6 +1559,7 @@
         "g6.t": "Member Success Stories", "g6.d": "Celebrating the achievements and milestones reached by our dedicated cooperative members.",
         "mgmt.label": "Leadership",
         "mgmt.title": "Our Management Team",
+        "mgmt.viewAll": "Meet Our Team <span class=\"arrow\">⟶</span>",
         "role.exec": "executive", "role.coexec": "co-executive", "role.it": "IT Expert",
         "bio.leader": "Visionary leader with 20+ years in co-operative management and rural development.",
         "bio.champion": "Champion of women's empowerment and microfinance programs across 15 districts.",
@@ -1468,7 +1592,7 @@
         "footer.ica": "Committed to ICA Co-operative Principles"
       },
       bn: {
-        "nav.about": "আমাদের সম্পর্কে", "nav.gallery": "গ্যালারি", "nav.team": "টিম", "nav.values": "মূল্যবোধ", "nav.contact": "যোগাযোগ",
+        "nav.about": "আমাদের সম্পর্কে", "nav.gallery": "গ্যালারি", "nav.team": "টিম", "nav.fleet": "ফ্লিট", "nav.contact": "যোগাযোগ",
         "hero.eyebrow": "প্রতিষ্ঠিত ২০২৬ · নিবন্ধিত সমবায় সমিতি",
         "hero.subtitle": "নেক্সট মিলিয়নিয়ার কো-অপারেটিভ যৌথ মালিকানা, টেকসই কৃষি এবং সমষ্টিগত সমৃদ্ধির মাধ্যমে সম্প্রদায়কে ক্ষমতায়ন করে — বিশ্বাসে প্রোথিত, মানুষের হাতে গড়া।",
         "hero.btn1": "আমাদের টিমের সাথে পরিচিত হোন",
@@ -1480,8 +1604,14 @@
         "stat.members": "সক্রিয় সদস্য", "stat.years": "সেবার বছর", "stat.turnover": "বার্ষিক লেনদেন", "stat.villages": "সেবাপ্রাপ্ত গ্রাম",
         "about.tagline1": "🌱 গণতান্ত্রিক উদ্যোগের মাধ্যমে সমষ্টিগত সম্পদ গড়ে তোলা",
         "about.tagline2": "৯৮% সদস্য সন্তুষ্টি",
+        "about.quoteLabel": "আমাদের মূল বিশ্বাস",
+        "about.quote": "\"মানুষ যখন যৌথ মালিকানা নিয়ে একসাথে কাজ করে, তখন অসাধারণ কিছু ঘটে।\"",
+        "stat.satisfaction": "সদস্য সন্তুষ্টি", "stat.democratic": "গণতান্ত্রিক নিয়ন্ত্রণ",
+        "about.cta": "আমাদের গল্প পড়ুন",
         "gallery.label": "আমাদের কর্মকাণ্ড",
         "gallery.title": "কর্মসূচি ও প্রভাবের গ্যালারি",
+        "gallery.viewAll": "সম্পূর্ণ গ্যালারি দেখুন <span class=\"arrow\">⟶</span>",
+        "gallery.learnMore": "আরও জানুন <span class=\"arrow\">⟶</span>",
         "gallery.subtitle": "দেখুন কীভাবে আমাদের উদ্যোগ পুরো অঞ্চল জুড়ে মানুষের জীবন ও সম্প্রদায়কে বদলে দিচ্ছে।",
         "g1.t": "কৃষি প্রশিক্ষণ", "g1.d": "টেকসই কৃষি কৌশল ও আধুনিক ফসল ব্যবস্থাপনা বিষয়ে সদস্যদের প্রশিক্ষণ।",
         "g2.t": "ব্যবসায়িক দক্ষতা", "g2.d": "সমবায় সদস্যদের জন্য আর্থিক সাক্ষরতা, বাজার সংযোগ এবং উদ্যোক্তা কর্মশালা।",
@@ -1491,6 +1621,7 @@
         "g6.t": "সদস্যদের সাফল্যের গল্প", "g6.d": "আমাদের নিবেদিতপ্রাণ সমবায় সদস্যদের অর্জন ও মাইলফলক উদযাপন।",
         "mgmt.label": "নেতৃত্ব",
         "mgmt.title": "আমাদের ব্যবস্থাপনা টিম",
+        "mgmt.viewAll": "আমাদের টিমের সাথে পরিচিত হন <span class=\"arrow\">⟶</span>",
         "role.exec": "নির্বাহী", "role.coexec": "সহ-নির্বাহী", "role.it": "আইটি বিশেষজ্ঞ",
         "bio.leader": "সমবায় ব্যবস্থাপনা ও গ্রামীণ উন্নয়নে ২০+ বছরের অভিজ্ঞতাসম্পন্ন দূরদর্শী নেতা।",
         "bio.champion": "১৫টি জেলাজুড়ে নারীর ক্ষমতায়ন ও ক্ষুদ্রঋণ কর্মসূচির একজন প্রবক্তা।",
@@ -1523,7 +1654,7 @@
         "footer.ica": "আইসিএ সমবায় নীতিমালার প্রতি প্রতিশ্রুতিবদ্ধ"
       },
       ar: {
-        "nav.about": "من نحن", "nav.gallery": "معرض الصور", "nav.team": "الفريق", "nav.values": "قيمنا", "nav.contact": "تواصل معنا",
+        "nav.about": "من نحن", "nav.gallery": "معرض الصور", "nav.team": "الفريق", "nav.fleet": "الأسطول", "nav.contact": "تواصل معنا",
         "hero.eyebrow": "تأسست 2026 · جمعية تعاونية مسجلة",
         "hero.subtitle": "تعمل جمعية نكست ميليونير التعاونية على تمكين المجتمعات من خلال الملكية المشتركة والزراعة المستدامة والازدهار الجماعي — متجذرة في الثقة، وينميها الناس.",
         "hero.btn1": "تعرف على فريقنا",
@@ -1535,8 +1666,14 @@
         "stat.members": "الأعضاء النشطون", "stat.years": "سنوات الخدمة", "stat.turnover": "الإيرادات السنوية", "stat.villages": "القرى التي نخدمها",
         "about.tagline1": "🌱 نزرع ثروة المجتمع من خلال المشاريع الديمقراطية",
         "about.tagline2": "98% رضا الأعضاء",
+        "about.quoteLabel": "إيماننا الأساسي",
+        "about.quote": "\"عندما يعمل الناس معًا بملكية مشتركة، تحدث أمور استثنائية.\"",
+        "stat.satisfaction": "رضا الأعضاء", "stat.democratic": "الرقابة الديمقراطية",
+        "about.cta": "اقرأ قصتنا",
         "gallery.label": "أعمالنا في الميدان",
         "gallery.title": "معرض البرامج والأثر",
+        "gallery.viewAll": "عرض المعرض الكامل <span class=\"arrow\">⟶</span>",
+        "gallery.learnMore": "اعرف المزيد <span class=\"arrow\">⟶</span>",
         "gallery.subtitle": "شاهد كيف تُحدث مبادراتنا تحولًا في حياة الناس والمجتمعات في جميع أنحاء المنطقة.",
         "g1.t": "التدريب الزراعي", "g1.d": "تدريب الأعضاء على تقنيات الزراعة المستدامة وأساليب إدارة المحاصيل الحديثة.",
         "g2.t": "المهارات التجارية", "g2.d": "ورش عمل حول المعرفة المالية والوصول إلى الأسواق وريادة الأعمال لأعضاء الجمعية.",
@@ -1546,6 +1683,7 @@
         "g6.t": "قصص نجاح الأعضاء", "g6.d": "الاحتفاء بإنجازات وأعضاء جمعيتنا المتفانين ومحطاتهم المهمة.",
         "mgmt.label": "القيادة",
         "mgmt.title": "فريق الإدارة لدينا",
+        "mgmt.viewAll": "تعرف على فريقنا <span class=\"arrow\">⟶</span>",
         "role.exec": "المدير التنفيذي", "role.coexec": "نائب تنفيذي", "role.it": "خبير تقنية المعلومات",
         "bio.leader": "قائد صاحب رؤية يمتلك خبرة تزيد عن 20 عامًا في الإدارة التعاونية والتنمية الريفية.",
         "bio.champion": "رائد في برامج تمكين المرأة والتمويل الأصغر عبر 15 منطقة.",
