@@ -5,6 +5,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Next Millionaire | Build Your Dreams</title>
+  <meta name="description" content="Next Millionaire Co-operative empowers communities through shared ownership, business development, and collective prosperity — rooted in trust, grown by people.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Next Millionaire | Build Your Dreams">
+  <meta property="og:description" content="Next Millionaire Co-operative empowers communities through shared ownership, business development, and collective prosperity — rooted in trust, grown by people.">
+  <meta property="og:image" content="https://mizaaaan.github.io/nextmillionaireqr2/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://mizaaaan.github.io/nextmillionaireqr2/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Next Millionaire Co-operative">
+  <meta property="og:locale" content="en_US">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Next Millionaire | Build Your Dreams">
+  <meta name="twitter:description" content="Next Millionaire Co-operative empowers communities through shared ownership, business development, and collective prosperity.">
+  <meta name="twitter:image" content="https://mizaaaan.github.io/nextmillionaireqr2/images/og-image.jpg">
 
   <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
@@ -17,1297 +33,57 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Hind+Siliguri:wght@400;500;600;700&family=Markazi+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  <link rel="stylesheet" href="css/styles.css">
   <style>
-  
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #fff;
-      color: #1a1a1a;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    a { color: inherit; text-decoration: none; }
-
-    .liquid-glass {
-      background: rgba(84, 194, 254, 0.08);
-      background-blend-mode: luminosity;
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      border: 1px solid rgba(84, 194, 254, 0.15);
-      box-shadow: inset 0 1px 1px rgba(84, 194, 254, 0.1);
-      position: relative;
-      overflow: hidden;
-    }
-    .liquid-glass::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      padding: 1.4px;
-      background: linear-gradient(180deg,
-        rgba(84,194,254,0.2) 0%, rgba(84,194,254,0.1) 20%,
-        rgba(84,194,254,0) 40%, rgba(84,194,254,0) 60%,
-        rgba(84,194,254,0.1) 80%, rgba(84,194,254,0.2) 100%);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-    }
-    .content-section:nth-of-type(n+2):nth-of-type(even) .liquid-glass {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(255, 255, 255, 0.2);
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
-    }
-
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      overflow: hidden;
-      background: #54C2FE;
-    }
-    .bg-video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-      display: block;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      color: #fff;
-    }
-    .nav-wrap { padding: 24px 24px 0; }
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 8px 16px;
-      border-radius: 12px;
-    }
-    .logo {
-      font-size: 24px;
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      white-space: nowrap;
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      font-size: 14px;
-    }
-    .nav-links a { transition: color 0.3s ease; }
-    .nav-links a:hover { color: rgba(255, 255, 255, 0.7); }
-    
-    /* Hamburger Menu */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 0;
-      gap: 6px;
-    }
-    .hamburger span {
-      width: 24px;
-      height: 2px;
-      background: #fff;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-    .hamburger.active span:nth-child(1) {
-      transform: translateY(8px) rotate(45deg);
-    }
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-    .hamburger.active span:nth-child(3) {
-      transform: translateY(-8px) rotate(-45deg);
-    }
-    
-    /* Mobile Menu - Liquid Glass */
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 70px;
-      right: 16px;
-      background: rgba(255, 255, 255, 0.08);
-      background-blend-mode: screen;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 16px;
-      padding: 16px 0;
-      min-width: 200px;
-      z-index: 1000;
-      box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.3),
-        inset 0 1px 1px rgba(255, 255, 255, 0.2);
-      overflow: hidden;
-    }
-    .mobile-menu::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 16px;
-      padding: 1.4px;
-      background: linear-gradient(135deg,
-        rgba(255,255,255,0.4) 0%,
-        rgba(255,255,255,0.1) 30%,
-        rgba(255,255,255,0.05) 50%,
-        rgba(255,255,255,0.1) 70%,
-        rgba(255,255,255,0.3) 100%);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .mobile-menu.active {
-      display: flex;
-      flex-direction: column;
-    }
-    .mobile-menu a {
-      padding: 12px 24px;
-      font-size: 14px;
-      transition: all 0.3s ease;
-      border-left: 3px solid transparent;
-      position: relative;
-      z-index: 1;
-    }
-    .mobile-menu a:hover {
-      background: rgba(255, 255, 255, 0.12);
-      border-left-color: #667eea;
-      color: #fff;
-      backdrop-filter: blur(5px);
-    }
-
-    .hero-bottom {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 0 24px 48px;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      align-items: end;
-      gap: 32px;
-    }
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 16px;
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 14px;
-      font-weight: 300;
-      letter-spacing: 0.02em;
-    }
-    h1 {
-      font-size: 40px;
-      line-height: 1.05;
-      font-weight: 400;
-      letter-spacing: -0.04em;
-      margin-bottom: 16px;
-    }
-    .char {
-      display: inline-block;
-      opacity: 0;
-      transform: translateX(-18px);
-      transition: opacity 500ms ease-out, transform 500ms ease-out;
-    }
-    .subheading {
-      color: rgba(255, 255, 255, 0.85);
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 20px;
-      max-width: 620px;
-      opacity: 0;
-      transition: opacity 1000ms ease;
-    }
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      opacity: 0;
-      transition: opacity 1000ms ease;
-    }
-    .buttons.show { opacity: 1; }
-    .btn-primary, .btn-secondary {
-      padding: 12px 28px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 500;
-      display: inline-block;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    .btn-primary {
-      background: #fff;
-      color: #1a1a1a;
-      border: 1px solid transparent;
-    }
-    .btn-primary:hover {
-      background: transparent;
-      color: #fff;
-      border-color: #fff;
-      transform: translateY(-2px);
-    }
-    .btn-secondary {
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #fff;
-    }
-    .btn-secondary:hover {
-      border-color: rgba(255, 255, 255, 0.4);
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .tag-wrap {
-      opacity: 0;
-      transition: opacity 1000ms ease;
-    }
-    .tag-wrap.show { opacity: 1; }
-    .tag {
-      display: inline-block;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    .subheading.show { opacity: 1; }
-
-    .content-section {
-      padding: 80px 24px;
-      background: #fff;
-    }
-    #values {
-      padding-top: 40px;
-    }
-    .content-section:nth-of-type(1) {
-      background: #54C2FE;
-      color: #fff;
-    }
-    .content-section:nth-of-type(2) {
-      background: #fff;
-      color: #1a1a1a;
-    }
-    .content-section:nth-of-type(3) {
-      background: #54C2FE;
-      color: #fff;
-    }
-    .content-section:nth-of-type(4) {
-      background: #fff;
-      color: #1a1a1a;
-    }
-    .content-section:nth-of-type(5) {
-      background: #fff;
-      color: #1a1a1a;
-    }
-    .content-section:nth-of-type(6) {
-      background: #fff;
-      color: #1a1a1a;
-    }
-    .content-section:nth-of-type(n+2):nth-of-type(even) .section-label {
-      color: rgba(0, 0, 0, 0.6);
-    }
-    .content-section:nth-of-type(n+2):nth-of-type(even) .section-title {
-      color: #1a1a1a;
-    }
-    .content-section:nth-of-type(n+2):nth-of-type(even) .muted {
-      color: rgba(0, 0, 0, 0.65);
-    }
-    .content-section:nth-of-type(n+2):nth-of-type(odd) .section-label {
-      color: rgba(255, 255, 255, 0.8);
-    }
-    .content-section:nth-of-type(n+2):nth-of-type(odd) .section-title {
-      color: #fff;
-    }
-    .content-section:nth-of-type(n+2):nth-of-type(odd) .muted {
-      color: rgba(255, 255, 255, 0.85);
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .section-head { margin-bottom: 48px; }
-    .section-head-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 24px;
-      flex-wrap: wrap;
-      margin-bottom: 48px;
-    }
-    .section-head-row .section-head { margin-bottom: 0; flex: 1 1 320px; }
-    .section-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      color: inherit;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: gap 0.2s ease, opacity 0.2s ease;
-    }
-    .section-link-below {
-      text-align: center;
-      margin-top: 40px;
-    }
-    .card-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 16px;
-      font-size: 14px;
-      font-weight: 600;
-      color: inherit;
-      text-decoration: none;
-      transition: gap 0.2s ease, opacity 0.2s ease;
-    }
-    .card-link:hover { gap: 10px; opacity: 0.8; }
-    .section-link .arrow,
-    .card-link .arrow { transition: transform 0.2s ease; }
-    .section-link:hover .arrow,
-    .card-link:hover .arrow { transform: translateX(3px); }
-    .section-label {
-      display: inline-block;
-      color: #666;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    .section-title {
-      font-size: 36px;
-      font-weight: 400;
-      letter-spacing: -0.04em;
-      line-height: 1.1;
-      max-width: 600px;
-      color: #1a1a1a;
-    }
-
-    .muted {
-      color: #666;
-      line-height: 1.6;
-    }
-
-    /* ── About section (image + quote card + stats) ── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
-    }
-    .about-media {
-      position: relative;
-    }
-    .about-media-decor {
-      position: absolute;
-      top: -24px;
-      left: -24px;
-      width: 100%;
-      height: 100%;
-      background: #eef1f6;
-      border-radius: 20px;
-      z-index: 0;
-    }
-    .about-photo {
-      position: relative;
-      z-index: 1;
-      display: block;
-      width: 100%;
-      height: 430px;
-      object-fit: cover;
-      border-radius: 18px;
-      box-shadow: 0 24px 48px rgba(13, 40, 67, 0.18);
-    }
-    .about-quote-card {
-      position: absolute;
-      z-index: 2;
-      right: -28px;
-      bottom: -32px;
-      width: 76%;
-      background: rgba(255, 255, 255, 0.92);
-      border-radius: 14px;
-      padding: 22px 24px;
-      box-shadow: 0 18px 40px rgba(13, 40, 67, 0.2);
-      border: 1px solid rgba(255, 255, 255, 0.7);
-    }
-    .quote-label {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #5a6472;
-      margin-bottom: 10px;
-    }
-    .quote-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #3fae6a;
-      flex-shrink: 0;
-    }
-    .quote-text {
-      font-style: italic;
-      font-size: 16px;
-      line-height: 1.55;
-      color: #16233a;
-      font-weight: 500;
-    }
-    .about-heading {
-      font-size: 38px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-      color: #0d2843;
-      max-width: 520px;
-      margin-bottom: 20px;
-    }
-    .about-copy .muted { max-width: 540px; }
-    .about-copy .muted + .muted { margin-top: 14px; }
-    .about-stats {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      margin: 32px 0 28px;
-    }
-    .about-stat-num {
-      font-size: 36px;
-      font-weight: 700;
-      color: #0d2843;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-    .about-stat-label {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: #6b7280;
-    }
-    .about-stat-divider {
-      width: 1px;
-      height: 48px;
-      background: #d8dde3;
-      flex-shrink: 0;
-    }
-    .about-cta {
-      display: inline-block;
-      background: #54C2FE;
-      color: #fff;
-      padding: 12px 28px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 500;
-      border: 1px solid transparent;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    .about-cta:hover {
-      background: transparent;
-      color: #54C2FE;
-      border-color: #54C2FE;
-      transform: translateY(-2px);
-    }
-
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-    }
-    .member-card {
-      background: #f8f9fa;
-      padding: 36px;
-      border-radius: 16px;
-      border: 1px solid #e0e0e0;
-      transition: all 0.3s ease;
-    }
-    .member-card:hover {
-      background: #fff;
-      border-color: #54C2FE;
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(84, 194, 254, 0.15);
-    }
-    #management .member-card {
-      background: #fff;
-      border-color: #e0e0e0;
-    }
-    #management .member-card:hover {
-      background: #fff;
-      border-color: #54C2FE;
-    }
-    .avatar {
-      width: 68px;
-      height: 68px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #54C2FE 0%, #3DB3F5 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      font-size: 22px;
-      color: #fff;
-      margin-bottom: 20px;
-      overflow: hidden;
-      position: relative;
-    }
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      border-radius: 50%;
-    }
-    .member-name {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-    .member-role {
-      font-size: 13px;
-      color: #000;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 14px;
-    }
-    #management .member-role {
-      color: #000;
-    }
-    #management .member-name {
-      color: #1a1a1a;
-    }
-    #management .muted {
-      color: #555;
-    }
-    .member-contact {
-      font-size: 12px;
-      color: #54C2FE;
-      margin-top: 12px;
-      word-break: break-word;
-    }
-    .content-section:nth-of-type(n+2):nth-of-type(even) .member-contact {
-      color: rgba(255, 255, 255, 0.9);
-    }
-    /* Management section has a white background (4th section = even),
-       so override the white email colour back to blue for visibility */
-    #management .member-contact {
-      color: #54C2FE;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-    }
-    .gallery-card, .value-card {
-      background: #f8f9fa;
-      padding: 32px;
-      border-radius: 12px;
-      border: 1px solid #e0e0e0;
-      transition: all 0.3s ease;
-    }
-    .content-section:nth-of-type(3) .value-card,
+    /* Homepage section alternation (index.html only) */
+    .content-section:nth-of-type(1) { background: #54C2FE; color: #fff; }
+    .content-section:nth-of-type(2) { background: #fff; color: #1a1a1a; }
+    .content-section:nth-of-type(3) { background: #54C2FE; color: #fff; }
+    .content-section:nth-of-type(4) { background: #fff; color: #1a1a1a; }
+    .content-section:nth-of-type(5) { background: #fff; color: #1a1a1a; }
+    .content-section:nth-of-type(6) { background: #fff; color: #1a1a1a; }
+    .content-section:nth-of-type(n+2):nth-of-type(even) .section-label { color: rgba(0, 0, 0, 0.6); }
+    .content-section:nth-of-type(n+2):nth-of-type(even) .section-title { color: #1a1a1a; }
+    .content-section:nth-of-type(n+2):nth-of-type(even) .muted { color: rgba(0, 0, 0, 0.65); }
+    .content-section:nth-of-type(n+2):nth-of-type(odd) .section-label { color: rgba(255, 255, 255, 0.8); }
+    .content-section:nth-of-type(n+2):nth-of-type(odd) .section-title { color: #fff; }
+    .content-section:nth-of-type(n+2):nth-of-type(odd) .muted { color: rgba(255, 255, 255, 0.85); }
     .content-section:nth-of-type(3) .gallery-card,
-    .content-section:nth-of-type(4) .member-card {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-    .gallery-card:hover, .value-card:hover {
-      background: #fff;
-      border-color: #54C2FE;
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(84, 194, 254, 0.15);
-    }
-    .content-section:nth-of-type(3) .value-card:hover,
+    .content-section:nth-of-type(3) .value-card,
+    .content-section:nth-of-type(4) .member-card { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.2); }
     .content-section:nth-of-type(3) .gallery-card:hover,
-    .content-section:nth-of-type(4) .member-card:hover {
-      background: rgba(255, 255, 255, 0.2);
-      border-color: rgba(255, 255, 255, 0.4);
-    }
+    .content-section:nth-of-type(3) .value-card:hover,
+    .content-section:nth-of-type(4) .member-card:hover { background: rgba(255, 255, 255, 0.2); border-color: rgba(255, 255, 255, 0.4); }
     .content-section:nth-of-type(n+2):nth-of-type(even) .gallery-card,
-    .content-section:nth-of-type(n+2):nth-of-type(even) .value-card {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(255, 255, 255, 0.2);
-    }
+    .content-section:nth-of-type(n+2):nth-of-type(even) .value-card { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.2); }
     .content-section:nth-of-type(n+2):nth-of-type(even) .gallery-card:hover,
-    .content-section:nth-of-type(n+2):nth-of-type(even) .value-card:hover {
-      background: rgba(255, 255, 255, 0.2);
-      border-color: rgba(255, 255, 255, 0.4);
-    }
-    .icon {
-      font-size: 40px;
-      margin-bottom: 16px;
-      display: block;
-    }
-    .value-card .icon {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-    .gallery-title, .value-title {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: inherit;
-    }
-    .value-title {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      color: inherit;
-    }
-    .content-section:nth-of-type(5) .value-card {
-      color: #1a1a1a;
-    }
-    .content-section:nth-of-type(5) .value-card .muted {
-      color: #555;
-    }
-    .content-section:nth-of-type(5) .value-title {
-      color: #1a1a1a;
-    }
+    .content-section:nth-of-type(n+2):nth-of-type(even) .value-card:hover { background: rgba(255, 255, 255, 0.2); border-color: rgba(255, 255, 255, 0.4); }
+    .content-section:nth-of-type(5) .value-card { color: #1a1a1a; }
+    .content-section:nth-of-type(5) .value-card .muted { color: #555; }
+    .content-section:nth-of-type(5) .value-title { color: #1a1a1a; }
 
-    /* #values is nth-of-type(5) = odd, but has WHITE background.
-       The generic odd-rule sets white text — override everything to dark. */
-    #values {
-      background: #fff;
-      color: #1a1a1a;
-    }
-    #values .value-card {
-      background: #f5f5f5;
-      border-color: #e0e0e0;
-    }
-    #values .value-card:hover {
-      background: #fff;
-      border-color: #54C2FE;
-    }
-    #values .section-label {
-      color: rgba(0, 0, 0, 0.6);
-    }
-    #values .section-title {
-      color: #1a1a1a;
-    }
-    #values .muted {
-      color: rgba(0, 0, 0, 0.65);
-    }
-    #values .gallery-title,
-    #values .value-title {
-      color: #1a1a1a;
-    }
-
-    /* #contact is now a plain white section (nth-of-type(6)), so only the
-       CTA button needs its own brand-colour styling. */
-    #contact .btn-primary {
-      background: #54C2FE;
-      color: #fff;
-      border-color: transparent;
-    }
-    #contact .btn-primary:hover {
-      background: transparent;
-      color: #54C2FE;
-      border-color: #54C2FE;
-    }
-
-    /* Driver Car Rental */
-    #driver-rental {
-      background: #54C2FE;
-      color: #fff;
-    }
-    #driver-rental .section-label { color: rgba(255, 255, 255, 0.8); }
-    #driver-rental .section-title { color: #fff; }
-    #driver-rental .muted { color: rgba(255, 255, 255, 0.85); }
-    .driver-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
-      margin-bottom: 40px;
-    }
-    .driver-step {
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 16px;
-      padding: 28px;
-      transition: all 0.3s ease;
-    }
-    .driver-step:hover {
-      background: rgba(255, 255, 255, 0.2);
-      border-color: rgba(255, 255, 255, 0.4);
-      transform: translateY(-4px);
-    }
-    .driver-step-num {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      font-size: 14px;
-      margin-bottom: 16px;
-    }
-    .driver-step-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: #fff; }
-    .driver-step p { color: rgba(255, 255, 255, 0.85); font-size: 14px; line-height: 1.6; }
-
-    .fleet-head {
-      margin-top: 56px;
-      margin-bottom: 24px;
-    }
-    .fleet-head-row {
-      margin-top: 56px;
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 24px;
-      flex-wrap: wrap;
-    }
-    .fleet-subtitle {
-      margin-top: 10px;
-      margin-bottom: 28px;
-      max-width: 640px;
-    }
-    .fleet-title {
-      font-size: 22px;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 8px;
-    }
-    .fleet-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 20px;
-    }
-    .fleet-card {
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 16px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-    .fleet-card:hover {
-      background: rgba(255, 255, 255, 0.2);
-      border-color: rgba(255, 255, 255, 0.4);
-      transform: translateY(-4px);
-    }
-    .fleet-photo {
+    /* ── Homepage gallery card images ── */
+    .gallery-card { padding: 0; overflow: hidden; display: block; }
+    .gallery-card-img {
       width: 100%;
-      aspect-ratio: 4 / 3;
-      overflow: hidden;
-      background: rgba(255, 255, 255, 0.08);
-    }
-    .fleet-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .fleet-info {
-      padding: 14px 16px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-    .fleet-label {
-      font-size: 14px;
-      font-weight: 600;
-      color: #fff;
-    }
-    .fleet-status {
-      font-size: 12px;
-      font-weight: 600;
-      padding: 7px 14px;
-      border-radius: 999px;
-      text-decoration: none;
-      white-space: nowrap;
-      border: 1px solid transparent;
-      transition: all 0.3s ease;
-    }
-    .fleet-status.booked {
-      background: rgba(255, 255, 255, 0.15);
-      color: rgba(255, 255, 255, 0.65);
-      cursor: not-allowed;
-    }
-    .fleet-status.available {
-      background: #fff;
-      color: #1a1a1a;
-    }
-    .fleet-status.available:hover {
-      background: transparent;
-      color: #fff;
-      border-color: #fff;
-    }
-
-    /* ── Homepage fleet preview: white card grid (photo, title, blurb, CTA) ── */
-    .fleet-cards-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .fleet-card-v2 {
-      background: #fff;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .fleet-card-v2:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.2);
-    }
-    .fleet-card-v2-photo {
-      position: relative;
-      aspect-ratio: 16 / 11;
+      aspect-ratio: 3 / 2;
       overflow: hidden;
       background: #eef1f3;
     }
-    .fleet-card-v2-photo img {
+    .gallery-card-img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: transform 0.5s ease;
     }
-    .fleet-pill {
-      position: absolute;
-      right: 12px;
-      bottom: 12px;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 600;
+    .gallery-card:hover .gallery-card-img img {
+      transform: scale(1.05);
     }
-    .fleet-pill.available { background: rgba(255, 255, 255, 0.95); color: #1a8449; }
-    .fleet-pill.available .dot { width: 6px; height: 6px; border-radius: 50%; background: #21b25e; display: inline-block; }
-    .fleet-pill.booked { background: rgba(20, 24, 28, 0.7); color: #fff; }
-    .fleet-card-v2-body {
-      padding: 22px 22px 20px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
+    .gallery-card-body {
+      padding: 24px 28px 28px;
     }
-    .fleet-card-v2-title {
-      font-size: 19px;
-      font-weight: 700;
-      color: #1a1a1a;
-      margin-bottom: 8px;
-    }
-    .fleet-card-v2-desc {
-      font-size: 14px;
-      line-height: 1.6;
-      color: #666;
-      flex: 1;
-    }
-    .fleet-card-v2-divider {
-      height: 1px;
-      background: #ececec;
-      margin: 18px 0 16px;
-    }
-    .fleet-card-v2-foot {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-    }
-    .fleet-card-v2-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #999;
-    }
-    .fleet-card-v2-btn {
-      font-size: 13px;
-      font-weight: 600;
-      padding: 10px 18px;
-      border-radius: 999px;
-      text-decoration: none;
-      white-space: nowrap;
-      background: #1a4f6e;
-      color: #fff;
-      border: 1px solid transparent;
-      transition: all 0.3s ease;
-    }
-    .fleet-card-v2-btn:hover { background: #123a52; }
-    .fleet-card-v2-btn.booked {
-      background: #eee;
-      color: #999;
-      cursor: not-allowed;
-    }
-
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      max-width: 100%;
-    }
-    .value-card {
-      background: #f5f5f5;
-      padding: 32px;
-      border-radius: 16px;
-      border: 1px solid #e0e0e0;
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-    .value-card:hover {
-      background: #fff;
-      border-color: #54C2FE;
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(84, 194, 254, 0.15);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 32px;
-      margin-bottom: 40px;
-    }
-    .contact-item {
-      background: #f8f9fa;
-      padding: 24px;
-      border-radius: 12px;
-      border: 1px solid #e0e0e0;
-    }
-    .contact-label {
-      font-size: 12px;
-      color: #666;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 8px;
-      display: block;
-    }
-    .contact-value {
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    footer {
-      background: #54C2FE;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 32px 24px;
-      color: #fff;
-      text-align: center;
-    }
-    html[data-theme="dark"] footer {
-      background: #1a4f6e;
-      border-top-color: rgba(255, 255, 255, 0.15);
-    }
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      font-size: 12px;
-    }
-    .footer-inner strong { font-size: 14px; }
-
-    /* ── Tablet (≤1024px): team goes 2-col ── */
-    @media (max-width: 1024px) {
-      .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-      }
-      .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .values-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .fleet-cards-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    /* ── Mobile (≤768px): single column, tighter spacing ── */
-    @media (max-width: 768px) {
-      /* Typography */
-      h1 { font-size: 32px; }
-      .section-title { font-size: 26px; }
-      .logo { font-size: 18px; }
-
-      /* Nav */
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-
-      /* Sections */
-      .content-section { padding: 60px 16px; }
-      .section-head { margin-bottom: 32px; }
-      .section-head-row { flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 32px; }
-      .fleet-head-row { flex-direction: column; align-items: flex-start; gap: 10px; }
-      .section-head-row .section-head { flex: none; width: 100%; }
-
-      /* About */
-      .about-grid { grid-template-columns: 1fr; gap: 56px; }
-      .about-media-decor { display: none; }
-      .about-photo { height: 300px; }
-      .about-quote-card { position: static; width: 100%; margin-top: 16px; right: auto; bottom: auto; }
-      .about-heading { font-size: 28px; max-width: 100%; }
-      .about-stats { gap: 20px; }
-      .about-stat-num { font-size: 28px; }
-
-      /* Management team — 1 column */
-      .team-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-      .member-card {
-        padding: 24px;
-        border-radius: 12px;
-      }
-      .avatar {
-        width: 52px;
-        height: 52px;
-        font-size: 17px;
-        margin-bottom: 14px;
-      }
-      .member-name { font-size: 17px; }
-      .member-role { font-size: 12px; }
-
-      /* Gallery */
-      .gallery-grid { grid-template-columns: 1fr; gap: 16px; }
-      .gallery-card { padding: 24px; }
-
-      /* Values */
-      .values-grid { grid-template-columns: 1fr; gap: 16px; }
-      .value-card { padding: 24px; }
-      .value-title { font-size: 16px; }
-      .value-card .icon { font-size: 36px; margin-bottom: 14px; }
-
-      /* Contact */
-      .contact-grid { grid-template-columns: 1fr; gap: 16px; }
-      .contact-item { padding: 20px; }
-
-      /* Driver Car Rental */
-      .driver-steps { grid-template-columns: 1fr; gap: 16px; }
-      .driver-step { padding: 22px; }
-
-      /* Fleet grid */
-      .fleet-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
-      .fleet-info { padding: 10px 12px 14px; flex-direction: column; align-items: flex-start; gap: 8px; }
-      .fleet-status { width: 100%; text-align: center; }
-
-      /* Homepage fleet showcase — stack to 1 column on mobile */
-      .fleet-cards-grid { grid-template-columns: 1fr; gap: 18px; }
-
-      /* Buttons */
-      .buttons { flex-direction: column; gap: 12px; }
-      .btn-primary, .btn-secondary { text-align: center; }
-
-      /* Footer */
-      .footer-inner { font-size: 11px; text-align: center; }
-    }
-
-    /* ── Small mobile (≤480px): extra tweaks ── */
-    @media (max-width: 480px) {
-      h1 { font-size: 28px; }
-      .section-title { font-size: 22px; }
-      .content-section { padding: 48px 14px; }
-      .about-stat-num { font-size: 24px; }
-      .about-photo { height: 240px; }
-      .member-card { padding: 20px; }
-      .member-name { font-size: 16px; }
-    }
-  
-    /* ============ Language switcher & i18n ============ */
-    .lang-switch {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      margin-left: 10px;
-      padding-left: 10px;
-      border-left: 1px solid rgba(255, 255, 255, 0.25);
-    }
-    .lang-switch button {
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      color: rgba(255, 255, 255, 0.85);
-      font-size: 12px;
-      font-weight: 600;
-      padding: 5px 10px;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      font-family: 'Inter', sans-serif;
-    }
-    .lang-switch button:hover {
-      border-color: #fff;
-      color: #fff;
-    }
-    .lang-switch button.active {
-      background: #fff;
-      color: #1a1a1a;
-      border-color: #fff;
-    }
-    .mobile-menu .lang-switch {
-      margin: 12px 24px 4px;
-      padding-left: 0;
-      padding-top: 16px;
-      border-left: none;
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-    }
-
-    /* Bangla / Arabic type */
-    body.lang-bn { font-family: 'Hind Siliguri', 'Inter', sans-serif; }
-    body.lang-ar { font-family: 'Markazi Text', 'Inter', sans-serif; }
-
-    /* RTL adjustments (Arabic) */
-    html[dir="rtl"] .lang-switch {
-      margin-left: 0;
-      margin-right: 10px;
-      padding-left: 0;
-      padding-right: 10px;
-      border-left: none;
-      border-right: 1px solid rgba(255, 255, 255, 0.25);
-    }
-    html[dir="rtl"] .mobile-menu a { border-left: none; border-right: 3px solid transparent; }
-    html[dir="rtl"] .mobile-menu a:hover { border-left-color: transparent; border-right-color: #667eea; }
-    html[dir="rtl"] .eyebrow,
-    html[dir="rtl"] .section-head,
-    html[dir="rtl"] .fleet-head { text-align: right; }
-    html[dir="rtl"] .fleet-head-row { flex-direction: row-reverse; text-align: right; }
-    html[dir="rtl"] .fleet-subtitle { text-align: right; }
-    html[dir="rtl"] .driver-step,
-    html[dir="rtl"] .value-card,
-    html[dir="rtl"] .gallery-card,
-    html[dir="rtl"] .member-card,
-    html[dir="rtl"] .contact-item { text-align: right; }
-    html[dir="rtl"] .section-link .arrow,
-    html[dir="rtl"] .card-link .arrow { display: inline-block; transform: scaleX(-1); }
-    html[dir="rtl"] .section-link:hover .arrow,
-    html[dir="rtl"] .card-link:hover .arrow { transform: scaleX(-1) translateX(3px); }
-    html[dir="rtl"] .fleet-info { flex-direction: row-reverse; }
-    html[dir="rtl"] .fleet-card-v2-foot { flex-direction: row-reverse; }
-    html[dir="rtl"] .about-heading,
-    html[dir="rtl"] .about-copy .muted,
-    html[dir="rtl"] .quote-text { text-align: right; }
-    html[dir="rtl"] .about-quote-card { right: auto; left: -28px; }
-    html[dir="rtl"] .about-media-decor { left: auto; right: -24px; }
-  
-    /* ============ Theme Toggle Button ============ */
-    .theme-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      margin-left: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 999px;
-      background: transparent;
-      color: rgba(255, 255, 255, 0.85);
-      cursor: pointer;
-      transition: all 0.25s ease;
-      flex-shrink: 0;
-    }
-    .theme-toggle:hover { border-color: #fff; color: #fff; }
-    .theme-toggle svg { width: 16px; height: 16px; display: block; pointer-events: none; }
-    .theme-toggle .icon-moon { display: none; }
-    html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
-    html[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
-    .mobile-menu .theme-toggle { margin: 12px 24px 0; }
-    html[dir="rtl"] .theme-toggle { margin-left: 0; margin-right: 10px; }
-    html[dir="rtl"] .mobile-menu .theme-toggle { margin: 12px 24px 0; }
-
-    /* ============ Dark Theme Palette ============ */
-    html[data-theme="dark"] body { background: #0d0f13; color: #e7e7e7; }
-    html[data-theme="dark"] .mobile-menu { background: rgba(20, 22, 28, 0.55); }
-    html[data-theme="dark"] .content-section { background: #0d0f13; color: #e7e7e7; }
-    html[data-theme="dark"] .section-label { color: rgba(255, 255, 255, 0.55); }
-    html[data-theme="dark"] .section-title { color: #f5f5f5; }
-    html[data-theme="dark"] .muted { color: rgba(255, 255, 255, 0.62); }
-    html[data-theme="dark"] .about-media-decor { background: rgba(255, 255, 255, 0.06); }
-    html[data-theme="dark"] .about-photo { box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45); }
-    html[data-theme="dark"] .about-quote-card { background: rgba(20, 22, 28, 0.85); border-color: rgba(255, 255, 255, 0.12); }
-    html[data-theme="dark"] .quote-text { color: #e7e7e7; }
-    html[data-theme="dark"] .quote-label { color: rgba(255, 255, 255, 0.55); }
-    html[data-theme="dark"] .about-heading { color: #f5f5f5; }
-    html[data-theme="dark"] .about-stat-num { color: #f5f5f5; }
-    html[data-theme="dark"] .about-stat-label { color: rgba(255, 255, 255, 0.55); }
-    html[data-theme="dark"] .about-stat-divider { background: rgba(255, 255, 255, 0.15); }
-    html[data-theme="dark"] .about-cta { background: #fff; color: #1a1a1a; border-color: transparent; }
-    html[data-theme="dark"] .about-cta:hover { background: transparent; color: #fff; border-color: #fff; }
-    html[data-theme="dark"] .member-card,
-    html[data-theme="dark"] .gallery-card,
-    html[data-theme="dark"] .value-card,
-    html[data-theme="dark"] .contact-item {
-      background: rgba(255, 255, 255, 0.035);
-      border-color: rgba(255, 255, 255, 0.1);
-    }
-    html[data-theme="dark"] .member-card:hover,
-    html[data-theme="dark"] .gallery-card:hover,
-    html[data-theme="dark"] .value-card:hover {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: #54C2FE;
-    }
-    html[data-theme="dark"] #management .member-card,
-    html[data-theme="dark"] #management .member-card:hover { background: rgba(255, 255, 255, 0.035); border-color: rgba(255, 255, 255, 0.1); }
-    html[data-theme="dark"] #management .member-card:hover { border-color: #54C2FE; }
-    html[data-theme="dark"] .member-name,
-    html[data-theme="dark"] #management .member-name,
-    html[data-theme="dark"] .gallery-title,
-    html[data-theme="dark"] .value-title { color: #f5f5f5; }
-    html[data-theme="dark"] .member-role,
-    html[data-theme="dark"] #management .member-role { color: rgba(255, 255, 255, 0.55); }
-    html[data-theme="dark"] #management .muted { color: rgba(255, 255, 255, 0.62); }
-    html[data-theme="dark"] .fleet-card,
-    html[data-theme="dark"] .driver-step { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.1); }
-    html[data-theme="dark"] .fleet-status { color: rgba(255, 255, 255, 0.7); }
-    html[data-theme="dark"] .fleet-card-v2 { background: rgba(255, 255, 255, 0.05); box-shadow: none; border: 1px solid rgba(255, 255, 255, 0.1); }
-    html[data-theme="dark"] .fleet-card-v2-title { color: #f5f5f5; }
-    html[data-theme="dark"] .fleet-card-v2-desc { color: rgba(255, 255, 255, 0.6); }
-    html[data-theme="dark"] .fleet-card-v2-divider { background: rgba(255, 255, 255, 0.12); }
-    html[data-theme="dark"] .fleet-card-v2-label { color: rgba(255, 255, 255, 0.45); }
-    html[data-theme="dark"] .fleet-card-v2-btn.booked { background: rgba(255, 255, 255, 0.1); color: rgba(255, 255, 255, 0.5); }
-    /* index.html only: #driver-rental sets its OWN background directly
-       (an id selector), which beats the generic nth-of-type dark
-       backgrounds above — so it needs its own dark counterpart. */
-    html[data-theme="dark"] #values { background: #0d0f13; color: #e7e7e7; }
-    html[data-theme="dark"] #driver-rental { background: #1a4f6e; color: #fff; }
-
-    /* ---- ID-scoped overrides in the original CSS beat the generic dark
-       rules above (higher specificity), so they need their own dark
-       counterparts or text/cards stay dark-on-dark / light-on-light. ---- */
-    html[data-theme="dark"] #values .value-card { background: rgba(255, 255, 255, 0.035); border-color: rgba(255, 255, 255, 0.1); }
-    html[data-theme="dark"] #values .value-card:hover { background: rgba(255, 255, 255, 0.06); border-color: #54C2FE; }
-    html[data-theme="dark"] #values .section-label { color: rgba(255, 255, 255, 0.55); }
-    html[data-theme="dark"] #values .section-title { color: #f5f5f5; }
-    html[data-theme="dark"] #values .muted { color: rgba(255, 255, 255, 0.62); }
-    html[data-theme="dark"] #values .gallery-title,
-    html[data-theme="dark"] #values .value-title { color: #f5f5f5; }
-    html[data-theme="dark"] .content-section:nth-of-type(5) .value-card { color: #f5f5f5; }
-    html[data-theme="dark"] .content-section:nth-of-type(5) .value-card .muted { color: rgba(255, 255, 255, 0.62); }
-
-    html[data-theme="dark"] #contact .contact-label { color: rgba(255, 255, 255, 0.55); }
-    html[data-theme="dark"] #contact .contact-value { color: #e7e7e7; }
-    html[data-theme="dark"] #contact .btn-primary { background: #fff; color: #1a1a1a; border-color: transparent; }
-    html[data-theme="dark"] #contact .btn-primary:hover { background: transparent; color: #fff; border-color: #fff; }
-
-
+    .content-section:nth-of-type(n+2):nth-of-type(even) .member-contact { color: rgba(255, 255, 255, 0.9); }
     html[data-theme="dark"] .content-section:nth-of-type(1),
     html[data-theme="dark"] .content-section:nth-of-type(3) { background: #1a4f6e; color: #fff; }
     html[data-theme="dark"] .content-section:nth-of-type(2),
@@ -1325,6 +101,72 @@
     html[data-theme="dark"] .content-section:nth-of-type(5) .value-title { color: #f5f5f5; }
     html[data-theme="dark"] .content-section:nth-of-type(n+2):nth-of-type(even) .member-contact { color: #7fd3ff; }
 
+    /* ── Back to Top ── */
+    #backToTop {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #1a4f6e;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+      opacity: 0;
+      transform: translateY(14px);
+      pointer-events: none;
+      transition: opacity 0.35s ease, transform 0.35s ease, background 0.3s ease;
+    }
+    #backToTop.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    #backToTop:hover {
+      background: #123a52;
+      transform: translateY(-3px);
+    }
+    #backToTop.visible:hover {
+      transform: translateY(-3px);
+    }
+    #backToTop svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    html[data-theme="dark"] #backToTop {
+      background: #54C2FE;
+      color: #1a1a1a;
+    }
+    html[data-theme="dark"] #backToTop:hover {
+      background: #7fd3ff;
+    }
+    @media (max-width: 768px) {
+      #backToTop { bottom: 20px; right: 20px; width: 38px; height: 38px; }
+      #backToTop svg { width: 17px; height: 17px; }
+    }
+
+    /* ── Scroll Reveal Animations ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
@@ -1341,10 +183,9 @@
           <a href="index.html" class="logo">Next Millionaire</a>
           <div class="nav-links">
             <a href="about.html" data-i18n="nav.about">About</a>
-            <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
-            <a href="team.html" data-i18n="nav.team">Team</a>
             <a href="fleet.html" data-i18n="nav.fleet">Fleet</a>
             <a href="contact.html" data-i18n="nav.contact">Contact</a>
+            <a href="portal.html" data-i18n="nav.portal">Portal</a>
             <div class="lang-switch"><button data-lang-btn="en" class="active">EN</button><button data-lang-btn="bn">বাং</button><button data-lang-btn="ar">عربي</button></div><button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
           </div>
           <button class="hamburger" id="hamburgerBtn">
@@ -1355,10 +196,9 @@
         </nav>
         <div class="mobile-menu" id="mobileMenu">
           <a href="about.html" data-i18n="nav.about">About</a>
-            <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
-            <a href="team.html" data-i18n="nav.team">Team</a>
             <a href="fleet.html" data-i18n="nav.fleet">Fleet</a>
             <a href="contact.html" data-i18n="nav.contact">Contact</a>
+            <a href="portal.html" data-i18n="nav.portal">Portal</a>
             <div class="lang-switch"><button data-lang-btn="en" class="active">EN</button><button data-lang-btn="bn">বাং</button><button data-lang-btn="ar">عربي</button></div><button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
         </div>
       </div>
@@ -1367,7 +207,7 @@
           <div>
             <div class="eyebrow" data-i18n="hero.eyebrow">Est. 2026 · Registered Co-operative</div>
             <h1 id="heading"></h1>
-            <p class="subheading" id="subheading" data-i18n="hero.subtitle">Next Millionaire Co-operative empowers communities through shared ownership, sustainable agriculture, and collective prosperity — rooted in trust, grown by people.</p>
+            <p class="subheading" id="subheading" data-i18n="hero.subtitle">Next Millionaire Co-operative empowers communities through shared ownership, business development, and collective prosperity — rooted in trust, grown by people.</p>
             <div class="buttons" id="buttons">
               <a href="#management" class="btn-primary" data-i18n="hero.btn1">Meet Our Team</a>
               <a href="#about" class="btn-secondary liquid-glass" data-i18n="hero.btn2">Our Story</a>
@@ -1379,11 +219,11 @@
     </div>
   </section>
 
-  <section class="content-section" id="about">
+  <section class="content-section reveal" id="about">
     <div class="container about-grid">
       <div class="about-media">
         <div class="about-media-decor"></div>
-        <img class="about-photo" src="https://images.unsplash.com/photo-1758518731706-be5d5230e5a5?fm=jpg&q=80&w=1200&auto=format&fit=crop" alt="Next Millionaire Co-operative team">
+        <img class="about-photo" src="https://images.unsplash.com/photo-1657047954088-e805d0b3c2be?q=80&w=2150&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D 2150w," alt="Next Millionaire Co-operative team">
         <div class="about-quote-card">
           <div class="quote-label"><span class="quote-dot"></span><span data-i18n="about.quoteLabel">Our Core Belief</span></div>
           <p class="quote-text" data-i18n="about.quote">"When people work together with shared ownership, extraordinary things happen."</p>
@@ -1392,7 +232,7 @@
       <div class="about-copy">
         <p class="section-label" data-i18n="about.label">About Next Millionaire</p>
         <h2 class="about-heading" data-i18n="about.title">A Co-operative Built on Shared Values</h2>
-        <p class="muted" data-i18n="about.para1">Next Millionaire Co-operative was founded with a simple belief: when people work together with shared ownership and mutual accountability, extraordinary things happen. We unite farmers, consumers, and entrepreneurs into a resilient economic community.</p>
+        <p class="muted" data-i18n="about.para1">Next Millionaire Co-operative was founded with a simple belief: when people work together with shared ownership and mutual accountability, extraordinary things happen. We unite members, consumers, and entrepreneurs into a resilient economic community.</p>
         <p class="muted" data-i18n="about.para2">Our democratic structure ensures every member has a voice. Profits are reinvested into the community, creating lasting impact across generations.</p>
         <div class="about-stats">
           <div class="about-stat">
@@ -1410,7 +250,7 @@
     </div>
   </section>
   
-  <section class="content-section" id="gallery">
+  <section class="content-section reveal" id="gallery">
     <div class="container">
       <div class="section-head-row">
         <div class="section-head">
@@ -1418,20 +258,19 @@
           <h2 class="section-title" data-i18n="gallery.title">Programs & Impact Gallery</h2>
           <p class="muted" style="margin-top:14px;" data-i18n="gallery.subtitle">See how our initiatives are transforming lives and communities across the region.</p>
         </div>
-        <a href="gallery.html" class="section-link" data-i18n="gallery.viewAll">View Full Gallery <span class="arrow">⟶</span></a>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-card"><div class="icon">🌾</div><div class="gallery-title" data-i18n="g1.t">Agricultural Training</div><p class="muted" data-i18n="g1.d">Member education on sustainable farming techniques and modern crop management practices.</p><a href="gallery.html" class="card-link" data-i18n="gallery.learnMore">Learn More <span class="arrow">⟶</span></a></div>
-        <div class="gallery-card"><div class="icon">💼</div><div class="gallery-title" data-i18n="g2.t">Business Skills</div><p class="muted" data-i18n="g2.d">Financial literacy, market access, and entrepreneurship workshops for cooperative members.</p><a href="gallery.html" class="card-link" data-i18n="gallery.learnMore">Learn More <span class="arrow">⟶</span></a></div>
-        <div class="gallery-card"><div class="icon">👨‍👩‍👧‍👦</div><div class="gallery-title" data-i18n="g3.t">Community Outreach</div><p class="muted" data-i18n="g3.d">Engaging with rural communities to build sustainable development and social networks.</p><a href="gallery.html" class="card-link" data-i18n="gallery.learnMore">Learn More <span class="arrow">⟶</span></a></div>
-        <div class="gallery-card"><div class="icon">📊</div><div class="gallery-title" data-i18n="g4.t">Financial Planning</div><p class="muted" data-i18n="g4.d">Member-focused financial services and microfinance initiatives for growth and stability.</p><a href="gallery.html" class="card-link" data-i18n="gallery.learnMore">Learn More <span class="arrow">⟶</span></a></div>
-        <div class="gallery-card"><div class="icon">🌿</div><div class="gallery-title" data-i18n="g5.t">Sustainability Initiatives</div><p class="muted" data-i18n="g5.d">Environmental conservation programs and organic farming promotion across member farms.</p><a href="gallery.html" class="card-link" data-i18n="gallery.learnMore">Learn More <span class="arrow">⟶</span></a></div>
-        <div class="gallery-card"><div class="icon">🏆</div><div class="gallery-title" data-i18n="g6.t">Member Success Stories</div><p class="muted" data-i18n="g6.d">Celebrating the achievements and milestones reached by our dedicated cooperative members.</p><a href="gallery.html" class="card-link" data-i18n="gallery.learnMore">Learn More <span class="arrow">⟶</span></a></div>
+        <div class="gallery-card"><div class="gallery-card-img"><img src="images/gallery/gallery-01.jpg" alt="Business & Finance Training" loading="lazy"></div><div class="gallery-card-body"><div class="gallery-title" data-i18n="g1.t">Business & Finance Training</div><p class="muted" data-i18n="g1.d">Workshops on business planning, financial literacy, investment strategies, and entrepreneurship for cooperative members.</p></div></div>
+        <div class="gallery-card"><div class="gallery-card-img"><img src="images/gallery/gallery-02.jpg" alt="Business Skills" loading="lazy"></div><div class="gallery-card-body"><div class="gallery-title" data-i18n="g2.t">Business Skills</div><p class="muted" data-i18n="g2.d">Financial literacy, market access, and entrepreneurship workshops for cooperative members.</p></div></div>
+        <div class="gallery-card"><div class="gallery-card-img"><img src="images/gallery/gallery-03.jpg" alt="Community Outreach" loading="lazy"></div><div class="gallery-card-body"><div class="gallery-title" data-i18n="g3.t">Community Outreach</div><p class="muted" data-i18n="g3.d">Engaging with rural communities to build sustainable development and social networks.</p></div></div>
+        <div class="gallery-card"><div class="gallery-card-img"><img src="images/gallery/gallery-04.jpg" alt="Financial Planning" loading="lazy"></div><div class="gallery-card-body"><div class="gallery-title" data-i18n="g4.t">Financial Planning</div><p class="muted" data-i18n="g4.d">Member-focused financial services and microfinance initiatives for growth and stability.</p></div></div>
+        <div class="gallery-card"><div class="gallery-card-img"><img src="images/gallery/gallery-05.jpg" alt="Sustainability Initiatives" loading="lazy"></div><div class="gallery-card-body"><div class="gallery-title" data-i18n="g5.t">Sustainability Initiatives</div><p class="muted" data-i18n="g5.d">Environmental conservation programs and sustainable business practices across member enterprises.</p></div></div>
+        <div class="gallery-card"><div class="gallery-card-img"><img src="images/gallery/gallery-06.jpg" alt="Member Success Stories" loading="lazy"></div><div class="gallery-card-body"><div class="gallery-title" data-i18n="g6.t">Member Success Stories</div><p class="muted" data-i18n="g6.d">Celebrating the achievements and milestones reached by our dedicated cooperative members.</p></div></div>
       </div>
     </div>
   </section>
 
-  <section class="content-section" id="management">
+  <section class="content-section reveal" id="management">
     <div class="container">
       <div class="section-head">
         <p class="section-label" data-i18n="mgmt.label">Leadership</p>
@@ -1450,7 +289,7 @@
     </div>
   </section>
 
-  <section class="content-section" id="driver-rental">
+  <section class="content-section reveal" id="driver-rental">
     <div class="container">
       <div class="section-head">
         <p class="section-label" data-i18n="dr.label">Commercial Fleet · Driver Program</p>
@@ -1489,7 +328,7 @@
   </section>
 
 
-  <section class="content-section" id="contact">
+  <section class="content-section reveal" id="contact">
     <div class="container">
       <div class="section-head-row">
         <div class="section-head">
@@ -1509,11 +348,50 @@
     </div>
   </section>
 
-  <footer>
+
+    <footer>
     <div class="footer-inner">
-      <strong>Next Millionaire</strong>
-      <span>© 2026 Next Millionaire · Registration No. CO-4471/2010</span>
-      <span data-i18n="footer.ica">Committed to ICA Co-operative Principles</span>
+      <div class="footer-grid">
+        <!-- Brand column -->
+        <div class="footer-brand-col">
+          <div class="footer-brand-name">Next Millionaire</div>
+          <div class="footer-tagline" data-i18n="footer.tagline">Building community wealth through shared ownership.</div>
+        </div>
+        <!-- Nav column -->
+        <div>
+          <div class="footer-col-title" data-i18n="footer.quickLinks">Quick Links</div>
+          <div class="footer-links">
+            <a href="about.html"><span data-i18n="nav.about">About</span> <span class="arrow-link">→</span></a>
+            <a href="fleet.html"><span data-i18n="nav.fleet">Fleet</span> <span class="arrow-link">→</span></a>
+            <a href="contact.html"><span data-i18n="nav.contact">Contact</span> <span class="arrow-link">→</span></a>
+            <a href="portal.html"><span data-i18n="nav.portal">Portal</span> <span class="arrow-link">→</span></a>
+          </div>
+        </div>
+        <!-- Social + Legal column -->
+        <div class="footer-social-col">
+          <div class="footer-col-title" data-i18n="footer.connect">Connect</div>
+          <div class="footer-social-row">
+            <a href="#" aria-label="Facebook" title="Facebook"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="#" aria-label="Twitter" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="#" aria-label="LinkedIn" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <a href="#" aria-label="Instagram" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          </div>
+          <div class="footer-legal-list">
+            <a href="#" data-i18n="footer.privacy">Privacy Policy</a>
+            <a href="#" data-i18n="footer.terms">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-meta">
+          <span>&copy; <span id="year"></span> Next Millionaire</span>
+          <span class="sep">&middot;</span>
+          <span>Registration No. CO-4471/2010</span>
+        </div>
+        <div class="footer-meta">
+          <span data-i18n="footer.ica">Committed to ICA Co-operative Principles</span>
+        </div>
+      </div>
     </div>
   </footer>
 
@@ -1609,22 +487,16 @@
     // ===================================================================
     // DRIVER FLEET — Our Fleet grid (in the "Drive With Us" section)
     //
-    // HOW TO ADD A NEW CAR:
-    //   1. Add the car's photo to the images/fleet/ folder.
-    //   2. Add one line below with its filename and status.
-    //   3. status: "available" -> shows an "Apply to Rent" button (links to the driver form)
-    //      status: "booked"    -> shows a grey "Booked" badge (not clickable)
-    //   The grid updates automatically — no other changes needed.
+    // HOW TO UPDATE CAR STATUSES:
+    //   Edit data/fleet-status.json — change "booked" to "available" (or vice versa).
+    //   The homepage and fleet page both read from this single file.
+    //   No need to touch any HTML or JavaScript.
     // ===================================================================
     // Homepage shows only a preview of the fleet (first 3 cars).
     // The full 12-car list lives on fleet.html — see the "View Full Fleet" link below.
-    const fleetCars = [
-      { image: "images/fleet/car-01.jpg", num: 1, status: "booked" },
-      { image: "images/fleet/car-02.jpg", num: 2, status: "booked" },
-      { image: "images/fleet/car-03.jpg", num: 3, status: "booked" },
-    ];
-
+    const FLEET_DATA_URL = "data/fleet-status.json";
     const driverFormUrl = "https://forms.gle/8A5kRBSRUosY3T5PA";
+    var _fleetCache = null;
 
     const fleetWords = {
       en: {
@@ -1647,38 +519,66 @@
       }
     };
 
+    function loadFleetData(callback) {
+      if (_fleetCache) {
+        callback(_fleetCache);
+        return;
+      }
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", FLEET_DATA_URL, true);
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          try {
+            var data = JSON.parse(xhr.responseText);
+            _fleetCache = data.cars || [];
+            callback(_fleetCache);
+          } catch (e) {
+            callback([]);
+          }
+        } else {
+          callback([]);
+        }
+      };
+      xhr.onerror = function () { callback([]); };
+      xhr.send();
+    }
+
     window.renderFleet = function (lang) {
-      const grid = document.getElementById("fleetGrid");
-      if (!grid) return;
-      const words = fleetWords[lang] || fleetWords.en;
-      grid.innerHTML = fleetCars.map(function (car) {
-        const label = words.car + " " + car.num;
-        const isBooked = car.status === "booked";
-        const pill = isBooked
-          ? '<span class="fleet-pill booked">' + words.booked + '</span>'
-          : '<span class="fleet-pill available"><span class="dot"></span>' + words.available + '</span>';
-        const desc = isBooked ? words.descBooked : words.descAvailable;
-        const footLabel = isBooked ? words.currentlyLeased : words.monthlyLease;
-        const action = isBooked
-          ? '<span class="fleet-card-v2-btn booked">' + words.booked + '</span>'
-          : '<a href="' + driverFormUrl + '" target="_blank" rel="noopener" class="fleet-card-v2-btn">' + words.apply + '</a>';
-        return '' +
-          '<div class="fleet-card-v2">' +
-            '<div class="fleet-card-v2-photo">' +
-              '<img src="' + car.image + '" alt="' + label + '" loading="lazy">' +
-              pill +
-            '</div>' +
-            '<div class="fleet-card-v2-body">' +
-              '<h4 class="fleet-card-v2-title">' + label + '</h4>' +
-              '<p class="fleet-card-v2-desc">' + desc + '</p>' +
-              '<div class="fleet-card-v2-divider"></div>' +
-              '<div class="fleet-card-v2-foot">' +
-                '<span class="fleet-card-v2-label">' + footLabel + '</span>' +
-                action +
+      loadFleetData(function (cars) {
+        var grid = document.getElementById("fleetGrid");
+        if (!grid) return;
+        var words = fleetWords[lang] || fleetWords.en;
+        // Homepage shows first 3 cars as a preview
+        var preview = cars.slice(0, 3);
+        grid.innerHTML = preview.map(function (car) {
+          var label = words.car + " " + car.num;
+          var isBooked = car.status === "booked";
+          var pill = isBooked
+            ? '<span class="fleet-pill booked">' + words.booked + '</span>'
+            : '<span class="fleet-pill available"><span class="dot"></span>' + words.available + '</span>';
+          var desc = isBooked ? words.descBooked : words.descAvailable;
+          var footLabel = isBooked ? words.currentlyLeased : words.monthlyLease;
+          var action = isBooked
+            ? '<span class="fleet-card-v2-btn booked">' + words.booked + '</span>'
+            : '<a href="' + driverFormUrl + '" target="_blank" rel="noopener" class="fleet-card-v2-btn">' + words.apply + '</a>';
+          return '' +
+            '<div class="fleet-card-v2">' +
+              '<div class="fleet-card-v2-photo">' +
+                '<img src="' + car.image + '" alt="' + label + '" loading="lazy">' +
+                pill +
               '</div>' +
-            '</div>' +
-          '</div>';
-      }).join("");
+              '<div class="fleet-card-v2-body">' +
+                '<h4 class="fleet-card-v2-title">' + label + '</h4>' +
+                '<p class="fleet-card-v2-desc">' + desc + '</p>' +
+                '<div class="fleet-card-v2-divider"></div>' +
+                '<div class="fleet-card-v2-foot">' +
+                  '<span class="fleet-card-v2-label">' + footLabel + '</span>' +
+                  action +
+                '</div>' +
+              '</div>' +
+            '</div>';
+        }).join("");
+      });
     };
     window.renderFleet("en");
   </script>
@@ -1686,14 +586,14 @@
   <script>
     window.translations = {
       en: {
-        "nav.about": "About", "nav.gallery": "Gallery", "nav.team": "Team", "nav.fleet": "Fleet", "nav.contact": "Contact",
+        "nav.about": "About", "nav.fleet": "Fleet", "nav.contact": "Contact", "nav.portal": "Portal",
         "hero.eyebrow": "Est. 2026 · Registered Co-operative",
-        "hero.subtitle": "Next Millionaire Co-operative empowers communities through shared ownership, sustainable agriculture, and collective prosperity — rooted in trust, grown by people.",
+        "hero.subtitle": "Next Millionaire Co-operative empowers communities through shared ownership, business development, and collective prosperity — rooted in trust, grown by people.",
         "hero.btn1": "Meet Our Team",
         "hero.btn2": "Our Story",
         "about.label": "About Next Millionaire",
         "about.title": "A Co-operative Built on Shared Values",
-        "about.para1": "Next Millionaire Co-operative was founded with a simple belief: when people work together with shared ownership and mutual accountability, extraordinary things happen. We unite farmers, consumers, and entrepreneurs into a resilient economic community.",
+        "about.para1": "Next Millionaire Co-operative was founded with a simple belief: when people work together with shared ownership and mutual accountability, extraordinary things happen. We unite members, consumers, and entrepreneurs into a resilient economic community.",
         "about.para2": "Our democratic structure ensures every member has a voice. Profits are reinvested into the community, creating lasting impact across generations.",
         "stat.members": "Active Members", "stat.years": "Years of Service", "stat.turnover": "Annual Turnover", "stat.villages": "Villages Served",
         "about.tagline1": "🌱 Cultivating community wealth through democratic enterprise",
@@ -1704,14 +604,12 @@
         "about.cta": "Read Our Story",
         "gallery.label": "Our Work in Action",
         "gallery.title": "Programs &amp; Impact Gallery",
-        "gallery.viewAll": "View Full Gallery <span class=\"arrow\">⟶</span>",
-        "gallery.learnMore": "Learn More <span class=\"arrow\">⟶</span>",
         "gallery.subtitle": "See how our initiatives are transforming lives and communities across the region.",
-        "g1.t": "Agricultural Training", "g1.d": "Member education on sustainable farming techniques and modern crop management practices.",
+        "g1.t": "Business & Finance Training", "g1.d": "Workshops on business planning, financial literacy, investment strategies, and entrepreneurship for cooperative members.",
         "g2.t": "Business Skills", "g2.d": "Financial literacy, market access, and entrepreneurship workshops for cooperative members.",
         "g3.t": "Community Outreach", "g3.d": "Engaging with rural communities to build sustainable development and social networks.",
         "g4.t": "Financial Planning", "g4.d": "Member-focused financial services and microfinance initiatives for growth and stability.",
-        "g5.t": "Sustainability Initiatives", "g5.d": "Environmental conservation programs and organic farming promotion across member farms.",
+        "g5.t": "Sustainability Initiatives", "g5.d": "Environmental conservation programs and sustainable business practices across member enterprises.",
         "g6.t": "Member Success Stories", "g6.d": "Celebrating the achievements and milestones reached by our dedicated cooperative members.",
         "mgmt.label": "Leadership",
         "mgmt.title": "Our Management Team",
@@ -1736,7 +634,7 @@
         "values.title": "Built on Timeless Values",
         "v1.t": "Democratic Control", "v1.d": "One member, one vote. Every decision is made collectively, ensuring all voices shape our direction equally.",
         "v2.t": "Education &amp; Training", "v2.d": "We invest continuously in member skills, financial literacy, and leadership development for long-term empowerment.",
-        "v3.t": "Environmental Stewardship", "v3.d": "Sustainable practices protect the land and resources for future generations of our farming community.",
+        "v3.t": "Environmental Stewardship", "v3.d": "Sustainable practices protect the land and resources for future generations of our business community.",
         "v4.t": "Equitable Distribution", "v4.d": "Surplus is distributed fairly based on member participation — rewarding contribution, not capital ownership.",
         "v5.t": "Transparency", "v5.d": "Open books, open decisions. Every member has access to financial records and governance documents.",
         "v6.t": "Community Concern", "v6.d": "We work for the sustainable development of our communities through policies accepted by our members.",
@@ -1747,17 +645,20 @@
         "c.address": "Address", "c.phone": "Phone", "c.email": "Email", "c.hours": "Office Hours",
         "c.hoursVal": "Sun - Thu: 9am - 5pm<br>Friday: 10am - 1pm",
         "contact.btn": "Send Us a Message",
-        "footer.ica": "Committed to ICA Co-operative Principles"
+                "footer.privacy": "Privacy Policy",
+        "footer.terms": "Terms of Service",
+        "footer.ica": "Committed to ICA Co-operative Principles",
+        "footer.tagline": "Building community wealth through shared ownership.",
       },
       bn: {
-        "nav.about": "আমাদের সম্পর্কে", "nav.gallery": "গ্যালারি", "nav.team": "টিম", "nav.fleet": "ফ্লিট", "nav.contact": "যোগাযোগ",
+        "nav.about": "আমাদের সম্পর্কে", "nav.fleet": "ফ্লিট", "nav.contact": "যোগাযোগ", "nav.portal": "পোর্টাল",
         "hero.eyebrow": "প্রতিষ্ঠিত ২০২৬ · নিবন্ধিত সমবায় সমিতি",
-        "hero.subtitle": "নেক্সট মিলিয়নিয়ার কো-অপারেটিভ যৌথ মালিকানা, টেকসই কৃষি এবং সমষ্টিগত সমৃদ্ধির মাধ্যমে সম্প্রদায়কে ক্ষমতায়ন করে — বিশ্বাসে প্রোথিত, মানুষের হাতে গড়া।",
+        "hero.subtitle": "নেক্সট মিলিয়নিয়ার কো-অপারেটিভ যৌথ মালিকানা, ব্যবসায়িক উন্নয়ন এবং সমষ্টিগত সমৃদ্ধির মাধ্যমে সম্প্রদায়কে ক্ষমতায়ন করে — বিশ্বাসে প্রোথিত, মানুষের হাতে গড়া।",
         "hero.btn1": "আমাদের টিমের সাথে পরিচিত হোন",
         "hero.btn2": "আমাদের গল্প",
         "about.label": "নেক্সট মিলিয়নিয়ার সম্পর্কে",
         "about.title": "যৌথ মূল্যবোধের উপর গড়া একটি সমবায় সমিতি",
-        "about.para1": "নেক্সট মিলিয়নিয়ার কো-অপারেটিভ একটি সহজ বিশ্বাস নিয়ে প্রতিষ্ঠিত হয়েছে: মানুষ যখন যৌথ মালিকানা ও পারস্পরিক জবাবদিহিতার মাধ্যমে একসাথে কাজ করে, তখন অসাধারণ কিছু ঘটে। আমরা কৃষক, ভোক্তা এবং উদ্যোক্তাদের একত্রিত করে একটি টেকসই অর্থনৈতিক সম্প্রদায় গড়ে তুলি।",
+        "about.para1": "নেক্সট মিলিয়নিয়ার কো-অপারেটিভ একটি সহজ বিশ্বাস নিয়ে প্রতিষ্ঠিত হয়েছে: মানুষ যখন যৌথ মালিকানা ও পারস্পরিক জবাবদিহিতার মাধ্যমে একসাথে কাজ করে, তখন অসাধারণ কিছু ঘটে। আমরা সদস্য, ভোক্তা এবং উদ্যোক্তাদের একত্রিত করে একটি টেকসই অর্থনৈতিক সম্প্রদায় গড়ে তুলি।",
         "about.para2": "আমাদের গণতান্ত্রিক কাঠামো নিশ্চিত করে যে প্রতিটি সদস্যের মতামতের গুরুত্ব রয়েছে। মুনাফা সম্প্রদায়ে পুনর্বিনিয়োগ করা হয়, যা প্রজন্ম থেকে প্রজন্মে স্থায়ী প্রভাব তৈরি করে।",
         "stat.members": "সক্রিয় সদস্য", "stat.years": "সেবার বছর", "stat.turnover": "বার্ষিক লেনদেন", "stat.villages": "সেবাপ্রাপ্ত গ্রাম",
         "about.tagline1": "🌱 গণতান্ত্রিক উদ্যোগের মাধ্যমে সমষ্টিগত সম্পদ গড়ে তোলা",
@@ -1768,14 +669,12 @@
         "about.cta": "আমাদের গল্প পড়ুন",
         "gallery.label": "আমাদের কর্মকাণ্ড",
         "gallery.title": "কর্মসূচি ও প্রভাবের গ্যালারি",
-        "gallery.viewAll": "সম্পূর্ণ গ্যালারি দেখুন <span class=\"arrow\">⟶</span>",
-        "gallery.learnMore": "আরও জানুন <span class=\"arrow\">⟶</span>",
         "gallery.subtitle": "দেখুন কীভাবে আমাদের উদ্যোগ পুরো অঞ্চল জুড়ে মানুষের জীবন ও সম্প্রদায়কে বদলে দিচ্ছে।",
-        "g1.t": "কৃষি প্রশিক্ষণ", "g1.d": "টেকসই কৃষি কৌশল ও আধুনিক ফসল ব্যবস্থাপনা বিষয়ে সদস্যদের প্রশিক্ষণ।",
+        "g1.t": "ব্যবসা ও আর্থিক প্রশিক্ষণ", "g1.d": "ব্যবসায়িক পরিকল্পনা, আর্থিক সাক্ষরতা, বিনিয়োগ কৌশল এবং উদ্যোক্তা উন্নয়নে কর্মশালা।",
         "g2.t": "ব্যবসায়িক দক্ষতা", "g2.d": "সমবায় সদস্যদের জন্য আর্থিক সাক্ষরতা, বাজার সংযোগ এবং উদ্যোক্তা কর্মশালা।",
         "g3.t": "সম্প্রদায়ের সাথে যোগাযোগ", "g3.d": "টেকসই উন্নয়ন ও সামাজিক নেটওয়ার্ক গড়তে গ্রামীণ সম্প্রদায়ের সাথে সম্পৃক্ততা।",
         "g4.t": "আর্থিক পরিকল্পনা", "g4.d": "প্রবৃদ্ধি ও স্থিতিশীলতার জন্য সদস্যকেন্দ্রিক আর্থিক সেবা ও ক্ষুদ্রঋণ উদ্যোগ।",
-        "g5.t": "টেকসই উদ্যোগ", "g5.d": "সদস্যদের খামারজুড়ে পরিবেশ সংরক্ষণ কর্মসূচি ও জৈব কৃষির প্রসার।",
+        "g5.t": "টেকসই উদ্যোগ", "g5.d": "সদস্যদের উদ্যোগজুড়ে পরিবেশ সংরক্ষণ কর্মসূচি ও টেকসই ব্যবসায়িক অনুশীলন।",
         "g6.t": "সদস্যদের সাফল্যের গল্প", "g6.d": "আমাদের নিবেদিতপ্রাণ সমবায় সদস্যদের অর্জন ও মাইলফলক উদযাপন।",
         "mgmt.label": "নেতৃত্ব",
         "mgmt.title": "আমাদের ব্যবস্থাপনা টিম",
@@ -1800,7 +699,7 @@
         "values.title": "চিরন্তন মূল্যবোধের উপর প্রতিষ্ঠিত",
         "v1.t": "গণতান্ত্রিক নিয়ন্ত্রণ", "v1.d": "একজন সদস্য, একটি ভোট। প্রতিটি সিদ্ধান্ত যৌথভাবে নেওয়া হয়, যাতে সকলের মতামত সমানভাবে আমাদের দিকনির্দেশনা গঠন করে।",
         "v2.t": "শিক্ষা ও প্রশিক্ষণ", "v2.d": "দীর্ঘমেয়াদী ক্ষমতায়নের জন্য আমরা সদস্যদের দক্ষতা, আর্থিক সাক্ষরতা এবং নেতৃত্ব উন্নয়নে ক্রমাগত বিনিয়োগ করি।",
-        "v3.t": "পরিবেশগত তত্ত্বাবধান", "v3.d": "টেকসই চর্চা আমাদের কৃষি সম্প্রদায়ের ভবিষ্যৎ প্রজন্মের জন্য জমি ও সম্পদ রক্ষা করে।",
+        "v3.t": "পরিবেশগত তত্ত্বাবধান", "v3.d": "টেকসই চর্চা আমাদের ব্যবসায়িক সম্প্রদায়ের ভবিষ্যৎ প্রজন্মের জন্য জমি ও সম্পদ রক্ষা করে।",
         "v4.t": "ন্যায্য বণ্টন", "v4.d": "সদস্যদের অংশগ্রহণের ভিত্তিতে উদ্বৃত্ত ন্যায্যভাবে বণ্টন করা হয় — যা মূলধনের মালিকানা নয়, অবদানকে পুরস্কৃত করে।",
         "v5.t": "স্বচ্ছতা", "v5.d": "উন্মুক্ত হিসাব, উন্মুক্ত সিদ্ধান্ত। প্রতিটি সদস্যের আর্থিক নথি ও পরিচালনা সংক্রান্ত নথিতে প্রবেশাধিকার রয়েছে।",
         "v6.t": "সম্প্রদায়ের প্রতি দায়বদ্ধতা", "v6.d": "আমরা সদস্যদের গৃহীত নীতিমালার মাধ্যমে আমাদের সম্প্রদায়ের টেকসই উন্নয়নে কাজ করি।",
@@ -1811,17 +710,22 @@
         "c.address": "ঠিকানা", "c.phone": "ফোন", "c.email": "ইমেইল", "c.hours": "অফিসের সময়",
         "c.hoursVal": "রবি - বৃহস্পতি: সকাল ৯টা - বিকাল ৫টা<br>শুক্রবার: সকাল ১০টা - দুপুর ১টা",
         "contact.btn": "আমাদের বার্তা পাঠান",
-        "footer.ica": "আইসিএ সমবায় নীতিমালার প্রতি প্রতিশ্রুতিবদ্ধ"
+        "footer.privacy": "গোপনীয়তা নীতি",
+        "footer.terms": "সেবার শর্তাবলী",
+        "footer.ica": "আইসিএ সমবায় নীতিমালার প্রতি প্রতিশ্রুতিবদ্ধ",
+        "footer.quickLinks": "দ্রুত লিঙ্ক",
+        "footer.connect": "সংযোগ",
+        "footer.tagline": "যৌথ মালিকানার মাধ্যমে সম্প্রদায়ের সম্পদ গড়ে তোলা"
       },
       ar: {
-        "nav.about": "من نحن", "nav.gallery": "معرض الصور", "nav.team": "الفريق", "nav.fleet": "الأسطول", "nav.contact": "تواصل معنا",
+        "nav.about": "من نحن", "nav.fleet": "الأسطول", "nav.contact": "اتصل بنا", "nav.portal": "البوابة",
         "hero.eyebrow": "تأسست 2026 · جمعية تعاونية مسجلة",
-        "hero.subtitle": "تعمل جمعية نكست ميليونير التعاونية على تمكين المجتمعات من خلال الملكية المشتركة والزراعة المستدامة والازدهار الجماعي — متجذرة في الثقة، وينميها الناس.",
+        "hero.subtitle": "تعمل جمعية نكست ميليونير التعاونية على تمكين المجتمعات من خلال الملكية المشتركة والتنمية التجارية والازدهار الجماعي — متجذرة في الثقة، وينميها الناس.",
         "hero.btn1": "تعرف على فريقنا",
         "hero.btn2": "قصتنا",
         "about.label": "عن نكست ميليونير",
         "about.title": "جمعية تعاونية مبنية على قيم مشتركة",
-        "about.para1": "تأسست جمعية نكست ميليونير التعاونية على إيمان بسيط: عندما يعمل الناس معًا بملكية مشتركة ومساءلة متبادلة، تحدث أمور استثنائية. نجمع المزارعين والمستهلكين ورواد الأعمال في مجتمع اقتصادي قوي ومترابط.",
+        "about.para1": "تأسست جمعية نكست ميليونير التعاونية على إيمان بسيط: عندما يعمل الناس معًا بملكية مشتركة ومساءلة متبادلة، تحدث أمور استثنائية. نجمع الأعضاء والمستهلكين ورواد الأعمال في مجتمع اقتصادي قوي ومترابط.",
         "about.para2": "يضمن هيكلنا الديمقراطي أن يكون لكل عضو صوت مسموع. يُعاد استثمار الأرباح في المجتمع، مما يخلق أثرًا دائمًا عبر الأجيال.",
         "stat.members": "الأعضاء النشطون", "stat.years": "سنوات الخدمة", "stat.turnover": "الإيرادات السنوية", "stat.villages": "القرى التي نخدمها",
         "about.tagline1": "🌱 نزرع ثروة المجتمع من خلال المشاريع الديمقراطية",
@@ -1832,14 +736,12 @@
         "about.cta": "اقرأ قصتنا",
         "gallery.label": "أعمالنا في الميدان",
         "gallery.title": "معرض البرامج والأثر",
-        "gallery.viewAll": "عرض المعرض الكامل <span class=\"arrow\">⟶</span>",
-        "gallery.learnMore": "اعرف المزيد <span class=\"arrow\">⟶</span>",
         "gallery.subtitle": "شاهد كيف تُحدث مبادراتنا تحولًا في حياة الناس والمجتمعات في جميع أنحاء المنطقة.",
-        "g1.t": "التدريب الزراعي", "g1.d": "تدريب الأعضاء على تقنيات الزراعة المستدامة وأساليب إدارة المحاصيل الحديثة.",
+        "g1.t": "التدريب على الأعمال والمالي", "g1.d": "ورش عمل حول التخطيط עסקי والثقافة المالية واستراتيجيات الاستثمار وريادة الأعمال لأعضاء الجمعية.",
         "g2.t": "المهارات التجارية", "g2.d": "ورش عمل حول المعرفة المالية والوصول إلى الأسواق وريادة الأعمال لأعضاء الجمعية.",
         "g3.t": "التواصل المجتمعي", "g3.d": "التفاعل مع المجتمعات الريفية لبناء تنمية مستدامة وشبكات اجتماعية.",
         "g4.t": "التخطيط المالي", "g4.d": "خدمات مالية تركز على الأعضاء ومبادرات التمويل الأصغر لتحقيق النمو والاستقرار.",
-        "g5.t": "مبادرات الاستدامة", "g5.d": "برامج للحفاظ على البيئة وتعزيز الزراعة العضوية في مزارع الأعضاء.",
+        "g5.t": "مبادرات الاستدامة", "g5.d": "برامج للحفاظ على البيئة وممارسات الأعمال المستدامة عبر مؤسسات الأعضاء.",
         "g6.t": "قصص نجاح الأعضاء", "g6.d": "الاحتفاء بإنجازات وأعضاء جمعيتنا المتفانين ومحطاتهم المهمة.",
         "mgmt.label": "القيادة",
         "mgmt.title": "فريق الإدارة لدينا",
@@ -1875,11 +777,62 @@
         "c.address": "العنوان", "c.phone": "الهاتف", "c.email": "البريد الإلكتروني", "c.hours": "ساعات العمل",
         "c.hoursVal": "الأحد - الخميس: 9 صباحًا - 5 مساءً<br>الجمعة: 10 صباحًا - 1 ظهرًا",
         "contact.btn": "أرسل لنا رسالة",
-        "footer.ica": "ملتزمون بمبادئ التحالف التعاوني الدولي (ICA)"
+        "footer.privacy": "سياسة الخصوصية",
+        "footer.terms": "شروط الخدمة",
+        "footer.ica": "ملتزمون بمبادئ التحالف التعاوني الدولي (ICA)",
+        "footer.quickLinks": "روابط سريعة",
+        "footer.tagline": "بناء ثروة المجتمع من خلال الملكية المشتركة."
       }
     };
   </script>
   <script src="js/theme-toggle.js"></script>
   <script src="js/i18n.js"></script>
+
+  <!-- Back to Top -->
+  <button id="backToTop" type="button" aria-label="Back to top" title="Back to top">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+  <script>
+    (function() {
+      var btn = document.getElementById('backToTop');
+      var threshold = 400;
+      var ticking = false;
+
+      function onScroll() {
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            btn.classList.toggle('visible', window.scrollY > threshold);
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }
+
+      btn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+
+    // ── Scroll Reveal (IntersectionObserver) ──
+    (function () {
+      var els = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        els.forEach(function (el) { observer.observe(el); });
+      } else {
+        // Fallback: show everything immediately
+        els.forEach(function (el) { el.classList.add('visible'); });
+      }
+    })();
+  </script>
 </body>
 </html>

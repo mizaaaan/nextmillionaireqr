@@ -6,6 +6,22 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Next Millionaire | Contact</title>
+  <meta name="description" content="Get in touch with Next Millionaire Co-operative. Questions, partnerships, or membership inquiries — we'd love to hear from you.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Next Millionaire | Contact">
+  <meta property="og:description" content="Get in touch with Next Millionaire Co-operative. Questions, partnerships, or membership inquiries — we'd love to hear from you.">
+  <meta property="og:image" content="https://mizaaaan.github.io/nextmillionaireqr2/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://mizaaaan.github.io/nextmillionaireqr2/contact.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Next Millionaire Co-operative">
+  <meta property="og:locale" content="en_US">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Next Millionaire | Contact">
+  <meta name="twitter:description" content="Get in touch with Next Millionaire Co-operative. Questions, partnerships, or membership inquiries.">
+  <meta name="twitter:image" content="https://mizaaaan.github.io/nextmillionaireqr2/images/og-image.jpg">
 
   <!-- Favicons and fonts (same as original) -->
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
@@ -18,732 +34,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Hind+Siliguri:wght@400;500;600;700&family=Markazi+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* Full CSS copied from original index.html with an explicit #contact override
-       so the contact section renders correctly as a standalone page. */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #fff;
-      color: #1a1a1a;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    a { color: inherit; text-decoration: none; }
-
-    .liquid-glass {
-      background: rgba(84, 194, 254, 0.08);
-      background-blend-mode: luminosity;
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      border: 1px solid rgba(84, 194, 254, 0.15);
-      box-shadow: inset 0 1px 1px rgba(84, 194, 254, 0.1);
-      position: relative;
-      overflow: hidden;
-    }
-    .liquid-glass::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      padding: 1.4px;
-      background: linear-gradient(180deg,
-        rgba(84,194,254,0.2) 0%, rgba(84,194,254,0.1) 20%,
-        rgba(84,194,254,0) 40%, rgba(84,194,254,0) 60%,
-        rgba(84,194,254,0.1) 80%, rgba(84,194,254,0.2) 100%);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-    }
-    .content-section:nth-of-type(n+2):nth-of-type(even) .liquid-glass {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(255, 255, 255, 0.2);
-      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
-    }
-
-    .hero {
-      position: relative;
-      min-height: 60vh;
-      overflow: hidden;
-      background: #54C2FE;
-    }
-    .bg-video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-      display: block;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      color: #fff;
-    }
-    .nav-wrap { padding: 24px 24px 0; }
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 8px 16px;
-      border-radius: 12px;
-    }
-    .logo {
-      font-size: 24px;
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      white-space: nowrap;
-    }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      font-size: 14px;
-    }
-    .nav-links a { transition: color 0.3s ease; }
-    .nav-links a:hover { color: rgba(255, 255, 255, 0.7); }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 0;
-      gap: 6px;
-    }
-    .hamburger span {
-      width: 24px;
-      height: 2px;
-      background: #fff;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-    .hamburger.active span:nth-child(1) {
-      transform: translateY(8px) rotate(45deg);
-    }
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-    .hamburger.active span:nth-child(3) {
-      transform: translateY(-8px) rotate(-45deg);
-    }
-
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      top: 70px;
-      right: 16px;
-      background: rgba(255, 255, 255, 0.08);
-      background-blend-mode: screen;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 16px;
-      padding: 16px 0;
-      min-width: 200px;
-      z-index: 1000;
-      box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.3),
-        inset 0 1px 1px rgba(255, 255, 255, 0.2);
-      overflow: hidden;
-    }
-    .mobile-menu::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: 16px;
-      padding: 1.4px;
-      background: linear-gradient(135deg,
-        rgba(255,255,255,0.4) 0%,
-        rgba(255,255,255,0.1) 30%,
-        rgba(255,255,255,0.05) 50%,
-        rgba(255,255,255,0.1) 70%,
-        rgba(255,255,255,0.3) 100%);
-      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .mobile-menu.active {
-      display: flex;
-      flex-direction: column;
-    }
-    .mobile-menu a {
-      padding: 12px 24px;
-      font-size: 14px;
-      transition: all 0.3s ease;
-      border-left: 3px solid transparent;
-      position: relative;
-      z-index: 1;
-    }
-    .mobile-menu a:hover {
-      background: rgba(255, 255, 255, 0.12);
-      border-left-color: #667eea;
-      color: #fff;
-      backdrop-filter: blur(5px);
-    }
-
-    .hero-bottom {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 0 24px 48px;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      align-items: end;
-      gap: 32px;
-    }
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 16px;
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 14px;
-      font-weight: 300;
-      letter-spacing: 0.02em;
-    }
-    h1 {
-      font-size: 40px;
-      line-height: 1.05;
-      font-weight: 400;
-      letter-spacing: -0.04em;
-      margin-bottom: 16px;
-    }
-    .char {
-      display: inline-block;
-      opacity: 0;
-      transform: translateX(-18px);
-      transition: opacity 500ms ease-out, transform 500ms ease-out;
-    }
-    .subheading {
-      color: rgba(255, 255, 255, 0.85);
-      font-size: 16px;
-      line-height: 1.6;
-      margin-bottom: 20px;
-      max-width: 620px;
-      opacity: 0;
-      transition: opacity 1000ms ease;
-    }
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      opacity: 0;
-      transition: opacity 1000ms ease;
-    }
-    .buttons.show { opacity: 1; }
-    .btn-primary, .btn-secondary {
-      padding: 12px 28px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 500;
-      display: inline-block;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    .btn-primary {
-      background: #fff;
-      color: #1a1a1a;
-      border: 1px solid transparent;
-    }
-    .btn-primary:hover {
-      background: transparent;
-      color: #fff;
-      border-color: #fff;
-      transform: translateY(-2px);
-    }
-    .btn-secondary {
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #fff;
-    }
-    .btn-secondary:hover {
-      border-color: rgba(255, 255, 255, 0.4);
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .tag-wrap {
-      opacity: 0;
-      transition: opacity 1000ms ease;
-    }
-    .tag-wrap.show { opacity: 1; }
-    .tag {
-      display: inline-block;
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    .subheading.show { opacity: 1; }
-
-    .content-section {
-      padding: 80px 24px;
-      background: #54C2FE;
-      color: #fff;
-    }
-    .content-section .section-label {
-      display: inline-block;
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    .content-section .section-title {
-      font-size: 36px;
-      font-weight: 400;
-      letter-spacing: -0.04em;
-      line-height: 1.1;
-      max-width: 600px;
-      color: #fff;
-    }
-    .content-section .muted {
-      color: rgba(255, 255, 255, 0.85);
-      line-height: 1.6;
-    }
-    #values {
-      padding-top: 40px;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .section-head { margin-bottom: 48px; }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-    .glass-card {
-      padding: 32px;
-      border-radius: 12px;
-    }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-bottom: 24px;
-    }
-    .stat {
-      text-align: center;
-    }
-    .stat-num {
-      font-size: 28px;
-      font-weight: 600;
-      display: block;
-      margin-bottom: 8px;
-    }
-    .stat-label {
-      font-size: 12px;
-      color: #666;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-    }
-    .member-card {
-      background: #f8f9fa;
-      padding: 36px;
-      border-radius: 16px;
-      border: 1px solid #e0e0e0;
-      transition: all 0.3s ease;
-    }
-    .member-card:hover {
-      background: #fff;
-      border-color: #54C2FE;
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(84, 194, 254, 0.15);
-    }
-    #management .member-card {
-      background: #fff;
-      border-color: #e0e0e0;
-    }
-    #management .member-card:hover {
-      background: #fff;
-      border-color: #54C2FE;
-    }
-    .avatar {
-      width: 68px;
-      height: 68px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #54C2FE 0%, #3DB3F5 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      font-size: 22px;
-      color: #fff;
-      margin-bottom: 20px;
-      overflow: hidden;
-      position: relative;
-    }
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      border-radius: 50%;
-    }
-    .member-name {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-    .member-role {
-      font-size: 13px;
-      color: #000;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 14px;
-    }
-    #management .member-role {
-      color: #000;
-    }
-    #management .member-name {
-      color: #1a1a1a;
-    }
-    #management .muted {
-      color: #555;
-    }
-    .member-contact {
-      font-size: 12px;
-      color: #54C2FE;
-      margin-top: 12px;
-      word-break: break-word;
-    }
-    #management .member-contact {
-      color: #54C2FE;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-    }
-    .gallery-card, .value-card {
-      background: #f8f9fa;
-      padding: 32px;
-      border-radius: 12px;
-      border: 1px solid #e0e0e0;
-      transition: all 0.3s ease;
-    }
-    .gallery-card:hover, .value-card:hover {
-      background: #fff;
-      border-color: #54C2FE;
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(84, 194, 254, 0.15);
-    }
-    .icon {
-      font-size: 40px;
-      margin-bottom: 16px;
-      display: block;
-    }
-    .gallery-title, .value-title { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: inherit; }
-    .value-title { font-size: 18px; font-weight: 700; }
-
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      max-width: 100%;
-    }
-    .value-card {
-      background: #f5f5f5;
-      padding: 32px;
-      border-radius: 16px;
-      border: 1px solid #e0e0e0;
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-    .value-card:hover {
-      background: #fff;
-      border-color: #54C2FE;
-      transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(84, 194, 254, 0.15);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 32px;
-      margin-bottom: 40px;
-    }
-    .contact-item {
-      background: #f8f9fa;
-      padding: 24px;
-      border-radius: 12px;
-      border: 1px solid #e0e0e0;
-    }
-    .contact-label {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 8px;
-      display: block;
-    }
-    .contact-value {
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    footer {
-      background: #54C2FE;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 32px 24px;
-      color: #fff;
-      text-align: center;
-    }
-    html[data-theme="dark"] footer {
-      background: #1a4f6e;
-      border-top-color: rgba(255, 255, 255, 0.15);
-    }
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      font-size: 12px;
-    }
-    .footer-inner strong { font-size: 14px; }
-
-    @media (max-width: 1024px) {
-      .team-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-      }
-      .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .values-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 768px) {
-      h1 { font-size: 32px; }
-      .section-title { font-size: 26px; }
-      .logo { font-size: 18px; }
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      .content-section { padding: 60px 16px; }
-      .section-head { margin-bottom: 32px; }
-      .about-grid { grid-template-columns: 1fr; gap: 24px; }
-      .stats-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
-      .glass-card { padding: 24px; }
-      .team-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-      .member-card {
-        padding: 24px;
-        border-radius: 12px;
-      }
-      .avatar {
-        width: 52px;
-        height: 52px;
-        font-size: 17px;
-        margin-bottom: 14px;
-      }
-      .member-name { font-size: 17px; }
-      .member-role { font-size: 12px; }
-      .gallery-grid { grid-template-columns: 1fr; gap: 16px; }
-      .gallery-card { padding: 24px; }
-      .values-grid { grid-template-columns: 1fr; gap: 16px; }
-      .value-card { padding: 24px; }
-      .value-title { font-size: 16px; }
-      .value-card .icon { font-size: 36px; margin-bottom: 14px; }
-      .contact-grid { grid-template-columns: 1fr; gap: 16px; }
-      .contact-item { padding: 20px; }
-      .buttons { flex-direction: column; gap: 12px; }
-      .btn-primary, .btn-secondary { text-align: center; }
-      .footer-inner { font-size: 11px; text-align: center; }
-    }
-
-    @media (max-width: 480px) {
-      h1 { font-size: 28px; }
-      .section-title { font-size: 22px; }
-      .content-section { padding: 48px 14px; }
-      .stats-grid { grid-template-columns: 1fr 1fr; }
-      .stat-num { font-size: 22px; }
-      .member-card { padding: 20px; }
-      .member-name { font-size: 16px; }
-    }
-  
-    /* ============ Language switcher & i18n ============ */
-    .lang-switch {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      margin-left: 10px;
-      padding-left: 10px;
-      border-left: 1px solid rgba(255, 255, 255, 0.25);
-    }
-    .lang-switch button {
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      color: rgba(255, 255, 255, 0.85);
-      font-size: 12px;
-      font-weight: 600;
-      padding: 5px 10px;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      font-family: 'Inter', sans-serif;
-    }
-    .lang-switch button:hover {
-      border-color: #fff;
-      color: #fff;
-    }
-    .lang-switch button.active {
-      background: #fff;
-      color: #1a1a1a;
-      border-color: #fff;
-    }
-    .mobile-menu .lang-switch {
-      margin: 12px 24px 4px;
-      padding-left: 0;
-      padding-top: 16px;
-      border-left: none;
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
-    }
-
-    /* Bangla / Arabic type */
-    body.lang-bn { font-family: 'Hind Siliguri', 'Inter', sans-serif; }
-    body.lang-ar { font-family: 'Markazi Text', 'Inter', sans-serif; }
-
-    /* RTL adjustments (Arabic) */
-    html[dir="rtl"] .lang-switch {
-      margin-left: 0;
-      margin-right: 10px;
-      padding-left: 0;
-      padding-right: 10px;
-      border-left: none;
-      border-right: 1px solid rgba(255, 255, 255, 0.25);
-    }
-    html[dir="rtl"] .mobile-menu a { border-left: none; border-right: 3px solid transparent; }
-    html[dir="rtl"] .mobile-menu a:hover { border-left-color: transparent; border-right-color: #667eea; }
-    html[dir="rtl"] .eyebrow,
-    html[dir="rtl"] .section-head,
-    html[dir="rtl"] .fleet-head { text-align: right; }
-    html[dir="rtl"] .driver-step,
-    html[dir="rtl"] .value-card,
-    html[dir="rtl"] .gallery-card,
-    html[dir="rtl"] .member-card,
-    html[dir="rtl"] .contact-item,
-    html[dir="rtl"] .glass-card { text-align: right; }
-    html[dir="rtl"] .fleet-info { flex-direction: row-reverse; }
-  
-    /* ============ Theme Toggle Button ============ */
-    .theme-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      margin-left: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 999px;
-      background: transparent;
-      color: rgba(255, 255, 255, 0.85);
-      cursor: pointer;
-      transition: all 0.25s ease;
-      flex-shrink: 0;
-    }
-    .theme-toggle:hover { border-color: #fff; color: #fff; }
-    .theme-toggle svg { width: 16px; height: 16px; display: block; pointer-events: none; }
-    .theme-toggle .icon-moon { display: none; }
-    html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
-    html[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
-    .mobile-menu .theme-toggle { margin: 12px 24px 0; }
-    html[dir="rtl"] .theme-toggle { margin-left: 0; margin-right: 10px; }
-    html[dir="rtl"] .mobile-menu .theme-toggle { margin: 12px 24px 0; }
-
-    /* ============ Dark Theme Palette ============ */
-    html[data-theme="dark"] body { background: #0d0f13; color: #e7e7e7; }
-    html[data-theme="dark"] .mobile-menu { background: rgba(20, 22, 28, 0.55); }
-    html[data-theme="dark"] .content-section { background: #0d0f13; color: #e7e7e7; }
-    html[data-theme="dark"] .section-label { color: rgba(255, 255, 255, 0.55); }
-    html[data-theme="dark"] .section-title { color: #f5f5f5; }
-    html[data-theme="dark"] .muted { color: rgba(255, 255, 255, 0.62); }
-    html[data-theme="dark"] .stat-label { color: rgba(255, 255, 255, 0.55); }
-    html[data-theme="dark"] .stat-num { color: #f5f5f5; }
-    html[data-theme="dark"] .glass-card { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.1); }
-    html[data-theme="dark"] .glass-card::before { display: none; }
-    html[data-theme="dark"] .member-card,
-    html[data-theme="dark"] .gallery-card,
-    html[data-theme="dark"] .value-card,
-    html[data-theme="dark"] .contact-item {
-      background: rgba(255, 255, 255, 0.035);
-      border-color: rgba(255, 255, 255, 0.1);
-    }
-    html[data-theme="dark"] .member-card:hover,
-    html[data-theme="dark"] .gallery-card:hover,
-    html[data-theme="dark"] .value-card:hover {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: #54C2FE;
-    }
-    html[data-theme="dark"] #management .member-card,
-    html[data-theme="dark"] #management .member-card:hover { background: rgba(255, 255, 255, 0.035); border-color: rgba(255, 255, 255, 0.1); }
-    html[data-theme="dark"] #management .member-card:hover { border-color: #54C2FE; }
-    html[data-theme="dark"] .member-name,
-    html[data-theme="dark"] #management .member-name,
-    html[data-theme="dark"] .gallery-title,
-    html[data-theme="dark"] .value-title { color: #f5f5f5; }
-    html[data-theme="dark"] .member-role,
-    html[data-theme="dark"] #management .member-role { color: rgba(255, 255, 255, 0.55); }
-    html[data-theme="dark"] #management .muted { color: rgba(255, 255, 255, 0.62); }
-    html[data-theme="dark"] .fleet-card,
-    html[data-theme="dark"] .driver-step { background: rgba(255, 255, 255, 0.04); border-color: rgba(255, 255, 255, 0.1); }
-    html[data-theme="dark"] .fleet-status { color: rgba(255, 255, 255, 0.7); }
-    /* ---- ID-scoped overrides in the original CSS beat the generic dark
-       rules above (higher specificity), so they need their own dark
-       counterparts or text/cards stay dark-on-dark / light-on-light. ---- */
-    html[data-theme="dark"] #values .value-card { background: rgba(255, 255, 255, 0.035); border-color: rgba(255, 255, 255, 0.1); }
-    html[data-theme="dark"] #values .value-card:hover { background: rgba(255, 255, 255, 0.06); border-color: #54C2FE; }
-    html[data-theme="dark"] #values .section-label { color: rgba(255, 255, 255, 0.55); }
-    html[data-theme="dark"] #values .section-title { color: #f5f5f5; }
-    html[data-theme="dark"] #values .muted { color: rgba(255, 255, 255, 0.62); }
-    html[data-theme="dark"] #values .gallery-title,
-    html[data-theme="dark"] #values .value-title { color: #f5f5f5; }
-    html[data-theme="dark"] .content-section:nth-of-type(5) .value-card { color: #f5f5f5; }
-    html[data-theme="dark"] .content-section:nth-of-type(5) .value-card .muted { color: rgba(255, 255, 255, 0.62); }
-
-    html[data-theme="dark"] #contact .section-label { color: rgba(255, 255, 255, 0.8); }
-    html[data-theme="dark"] #contact .section-title { color: #fff; }
-    html[data-theme="dark"] #contact .muted { color: rgba(255, 255, 255, 0.85); }
-    html[data-theme="dark"] #contact .contact-label { color: rgba(255, 255, 255, 0.75); }
-    html[data-theme="dark"] #contact .contact-value { color: #fff; }
-    html[data-theme="dark"] #contact .contact-item { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); }
-    html[data-theme="dark"] #contact .btn-primary { background: #fff; color: #1a1a1a; border-color: transparent; }
-    html[data-theme="dark"] #contact .btn-primary:hover { background: transparent; color: #fff; border-color: #fff; }
-
-
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <section class="hero">
@@ -757,10 +48,9 @@
           <a href="index.html" class="logo">Next Millionaire</a>
           <div class="nav-links">
             <a href="about.html" data-i18n="nav.about">About</a>
-            <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
-            <a href="team.html" data-i18n="nav.team">Team</a>
             <a href="fleet.html" data-i18n="nav.fleet">Fleet</a>
             <a href="contact.html" data-i18n="nav.contact">Contact</a>
+            <a href="portal.html" data-i18n="nav.portal">Portal</a>
             <div class="lang-switch"><button data-lang-btn="en" class="active">EN</button><button data-lang-btn="bn">বাং</button><button data-lang-btn="ar">عربي</button></div><button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
           </div>
           <button class="hamburger" id="hamburgerBtn">
@@ -769,10 +59,9 @@
         </nav>
         <div class="mobile-menu" id="mobileMenu">
           <a href="about.html" data-i18n="nav.about">About</a>
-          <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
-          <a href="team.html" data-i18n="nav.team">Team</a>
           <a href="fleet.html" data-i18n="nav.fleet">Fleet</a>
           <a href="contact.html" data-i18n="nav.contact">Contact</a>
+          <a href="portal.html" data-i18n="nav.portal">Portal</a>
           <div class="lang-switch"><button data-lang-btn="en" class="active">EN</button><button data-lang-btn="bn">বাং</button><button data-lang-btn="ar">عربي</button></div><button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
         </div>
       </div>
@@ -824,18 +113,60 @@
     </div>
   </section>
 
-  <footer>
+
+    <footer>
     <div class="footer-inner">
-      <strong>Next Millionaire</strong>
-      <span>© <span id="year"></span> Next Millionaire · Registration No. CO-4471/2010</span>
-      <span data-i18n="footer.ica">Committed to ICA Co-operative Principles</span>
+      <div class="footer-grid">
+        <!-- Brand column -->
+        <div class="footer-brand-col">
+          <div class="footer-brand-name">Next Millionaire</div>
+          <div class="footer-tagline" data-i18n="footer.tagline">Building community wealth through shared ownership.</div>
+        </div>
+        <!-- Nav column -->
+        <div>
+          <div class="footer-col-title" data-i18n="footer.quickLinks">Quick Links</div>
+          <div class="footer-links">
+            <a href="about.html"><span data-i18n="nav.about">About</span> <span class="arrow-link">→</span></a>
+            <a href="fleet.html"><span data-i18n="nav.fleet">Fleet</span> <span class="arrow-link">→</span></a>
+            <a href="contact.html"><span data-i18n="nav.contact">Contact</span> <span class="arrow-link">→</span></a>
+            <a href="portal.html"><span data-i18n="nav.portal">Portal</span> <span class="arrow-link">→</span></a>
+          </div>
+        </div>
+        <!-- Social + Legal column -->
+        <div class="footer-social-col">
+          <div class="footer-col-title" data-i18n="footer.connect">Connect</div>
+          <div class="footer-social-row">
+            <a href="#" aria-label="Facebook" title="Facebook"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            <a href="#" aria-label="Twitter" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="#" aria-label="LinkedIn" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+            <a href="#" aria-label="Instagram" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          </div>
+          <div class="footer-legal-list">
+            <a href="#" data-i18n="footer.privacy">Privacy Policy</a>
+            <a href="#" data-i18n="footer.terms">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-meta">
+          <span>&copy; <span id="year"></span> Next Millionaire</span>
+          <span class="sep">&middot;</span>
+          <span>Registration No. CO-4471/2010</span>
+        </div>
+        <div class="footer-meta">
+          <span data-i18n="footer.ica">Committed to ICA Co-operative Principles</span>
+        </div>
+      </div>
     </div>
   </footer>
 
   <script>
     window.translations = {
       en: {
-        "nav.about": "About", "nav.gallery": "Gallery", "nav.team": "Team", "nav.fleet": "Fleet", "nav.contact": "Contact",
+        "nav.about": "About",
+        "footer.quickLinks": "Quick Links",
+        "footer.connect": "Connect",
+        "footer.tagline": "Building community wealth through shared ownership.", "nav.fleet": "Fleet", "nav.contact": "Contact", "nav.portal": "Portal",
         "hero.eyebrow": "Get in Touch",
         "hero.title": "Contact Us",
         "hero.subtitle": "Questions, partnerships, or membership inquiries — we’d love to hear from you.",
@@ -847,10 +178,12 @@
         "c.office": "Office", "c.email": "Email", "c.phone": "Phone",
         "contact.para": "Prefer to write? Use the email above or visit our office during business hours. We aim to respond within 2 business days.",
         "contact.emailBtn": "Email Us",
-        "footer.ica": "Committed to ICA Co-operative Principles"
+                "footer.privacy": "Privacy Policy",
+        "footer.terms": "Terms of Service",
+        "footer.ica": "Committed to ICA Co-operative Principles",
       },
       bn: {
-        "nav.about": "আমাদের সম্পর্কে", "nav.gallery": "গ্যালারি", "nav.team": "টিম", "nav.fleet": "ফ্লিট", "nav.contact": "যোগাযোগ",
+        "nav.about": "আমাদের সম্পর্কে", "nav.fleet": "ফ্লিট", "nav.contact": "যোগাযোগ", "nav.portal": "পোর্টাল",
         "hero.eyebrow": "যোগাযোগ করুন",
         "hero.title": "আমাদের সাথে যোগাযোগ করুন",
         "hero.subtitle": "প্রশ্ন, অংশীদারিত্ব অথবা সদস্যপদ সংক্রান্ত জিজ্ঞাসা — আমরা আপনার কথা শুনতে চাই।",
@@ -862,10 +195,15 @@
         "c.office": "অফিস", "c.email": "ইমেইল", "c.phone": "ফোন",
         "contact.para": "লিখে যোগাযোগ করতে চান? উপরের ইমেইল ব্যবহার করুন অথবা কর্মঘণ্টার মধ্যে আমাদের অফিসে আসুন। আমরা ২ কার্যদিবসের মধ্যে উত্তর দেওয়ার চেষ্টা করি।",
         "contact.emailBtn": "ইমেইল করুন",
-        "footer.ica": "আইসিএ সমবায় নীতিমালার প্রতি প্রতিশ্রুতিবদ্ধ"
+        "footer.ica": "আইসিএ সমবায় নীতিমালার প্রতি প্রতিশ্রুতিবদ্ধ",
+        "footer.privacy": "গোপনীয়তা নীতি",
+        "footer.terms": "সেবার শর্তাবলী",
+        "footer.quickLinks": "দ্রুত লিঙ্ক",
+        "footer.connect": "সংযোগ",
+        "footer.tagline": "যৌথ মালিকানার মাধ্যমে সম্প্রদায়ের সম্পদ গড়ে তোলা"
       },
       ar: {
-        "nav.about": "من نحن", "nav.gallery": "معرض الصور", "nav.team": "الفريق", "nav.fleet": "الأسطول", "nav.contact": "تواصل معنا",
+        "nav.about": "من نحن", "nav.fleet": "الأسطول", "nav.contact": "اتصل بنا", "nav.portal": "البوابة",
         "hero.eyebrow": "تواصل معنا",
         "hero.title": "اتصل بنا",
         "hero.subtitle": "أسئلة أو شراكات أو استفسارات حول العضوية — يسعدنا التواصل معك.",
@@ -877,7 +215,12 @@
         "c.office": "المكتب", "c.email": "البريد الإلكتروني", "c.phone": "الهاتف",
         "contact.para": "تفضل الكتابة؟ استخدم البريد الإلكتروني أعلاه أو قم بزيارة مكتبنا خلال ساعات العمل. نسعى للرد خلال يومي عمل.",
         "contact.emailBtn": "راسلنا عبر البريد",
-        "footer.ica": "ملتزمون بمبادئ التحالف التعاوني الدولي (ICA)"
+        "footer.privacy": "سياسة الخصوصية",
+        "footer.terms": "شروط الخدمة",
+        "footer.ica": "ملتزمون بمبادئ التحالف التعاوني الدولي (ICA)",
+        "footer.quickLinks": "روابط سريعة",
+        "footer.connect": "اتصل",
+        "footer.tagline": "بناء ثروة المجتمع من خلال الملكية المشتركة"
       }
     };
   </script>

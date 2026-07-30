@@ -1,0 +1,16 @@
+{
+  "cars": [
+    { "image": "images/fleet/car-01.jpg", "num": 1, "status": "booked" },
+    { "image": "images/fleet/car-02.jpg", "num": 2, "status": "booked" },
+    { "image": "images/fleet/car-03.jpg", "num": 3, "status": "booked" },
+    { "image": "images/fleet/car-04.jpg", "num": 4, "status": "booked" },
+    { "image": "images/fleet/car-05.jpg", "num": 5, "status": "booked" },
+    { "image": "images/fleet/car-06.jpg", "num": 6, "status": "booked" },
+    { "image": "images/fleet/car-07.jpg", "num": 7, "status": "booked" },
+    { "image": "images/fleet/car-08.jpg", "num": 8, "status": "booked" },
+    { "image": "images/fleet/car-09.jpg", "num": 9, "status": "booked" },
+    { "image": "images/fleet/car-10.jpg", "num": 10, "status": "booked" },
+    { "image": "images/fleet/car-11.jpg", "num": 11, "status": "booked" },
+    { "image": "images/fleet/car-12.jpg", "num": 12, "status": "booked" }
+  ]
+}
