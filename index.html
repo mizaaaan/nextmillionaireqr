@@ -436,17 +436,17 @@
       const initialDelay = 200;
       heading.innerHTML = "";
 
-      // Latin script (English) can safely animate letter-by-letter since each
-      // character is an independent glyph. Bengali and Arabic use connected/
-      // shaped scripts (conjuncts, matras, ligatures) that must stay together
-      // in the same box to render correctly, so those animate word-by-word.
-      const isShapedScript = lang === "bn" || lang === "ar";
-
+      // Every language animates word-by-word. Latin (English) could safely
+      // animate letter-by-letter, but Bengali and Arabic use connected/shaped
+      // scripts (conjuncts, matras, ligatures) that must stay together in the
+      // same box to render correctly. Word-by-word keeps the behavior consistent
+      // across all three and avoids collapsing spaces between words (whitespace-
+      // only inline-block spans render at zero width).
       lines.forEach((line, lineIndex) => {
         const lineSpan = document.createElement("span");
         lineSpan.style.display = "block";
 
-        const units = isShapedScript ? line.split(" ") : [...line];
+        const units = line.split(" ");
 
         units.forEach((unit, unitIndex) => {
           const span = document.createElement("span");
@@ -457,7 +457,7 @@
           lineSpan.appendChild(span);
 
           // Re-insert a real space between words so text wraps/reads normally
-          if (isShapedScript && unitIndex < units.length - 1) {
+          if (unitIndex < units.length - 1) {
             lineSpan.appendChild(document.createTextNode(" "));
           }
         });
