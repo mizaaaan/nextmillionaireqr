@@ -238,9 +238,14 @@
   </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <section class="hero" style="min-height:auto;">
-    <div class="nav-wrap">
+  <!-- Hero -->
+  <section class="hero">
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260403_050628_c4e32401-fab4-4a27-b7a8-6e9291cd5959.mp4" type="video/mp4">
+    </video>
+    <div style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.5); z-index: 1;"></div>
+    <div class="hero-content">
+      <div class="nav-wrap">
       <nav class="navbar liquid-glass" style="background:rgba(84,194,254,0.08);">
         <a href="index.html" class="logo">Next Millionaire</a>
         <div class="nav-links">
@@ -259,6 +264,20 @@
         <div class="lang-switch"><button data-lang-btn="en" class="active">EN</button><button data-lang-btn="bn">বাং</button><button data-lang-btn="ar">عربي</button></div>
         <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
       </div>
+      </div>
+      <div class="hero-bottom">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow" data-i18n="hero.eyebrow">Members Area</div>
+            <h1 data-i18n="hero.title">Member Portal</h1>
+            <p class="subheading" id="subheading" data-i18n="hero.subtitle">Access documents, financial reports, meeting minutes, and announcements — all in one secure place.</p>
+            <div class="buttons" id="buttons">
+              <a href="#loginScreen" class="btn-primary" data-i18n="hero.btn1">Unlock Portal</a>
+              <a href="index.html" class="btn-secondary liquid-glass" data-i18n="hero.btn2">Back to Home</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -266,7 +285,7 @@
   <section class="portal-section" id="loginScreen">
     <div class="login-card">
       <span class="login-lock">🔒</span>
-      <h1 class="login-title" data-i18n="portal.loginTitle">Member Portal</h1>
+      <h2 class="login-title" data-i18n="portal.loginTitle">Member Portal</h2>
       <p class="login-sub" data-i18n="portal.loginSub">Enter the member password to access documents, reports, and announcements.</p>
       <div class="login-input-group">
         <label for="portalPass" data-i18n="portal.password">Password</label>
@@ -412,6 +431,16 @@
     // ── Year ──
     yearSpan.textContent = new Date().getFullYear();
 
+    // ── Hero entrance (fade in subheading + buttons) ──
+    setTimeout(function () {
+      var sh = document.getElementById("subheading");
+      if (sh) sh.classList.add("show");
+    }, 800);
+    setTimeout(function () {
+      var btns = document.getElementById("buttons");
+      if (btns) btns.classList.add("show");
+    }, 1200);
+
     // ── Hamburger ──
     var hb = document.getElementById("hamburgerBtn");
     var mm = document.getElementById("mobileMenu");
@@ -472,6 +501,11 @@
     window.translations = {
       en: {
         "nav.about": "About", "nav.fleet": "Fleet", "nav.contact": "Contact", "nav.portal": "Portal",
+        "hero.eyebrow": "Members Area",
+        "hero.title": "Member Portal",
+        "hero.subtitle": "Access documents, financial reports, meeting minutes, and announcements — all in one secure place.",
+        "hero.btn1": "Unlock Portal",
+        "hero.btn2": "Back to Home",
         "portal.loginTitle": "Member Portal",
         "portal.loginSub": "Enter the member password to access documents, reports, and announcements.",
         "portal.password": "Password",
@@ -507,6 +541,11 @@
       },
       bn: {
         "nav.about": "আমাদের সম্পর্কে", "nav.fleet": "ফ্লিট", "nav.contact": "যোগাযোগ", "nav.portal": "পোর্টাল",
+        "hero.eyebrow": "সদস্যদের এলাকা",
+        "hero.title": "সদস্য পোর্টাল",
+        "hero.subtitle": "ডকুমেন্ট, আর্থিক রিপোর্ট, মিটিং মিনিটস এবং ঘোষণা — সব এক নিরাপদ জায়গায় অ্যাক্সেস করুন।",
+        "hero.btn1": "পোর্টাল খুলুন",
+        "hero.btn2": "হোমে ফিরুন",
         "portal.loginTitle": "সদস্য পোর্টাল",
         "portal.loginSub": "ডকুমেন্ট, রিপোর্ট এবং ঘোষণা অ্যাক্সেস করতে সদস্য পাসওয়ার্ড দিন।",
         "portal.password": "পাসওয়ার্ড",
@@ -544,6 +583,11 @@
       },
       ar: {
         "nav.about": "من نحن", "nav.fleet": "الأسطول", "nav.contact": "اتصل بنا", "nav.portal": "البوابة",
+        "hero.eyebrow": "منطقة الأعضاء",
+        "hero.title": "بوابة الأعضاء",
+        "hero.subtitle": "الوصول إلى المستندات والتقارير المالية ومحاضر الاجتماعات والإعلانات — كل ذلك في مكان آمن واحد.",
+        "hero.btn1": "فتح البوابة",
+        "hero.btn2": "العودة إلى الرئيسية",
         "portal.loginTitle": "بوابة الأعضاء",
         "portal.loginSub": "أدخل كلمة مرور العضو للوصول إلى المستندات والتقارير والإعلانات.",
         "portal.password": "كلمة المرور",
