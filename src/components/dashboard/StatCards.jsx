@@ -1,0 +1,71 @@
+import { formatMoney, formatCompact } from '../../lib/format'
+
+export default function StatCards({ data }) {
+  const { balance, monthly } = data
+  const prevMonthMonthly = data.trend[data.trend.length - 2]
+  const prevNet = prevMonthMonthly ? prevMonthMonthly.inflow - prevMonthMonthly.outflow : null
+  const delta = prevNet === null || prevNet === 0 ? null : ((monthly.net - prevNet) / Math.abs(prevNet)) * 100
+
+  const cards = [
+    {
+      label: 'Company balance',
+      value: balance.net,
+      sub: `In ${formatCompact(balance.inflow)} · Out ${formatCompact(balance.outflow)}`,
+      accent: true
+    },
+    {
+      label: 'Net · this month',
+      value: monthly.net,
+      sub: delta === null ? 'vs previous month' : `vs previous month ${delta >= 0 ? '+' : ''}${delta.toFixed(1)}%`,
+      positive: (monthly.net ?? 0) >= 0
+    },
+    {
+      label: 'Income · this month',
+      value: monthly.income + monthly.contributions,
+      sub: `Rent ${formatCompact(monthly.income)} + contributions ${formatCompact(monthly.contributions)}`
+    },
+    {
+      label: 'Expenses · this month',
+      value: monthly.expenses,
+      sub: `Dividends paid ${formatCompact(monthly.dividends)}`,
+      positive: false
+    },
+    {
+      label: 'Liabilities held',
+      value: data.liabilityBalance ?? 0,
+      sub: 'Deposits & advance rent not yet earned'
+    },
+    {
+      label: 'Receivable outstanding',
+      value: data.receivableBalance ?? 0,
+      sub: 'Owed to us (e.g. accident recovery)'
+    }
+  ]
+
+  return (
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+      {cards.map((card) => (
+        <div
+          key={card.label}
+          className="rounded-xl border border-rule bg-card/70 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-brass hover:shadow-[0_8px_24px_rgba(84,194,254,0.15)]"
+        >
+          <p className="tabular text-[11px] uppercase tracking-[0.06em] text-ink/45">{card.label}</p>
+          <p
+            className={`mt-3 tabular text-2xl font-medium tracking-tight sm:text-3xl ${
+              card.accent ? 'text-brass' : 'text-ink'
+            }`}
+          >
+            {formatMoney(card.value)}
+          </p>
+          <p
+            className={`tabular mt-2 text-xs ${
+              card.positive === undefined ? 'text-ink/40' : card.positive ? 'text-gain' : 'text-loss'
+            }`}
+          >
+            {card.sub}
+          </p>
+        </div>
+      ))}
+    </div>
+  )
+}
