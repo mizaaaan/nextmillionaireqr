@@ -1,0 +1,24 @@
+# Security and caching headers (Cloudflare reads this file automatically).
+# Lines that start with "/" are the web addresses the rules apply to.
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Cross-Origin-Opener-Policy: same-origin
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  # Content-Security-Policy: only this site's own scripts and styles may run.
+  # If you add a new outside service (analytics, map, chat widget…), its address
+  # must be added here, otherwise the browser will block it.
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://images.unsplash.com; media-src 'self' https://d8j0ntlcm91z4.cloudfront.net; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
+
+# Member area: ask search engines not to list it.
+/portal
+  X-Robots-Tag: noindex, nofollow
+/docs/*
+  X-Robots-Tag: noindex, nofollow
+
+# Photos and icons change rarely: let browsers keep them for a day.
+/images/*
+  Cache-Control: public, max-age=86400

@@ -1,0 +1,15 @@
+# Files that live in the project but must NOT be published on the website.
+# (Cloudflare reads this file when deploying.)
+.git
+.gitignore
+.assetsignore
+.wrangler
+node_modules
+.dev.vars*
+.env*
+wrangler.jsonc
+package.json
+package-lock.json
+README.md
+CHANGELOG.md
+scripts

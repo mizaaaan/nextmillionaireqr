@@ -4,13 +4,18 @@
 Usage:
     python3 scripts/generate-pdfs.py
 
-This will regenerate all 6 PDFs in the docs/ folder:
+This writes SAMPLE documents into the docs/ folder:
   - docs/financial-report-2025.pdf
   - docs/meeting-minutes-q2-2026.pdf
   - docs/announcements.pdf
   - docs/member-guide.pdf
   - docs/events-calendar.pdf
   - docs/tshirt-sizes.pdf
+  - docs/share-statement.pdf
+
+NOTE: docs/financial-report-july-2026.pdf (the file linked from the Member
+Portal) is NOT produced by this script. Replace the sample PDFs with the
+co-operative's real documents before sharing the portal with members.
 
 Requires: reportlab (pip install reportlab)
 """
@@ -857,7 +862,7 @@ def generate_share_balance():
 
 if __name__ == "__main__":
     os.makedirs(OUT_DIR, exist_ok=True)
-    print("Generating portal PDFs...")
+    print("Generating sample portal PDFs...")
     generate_financial_report()
     generate_meeting_minutes()
     generate_announcements()
@@ -865,4 +870,4 @@ if __name__ == "__main__":
     generate_events_calendar()
     generate_tshirt_sizes()
     generate_share_balance()
-    print("Done! All PDFs saved in docs/")
+    print("Done! Sample PDFs saved in docs/")

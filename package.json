@@ -1,0 +1,11 @@
+{
+  "name": "nextmillionaireqr",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Next Millionaire Co-operative website (plain HTML, CSS and JavaScript — no build step).",
+  "scripts": {
+    "dev": "node scripts/dev-server.mjs",
+    "check": "node scripts/check-site.mjs",
+    "deploy": "npx wrangler deploy"
+  }
+}

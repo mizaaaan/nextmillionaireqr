@@ -1,70 +1,68 @@
-<!-- about.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-<script>(function(){try{var t=localStorage.getItem('nm-theme')||((window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Next Millionaire | About</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="/js/theme-init.js"></script>
+  <title>About | Next Millionaire</title>
   <meta name="description" content="Next Millionaire Co-operative was founded with a simple belief: when people work together with shared ownership and mutual accountability, extraordinary things happen.">
-  <!-- Open Graph -->
-  <meta property="og:title" content="Next Millionaire | About">
-  <meta property="og:description" content="Next Millionaire Co-operative was founded with a simple belief: when people work together with shared ownership and mutual accountability, extraordinary things happen.">
-  <meta property="og:image" content="https://mizaaaan.github.io/nextmillionaireqr2/images/og-image.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:url" content="https://mizaaaan.github.io/nextmillionaireqr2/about.html">
+  <meta name="theme-color" content="#54C2FE">
+  <link rel="canonical" href="https://nextmillionaireqr.com/about">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Next Millionaire Co-operative">
   <meta property="og:locale" content="en_US">
-  <!-- Twitter Card -->
+  <meta property="og:title" content="About | Next Millionaire">
+  <meta property="og:description" content="Next Millionaire Co-operative was founded with a simple belief: when people work together with shared ownership and mutual accountability, extraordinary things happen.">
+  <meta property="og:url" content="https://nextmillionaireqr.com/about">
+  <meta property="og:image" content="https://nextmillionaireqr.com/images/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Next Millionaire Co-operative">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Next Millionaire | About">
+  <meta name="twitter:title" content="About | Next Millionaire">
   <meta name="twitter:description" content="Next Millionaire Co-operative was founded with a simple belief: when people work together with shared ownership and mutual accountability, extraordinary things happen.">
-  <meta name="twitter:image" content="https://mizaaaan.github.io/nextmillionaireqr2/images/og-image.jpg">
+  <meta name="twitter:image" content="https://nextmillionaireqr.com/images/og-image.jpg">
+  <meta name="twitter:image:alt" content="Next Millionaire Co-operative">
 
-  <!-- Favicons (same as original) -->
-  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="images/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="images/android-chrome-512x512.png">
+  <link rel="icon" href="/images/favicon.ico" sizes="32x32">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Hind+Siliguri:wght@400;500;600;700&family=Markazi+Text:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&family=Markazi+Text:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
-<body>
-  <!-- Hero (keeps same visual) -->
-  <section class="hero">
-    <video class="bg-video" autoplay muted loop playsinline>
-      <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260403_050628_c4e32401-fab4-4a27-b7a8-6e9291cd5959.mp4" type="video/mp4">
-    </video>
-    <div style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.5); z-index: 1;"></div>
+<body data-page="about">
+  <a class="skip-link" href="#main" data-i18n="nav.skip">Skip to content</a>
+
+  <header class="hero">
+    <video class="bg-video" data-hero-video autoplay muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1"></video>
+    <div class="hero-overlay"></div>
     <div class="hero-content">
       <div class="nav-wrap">
-        <nav class="navbar liquid-glass">
-          <a href="index.html" class="logo">Next Millionaire</a>
+        <nav class="navbar liquid-glass" aria-label="Main">
+          <a href="/" class="logo">Next Millionaire</a>
           <div class="nav-links">
-            <a href="about.html" data-i18n="nav.about">About</a>
-            <a href="fleet.html" data-i18n="nav.fleet">Fleet</a>
-            <a href="contact.html" data-i18n="nav.contact">Contact</a>
-            <a href="portal.html" data-i18n="nav.portal">Portal</a>
-            <div class="lang-switch"><button data-lang-btn="en" class="active">EN</button><button data-lang-btn="bn">বাং</button><button data-lang-btn="ar">عربي</button></div><button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+            <a href="/about" aria-current="page" data-i18n="nav.about">About</a>
+            <a href="/fleet" data-i18n="nav.fleet">Fleet</a>
+            <a href="/contact" data-i18n="nav.contact">Contact</a>
+            <a href="/portal" data-i18n="nav.portal">Portal</a>
+            <div class="lang-switch" role="group" aria-label="Language"><button type="button" data-lang-btn="en" lang="en" aria-label="English" class="is-active" aria-pressed="true">EN</button><button type="button" data-lang-btn="bn" lang="bn" aria-label="বাংলা" aria-pressed="false">বাং</button><button type="button" data-lang-btn="ar" lang="ar" aria-label="العربية" aria-pressed="false">عربي</button></div>
+            <button type="button" class="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode" title="Toggle dark mode" data-i18n-aria-label="nav.toggleTheme" data-i18n-title="nav.toggleTheme"><svg class="icon-sun" width="16" height="16" aria-hidden="true" focusable="false"><use href="/images/icons.svg#sun"/></svg><svg class="icon-moon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/images/icons.svg#moon"/></svg></button>
           </div>
-          <button class="hamburger" id="hamburgerBtn">
-            <span></span><span></span><span></span>
-          </button>
+          <button type="button" class="hamburger" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu" data-i18n-aria-label="nav.menu"><span></span><span></span><span></span></button>
         </nav>
-        <div class="mobile-menu" id="mobileMenu">
-          <a href="about.html" data-i18n="nav.about">About</a>
-          <a href="fleet.html" data-i18n="nav.fleet">Fleet</a>
-          <a href="contact.html" data-i18n="nav.contact">Contact</a>
-          <a href="portal.html" data-i18n="nav.portal">Portal</a>
-          <div class="lang-switch"><button data-lang-btn="en" class="active">EN</button><button data-lang-btn="bn">বাং</button><button data-lang-btn="ar">عربي</button></div><button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
-        </div>
+        <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+          <a href="/about" aria-current="page" data-i18n="nav.about">About</a>
+          <a href="/fleet" data-i18n="nav.fleet">Fleet</a>
+          <a href="/contact" data-i18n="nav.contact">Contact</a>
+          <a href="/portal" data-i18n="nav.portal">Portal</a>
+          <div class="lang-switch" role="group" aria-label="Language"><button type="button" data-lang-btn="en" lang="en" aria-label="English" class="is-active" aria-pressed="true">EN</button><button type="button" data-lang-btn="bn" lang="bn" aria-label="বাংলা" aria-pressed="false">বাং</button><button type="button" data-lang-btn="ar" lang="ar" aria-label="العربية" aria-pressed="false">عربي</button></div>
+          <button type="button" class="theme-toggle" aria-pressed="false" aria-label="Toggle dark mode" title="Toggle dark mode" data-i18n-aria-label="nav.toggleTheme" data-i18n-title="nav.toggleTheme"><svg class="icon-sun" width="16" height="16" aria-hidden="true" focusable="false"><use href="/images/icons.svg#sun"/></svg><svg class="icon-moon" width="16" height="16" aria-hidden="true" focusable="false"><use href="/images/icons.svg#moon"/></svg></button>
+        </nav>
       </div>
       <div class="hero-bottom">
         <div class="hero-grid">
@@ -72,78 +70,72 @@
             <div class="eyebrow" data-i18n="hero.eyebrow">Est. 2026 · Registered Co-operative</div>
             <h1 data-i18n="hero.title">About Next Millionaire</h1>
             <p class="subheading" data-i18n="hero.subtitle">Next Millionaire Co-operative was founded with a simple belief: when people work together with shared ownership and mutual accountability, extraordinary things happen.</p>
-            <div class="buttons" id="buttons">
-              <a href="team.html" class="btn-primary" data-i18n="hero.btn1">Meet Our Team</a>
-              <a href="about.html" class="btn-secondary liquid-glass" data-i18n="hero.btn2">Our Story</a>
+            <div class="buttons">
+              <a href="/team" class="btn-primary" data-i18n="hero.btn1">Meet Our Team</a>
+              <a href="#about" class="btn-secondary liquid-glass" data-i18n="hero.btn2">Our Story</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </header>
 
-  <!-- About content (complete, same design and structure) -->
-  <section class="content-section" id="about">
-    <div class="container about-grid">
-      <div>
-        <div class="section-head">
-          <p class="section-label" data-i18n="about.label">About Next Millionaire</p>
-          <h2 class="section-title" data-i18n="about.title">A Co-operative Built on Shared Values</h2>
+  <main id="main">
+    <section class="content-section" id="about">
+      <div class="container about-grid">
+        <div>
+          <div class="section-head">
+            <p class="section-label" data-i18n="about.label">About Next Millionaire</p>
+            <h2 class="section-title" data-i18n="about.title">A Co-operative Built on Shared Values</h2>
+          </div>
+          <p class="muted" data-i18n="about.para1">Next Millionaire Co-operative was founded with a simple belief: when people work together with shared ownership and mutual accountability, extraordinary things happen. We unite members, consumers, and entrepreneurs into a resilient economic community.</p>
+          <p class="muted" data-i18n="about.para2">Our democratic structure ensures every member has a voice. Profits are reinvested into the community, creating lasting impact across generations.</p>
         </div>
-        <p class="muted" data-i18n="about.para1">Next Millionaire Co-operative was founded with a simple belief: when people work together with shared ownership and mutual accountability, extraordinary things happen. We unite members, consumers, and entrepreneurs into a resilient economic community.</p>
-        <p class="muted" style="margin-top:14px;" data-i18n="about.para2">Our democratic structure ensures every member has a voice. Profits are reinvested into the community, creating lasting impact across generations.</p>
-      </div>
-      <div class="glass-card liquid-glass">
-        <div class="stats-grid">
-          <div class="stat"><div class="stat-num">50+</div><div class="stat-label" data-i18n="stat.members">Active Members</div></div>
-          <div class="stat"><div class="stat-num">1</div><div class="stat-label" data-i18n="stat.years">Years of Service</div></div>
-          <div class="stat"><div class="stat-num">৳10M</div><div class="stat-label" data-i18n="stat.turnover">Annual Turnover</div></div>
-          <div class="stat"><div class="stat-num">32</div><div class="stat-label" data-i18n="stat.villages">Villages Served</div></div>
+        <div class="glass-card">
+          <div class="stats-grid">
+            <div class="stat"><div class="stat-num">50+</div><div class="stat-label" data-i18n="stat.members">Active Members</div></div>
+            <div class="stat"><div class="stat-num">2026</div><div class="stat-label" data-i18n="stat.established">Established</div></div>
+            <div class="stat"><div class="stat-num">৳10M</div><div class="stat-label" data-i18n="stat.turnover">Annual Turnover</div></div>
+            <div class="stat"><div class="stat-num">32</div><div class="stat-label" data-i18n="stat.villages">Villages Served</div></div>
+          </div>
+          <p class="muted" data-i18n="about.tagline1">🌱 Cultivating community wealth through democratic enterprise</p>
+          <p class="muted" data-i18n="about.tagline2">98% Member Satisfaction</p>
         </div>
-        <p class="muted" style="margin-top:28px;" data-i18n="about.tagline1">🌱 Cultivating community wealth through democratic enterprise</p>
-        <p class="muted" style="margin-top:10px;" data-i18n="about.tagline2">98% Member Satisfaction</p>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-
-  <!-- Footer (same) -->
-    <footer>
+  <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-grid">
-        <!-- Brand column -->
         <div class="footer-brand-col">
           <div class="footer-brand-name">Next Millionaire</div>
           <div class="footer-tagline" data-i18n="footer.tagline">Building community wealth through shared ownership.</div>
         </div>
-        <!-- Nav column -->
-        <div>
-          <div class="footer-col-title" data-i18n="footer.quickLinks">Quick Links</div>
+        <nav aria-label="Footer">
+          <h2 class="footer-col-title" data-i18n="footer.quickLinks">Quick Links</h2>
           <div class="footer-links">
-            <a href="about.html"><span data-i18n="nav.about">About</span> <span class="arrow-link">→</span></a>
-            <a href="fleet.html"><span data-i18n="nav.fleet">Fleet</span> <span class="arrow-link">→</span></a>
-            <a href="contact.html"><span data-i18n="nav.contact">Contact</span> <span class="arrow-link">→</span></a>
-            <a href="portal.html"><span data-i18n="nav.portal">Portal</span> <span class="arrow-link">→</span></a>
+            <a href="/about"><span data-i18n="nav.about">About</span> <span class="arrow-link" aria-hidden="true">→</span></a>
+            <a href="/fleet"><span data-i18n="nav.fleet">Fleet</span> <span class="arrow-link" aria-hidden="true">→</span></a>
+            <a href="/contact"><span data-i18n="nav.contact">Contact</span> <span class="arrow-link" aria-hidden="true">→</span></a>
+            <a href="/portal"><span data-i18n="nav.portal">Portal</span> <span class="arrow-link" aria-hidden="true">→</span></a>
           </div>
-        </div>
-        <!-- Social + Legal column -->
+        </nav>
         <div class="footer-social-col">
-          <div class="footer-col-title" data-i18n="footer.connect">Connect</div>
-          <div class="footer-social-row">
-            <a href="#" aria-label="Facebook" title="Facebook"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-            <a href="#" aria-label="Twitter" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-            <a href="#" aria-label="LinkedIn" title="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-            <a href="#" aria-label="Instagram" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" focusable="false" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <h2 class="footer-col-title" data-i18n="footer.connect">Connect</h2>
+          <div class="footer-contact-list">
+            <a href="mailto:info@nextmillionaireqr.com">info@nextmillionaireqr.com</a>
+            <a href="tel:+8801912142028">+880 1912-142028</a>
           </div>
           <div class="footer-legal-list">
-            <a href="#" data-i18n="footer.privacy">Privacy Policy</a>
-            <a href="#" data-i18n="footer.terms">Terms of Service</a>
+            <a href="/privacy" data-i18n="footer.privacy">Privacy Policy</a>
+            <a href="/terms" data-i18n="footer.terms">Terms of Service</a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
         <div class="footer-meta">
-          <span>&copy; <span id="year"></span> Next Millionaire</span>
+          <span>&copy; <span data-year>2026</span> Next Millionaire</span>
           <span class="sep">&middot;</span>
           <span>Registration No. CO-4471/2010</span>
         </div>
@@ -154,94 +146,12 @@
     </div>
   </footer>
 
-  <script>
-    window.translations = {
-      en: {
-        "nav.about": "About",
-        "footer.quickLinks": "Quick Links",
-        "footer.connect": "Connect",
-        "footer.tagline": "Building community wealth through shared ownership.", "nav.fleet": "Fleet", "nav.contact": "Contact", "nav.portal": "Portal",
-        "hero.eyebrow": "Est. 2026 · Registered Co-operative",
-        "hero.title": "About Next Millionaire",
-        "hero.subtitle": "Next Millionaire Co-operative was founded with a simple belief: when people work together with shared ownership and mutual accountability, extraordinary things happen.",
-        "hero.btn1": "Meet Our Team",
-        "hero.btn2": "Our Story",
-        "about.label": "About Next Millionaire",
-        "about.title": "A Co-operative Built on Shared Values",
-        "about.para1": "Next Millionaire Co-operative was founded with a simple belief: when people work together with shared ownership and mutual accountability, extraordinary things happen. We unite members, consumers, and entrepreneurs into a resilient economic community.",
-        "about.para2": "Our democratic structure ensures every member has a voice. Profits are reinvested into the community, creating lasting impact across generations.",
-        "stat.members": "Active Members",
-        "stat.years": "Years of Service",
-        "stat.turnover": "Annual Turnover",
-        "stat.villages": "Villages Served",
-        "about.tagline1": "🌱 Cultivating community wealth through democratic enterprise",
-        "about.tagline2": "98% Member Satisfaction",
-                "footer.privacy": "Privacy Policy",
-        "footer.terms": "Terms of Service",
-        "footer.ica": "Committed to ICA Co-operative Principles",
-      },
-      bn: {
-        "nav.about": "আমাদের সম্পর্কে", "nav.fleet": "ফ্লিট", "nav.contact": "যোগাযোগ", "nav.portal": "পোর্টাল",
-        "hero.eyebrow": "প্রতিষ্ঠিত ২০২৬ · নিবন্ধিত সমবায় সমিতি",
-        "hero.title": "নেক্সট মিলিয়নিয়ার সম্পর্কে",
-        "hero.subtitle": "নেক্সট মিলিয়নিয়ার কো-অপারেটিভ একটি সহজ বিশ্বাস নিয়ে প্রতিষ্ঠিত হয়েছে: মানুষ যখন যৌথ মালিকানা ও পারস্পরিক জবাবদিহিতার মাধ্যমে একসাথে কাজ করে, তখন অসাধারণ কিছু ঘটে।",
-        "hero.btn1": "আমাদের টিমের সাথে পরিচিত হোন",
-        "hero.btn2": "আমাদের গল্প",
-        "about.label": "নেক্সট মিলিয়নিয়ার সম্পর্কে",
-        "about.title": "যৌথ মূল্যবোধের উপর গড়া একটি সমবায় সমিতি",
-        "about.para1": "নেক্সট মিলিয়নিয়ার কো-অপারেটিভ একটি সহজ বিশ্বাস নিয়ে প্রতিষ্ঠিত হয়েছে: মানুষ যখন যৌথ মালিকানা ও পারস্পরিক জবাবদিহিতার মাধ্যমে একসাথে কাজ করে, তখন অসাধারণ কিছু ঘটে। আমরা সদস্য, ভোক্তা এবং উদ্যোক্তাদের একত্রিত করে একটি টেকসই অর্থনৈতিক সম্প্রদায় গড়ে তুলি।",
-        "about.para2": "আমাদের গণতান্ত্রিক কাঠামো নিশ্চিত করে যে প্রতিটি সদস্যের মতামতের গুরুত্ব রয়েছে। মুনাফা সম্প্রদায়ে পুনর্বিনিয়োগ করা হয়, যা প্রজন্ম থেকে প্রজন্মে স্থায়ী প্রভাব তৈরি করে।",
-        "stat.members": "সক্রিয় সদস্য",
-        "stat.years": "সেবার বছর",
-        "stat.turnover": "বার্ষিক লেনদেন",
-        "stat.villages": "সেবাপ্রাপ্ত গ্রাম",
-        "about.tagline1": "🌱 গণতান্ত্রিক উদ্যোগের মাধ্যমে সমষ্টিগত সম্পদ গড়ে তোলা",
-        "about.tagline2": "৯৮% সদস্য সন্তুষ্টি",
-        "footer.quickLinks": "দ্রুত লিঙ্ক",
-        "footer.connect": "সংযোগ",
-        "footer.privacy": "গোপনীয়তা নীতি",
-        "footer.terms": "সেবার শর্তাবলী",
-        "footer.ica": "আইসিএ সমবায় নীতিমালার প্রতি প্রতিশ্রুতিবদ্ধ",
-        "footer.tagline": "যৌথ মালিকানার মাধ্যমে সম্প্রদায়ের সম্পদ গড়ে তোলা"
-      },
-      ar: {
-        "nav.about": "من نحن", "nav.fleet": "الأسطول", "nav.contact": "اتصل بنا", "nav.portal": "البوابة",
-        "hero.eyebrow": "تأسست 2026 · جمعية تعاونية مسجلة",
-        "hero.title": "عن نكست ميليونير",
-        "hero.subtitle": "تأسست جمعية نكست ميليونير التعاونية على إيمان بسيط: عندما يعمل الناس معًا بملكية مشتركة ومساءلة متبادلة، تحدث أمور استثنائية.",
-        "hero.btn1": "تعرف على فريقنا",
-        "hero.btn2": "قصتنا",
-        "about.label": "عن نكست ميليونير",
-        "about.title": "جمعية تعاونية مبنية على قيم مشتركة",
-        "about.para1": "تأسست جمعية نكست ميليونير التعاونية على إيمان بسيط: عندما يعمل الناس معًا بملكية مشتركة ومساءلة متبادلة، تحدث أمور استثنائية. نجمع الأعضاء والمستهلكين ورواد الأعمال في مجتمع اقتصادي قوي ومترابط.",
-        "about.para2": "يضمن هيكلنا الديمقراطي أن يكون لكل عضو صوت مسموع. يُعاد استثمار الأرباح في المجتمع، مما يخلق أثرًا دائمًا عبر الأجيال.",
-        "stat.members": "الأعضاء النشطون",
-        "stat.years": "سنوات الخدمة",
-        "stat.turnover": "الإيرادات السنوية",
-        "stat.villages": "القرى التي نخدمها",
-        "about.tagline1": "🌱 نزرع ثروة المجتمع من خلال المشاريع الديمقراطية",
-        "about.tagline2": "98% رضا الأعضاء",
-        "footer.tagline": "بناء ثروة المجتمع من خلال الملكية المشتركة.",
-        "footer.privacy": "سياسة الخصوصية",
-        "footer.terms": "شروط الخدمة",
-        "footer.ica": "ملتزمون بمبادئ التحالف التعاوني الدولي (ICA)",
-        "footer.quickLinks": "روابط سريعة",
-        "footer.connect": "اتصل"
-      }
-    };
-  </script>
-  <script src="js/theme-toggle.js"></script>
-  <script src="js/i18n.js"></script>
+  <button type="button" class="back-to-top" aria-label="Back to top" data-i18n-aria-label="nav.backToTop"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polyline points="18 15 12 9 6 15"/></svg></button>
 
-  <script>
-    // small script to set year and mobile menu toggle (copied from original behavior)
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const hb = document.getElementById('hamburgerBtn');
-    const mm = document.getElementById('mobileMenu');
-    hb && hb.addEventListener('click', () => {
-      hb.classList.toggle('active');
-      mm.classList.toggle('active');
-    });
-  </script>
+  <script defer src="/js/config.js"></script>
+  <script defer src="/js/theme-toggle.js"></script>
+  <script defer src="/js/i18n.js"></script>
+  <script defer src="/js/nav.js"></script>
+  <script defer src="/js/main.js"></script>
 </body>
 </html>

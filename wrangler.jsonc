@@ -1,14 +1,15 @@
+// Cloudflare deployment settings. Most people never need to edit this file.
+// See README.md > "Deploying".
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "nextmillionaireqr",
   "compatibility_date": "2026-07-04",
-  "observability": {
-    "enabled": true
-  },
+  "observability": { "enabled": true },
   "assets": {
-    "directory": "."
-  },
-  "compatibility_flags": [
-    "nodejs_compat"
-  ]
+    // The whole project folder is the website. Files that must NOT be
+    // published (README, scripts, this file…) are listed in .assetsignore.
+    "directory": ".",
+    // Unknown addresses show 404.html (with a real 404 status code).
+    "not_found_handling": "404-page"
+  }
 }
